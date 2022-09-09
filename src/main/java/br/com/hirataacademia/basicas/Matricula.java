@@ -1,12 +1,23 @@
 package br.com.hirataacademia.basicas;
 
-public class Matricula {	
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
+public class Matricula {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private Plano plano;
 	private Aluno aluno;
 	private boolean ativo;
+	@OneToOne(cascade = CascadeType.ALL)
 	private Modalidade modalidade;
-	
+
 	public Matricula(long id, Plano plano, Aluno aluno, Modalidade modalidade) {
 		super();
 		this.id = id;
@@ -42,6 +53,14 @@ public class Matricula {
 
 	public boolean isAtivo() {
 		return ativo;
+	}
+
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
 	}
 
 	public void setAtivo(boolean ativo) {
