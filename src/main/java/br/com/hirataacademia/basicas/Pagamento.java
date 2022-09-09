@@ -1,5 +1,8 @@
 package br.com.hirataacademia.basicas;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Pagamento {
-	//Estou feliz programando. Isso e muito legal :)
+	//precisa ser implementada ainda 
 }
