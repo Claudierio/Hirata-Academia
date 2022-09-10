@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 
@@ -21,6 +22,7 @@ public abstract class Pessoa {
 	
 	private long cpf;
 	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "pessoa_id")
 	private Endereco endereco;
 	public Pessoa(String nome, Date dataDeNascimento, long cpf, Endereco endereco) {
 		super();

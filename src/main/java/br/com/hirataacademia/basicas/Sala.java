@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 @Entity
 
@@ -12,6 +13,7 @@ public class Sala {
 	
 	private String categoria;
 	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "sala_id")
 	private List<Equipamento> arrayDeEquipamentos;
 	
 	public Sala(String categoria, List<Equipamento> arrayDeEquipamentos) {
