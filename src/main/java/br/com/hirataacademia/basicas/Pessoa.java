@@ -23,7 +23,7 @@ public abstract class Pessoa {
 	private Date dataDeNascimento;
 	private long cpf;
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "pessoa_id")
+	
 	
 	private Endereco endereco;
 	public Pessoa(long id,String nome, Date dataDeNascimento, long cpf, Endereco endereco) {
