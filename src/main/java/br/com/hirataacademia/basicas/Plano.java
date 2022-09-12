@@ -13,6 +13,9 @@ public  class Plano {
 	private float preco;
 	private String nome;
 	
+	public Plano() {
+		
+	}
 
 	public Plano(float preco, String nome, long id) {
 		super();

@@ -9,16 +9,16 @@ import javax.persistence.Id;
 public class Professor extends Funcionario{
 
 	
-	@Id
+	
 	private long cref;
 	
-	public Professor(String nome, Date dataDeNascimento, long cpf, Endereco endereco) {
-		super(nome, dataDeNascimento, cpf, endereco);
+	public Professor(String nome, Date dataDeNascimento, long cpf, Endereco endereco, long id) {
+		super(nome, dataDeNascimento, cpf, endereco, id);
 		
 	}
 
-	public Professor(String nome, Date dataDeNascimento, long cpf, Endereco endereco, long cref) {
-		super(nome, dataDeNascimento, cpf, endereco);
+	public Professor(String nome, Date dataDeNascimento, long cpf, Endereco endereco, long cref, long id) {
+		super(nome, dataDeNascimento, cpf, endereco, id);
 		this.cref = cref;
 	}
 

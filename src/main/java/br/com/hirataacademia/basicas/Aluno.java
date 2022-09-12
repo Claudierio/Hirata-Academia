@@ -10,35 +10,32 @@ import javax.persistence.Id;
 @Entity
 public class Aluno extends Pessoa {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long idAluno;
+	
 	private float imc;
 	private float peso;
 	private float altura;
 	private double percentualGordura;
 	private String contato;
 	
-	public Aluno(String nome, Date dataDeNascimento, long cpf, Endereco endereco) {
-		super(nome, dataDeNascimento, cpf, endereco);
+	public Aluno(String nome, Date dataDeNascimento, long cpf, Endereco endereco, long id) {
+		super(id,nome, dataDeNascimento, cpf, endereco);
 		
 	}
 
 	public Aluno(String nome, Date dataDeNascimento, long cpf, Endereco endereco, float imc, float peso, float altura,
-			double percentualGordura, String contato,  long idAluno) {
-		super(nome, dataDeNascimento, cpf, endereco);
+			double percentualGordura, String contato,  long id) {
+		super(id,nome, dataDeNascimento, cpf, endereco);
 		this.imc = imc;
 		this.peso = peso;
 		this.altura = altura;
 		this.percentualGordura = percentualGordura;
 		this.contato = contato;
-		this.idAluno = idAluno;
+		
+		
 		
 	}
 
-	public long getIdAluno() {
-		return idAluno;
-	}
+	
 
 	public float getImc() {
 		return imc;
@@ -78,10 +75,6 @@ public class Aluno extends Pessoa {
 
 	public void setContato(String contato) {
 		this.contato = contato;
-	}
-
-	public void setIdAluno(long idAluno) {
-		this.idAluno = idAluno;
 	}
 
 	

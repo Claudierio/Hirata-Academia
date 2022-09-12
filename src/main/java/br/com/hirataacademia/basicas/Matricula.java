@@ -1,10 +1,17 @@
 package br.com.hirataacademia.basicas;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -12,19 +19,24 @@ public class Matricula {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	@OneToOne(cascade = CascadeType.ALL)
 	private Plano plano;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "matricula_id")
 	private Aluno aluno;
 	private boolean ativo;
-	@OneToOne(cascade = CascadeType.ALL)
-	private Modalidade modalidade;
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "matricula_modalidade", joinColumns = { @JoinColumn(name = "modalidade_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "matricula_id") })
+	private List<Modalidade> modalidades;
 
-	public Matricula(long id, Plano plano, Aluno aluno, Modalidade modalidade) {
+	public Matricula(long id, Plano plano, Aluno aluno, List<Modalidade> modalidades) {
 		super();
 		this.id = id;
 		this.plano = plano;
 		this.aluno = aluno;
 		this.ativo = true;
-		this.modalidade = modalidade;
+		this.modalidades = modalidades;
 	}
 
 	public long getId() {
@@ -35,12 +47,14 @@ public class Matricula {
 		this.id = id;
 	}
 
-	public Modalidade getModalidade() {
-		return modalidade;
+	
+
+	public List<Modalidade> getModalidades() {
+		return modalidades;
 	}
 
-	public void setModalidade(Modalidade modalidade) {
-		this.modalidade = modalidade;
+	public void setModalidades(List<Modalidade> modalidades) {
+		this.modalidades = modalidades;
 	}
 
 	public Plano getPlano() {

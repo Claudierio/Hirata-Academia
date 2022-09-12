@@ -10,16 +10,16 @@ import javax.persistence.Id;
 @Entity
 public class Contador extends Funcionario {
 
-	@Id
+	
 	private long crc; // crc eh o conselho de um contador.
 
-	public Contador(String nome, Date dataDeNascimento, long cpf, Endereco endereco) {
-		super(nome, dataDeNascimento, cpf, endereco);
+	public Contador(String nome, Date dataDeNascimento, long cpf, Endereco endereco, long id) {
+		super(nome, dataDeNascimento, cpf, endereco, id);
 
 	}
 
-	public Contador(String nome, Date dataDeNascimento, long cpf, Endereco endereco, long crc) {
-		super(nome, dataDeNascimento, cpf, endereco);
+	public Contador(String nome, Date dataDeNascimento, long cpf, Endereco endereco, long crc, long id) {
+		super(nome, dataDeNascimento, cpf, endereco, id);
 		this.crc = crc;
 	}
 
