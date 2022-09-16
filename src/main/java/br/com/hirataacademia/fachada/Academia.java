@@ -1,5 +1,8 @@
 package br.com.hirataacademia.fachada;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.hirataacademia.basicas.Aluno;
 import br.com.hirataacademia.basicas.Contador;
+import br.com.hirataacademia.basicas.Despesa;
 import br.com.hirataacademia.basicas.Endereco;
 import br.com.hirataacademia.basicas.Equipamento;
 import br.com.hirataacademia.basicas.Matricula;
@@ -18,6 +22,7 @@ import br.com.hirataacademia.basicas.ProfessorEstagiario;
 import br.com.hirataacademia.basicas.Sala;
 import br.com.hirataacademia.cadastro.CadastroAluno;
 import br.com.hirataacademia.cadastro.CadastroContador;
+import br.com.hirataacademia.cadastro.CadastroDespesa;
 import br.com.hirataacademia.cadastro.CadastroEndereco;
 import br.com.hirataacademia.cadastro.CadastroEquipamento;
 import br.com.hirataacademia.cadastro.CadastroMatricula;
@@ -52,6 +57,8 @@ public class Academia {
 	private CadastroProfessorEstagiario cadastroProfessorEstagiario;
 	@Autowired
 	private CadastroSala cadastroSala;
+	@Autowired
+	private CadastroDespesa cadastroDespesa;
 
 	public Aluno saveAluno(Aluno entity) {
 		return cadastroAluno.save(entity);
@@ -248,6 +255,45 @@ public class Academia {
 
 	public void deleteSala(Sala entity) {
 		cadastroSala.delete(entity);
+	}
+
+	public Despesa saveDespesa(Despesa entity) {
+
+		return cadastroDespesa.save(entity);
+	}
+
+	public List<Despesa> findAllDespesa() {
+
+		return cadastroDespesa.findAll();
+	}
+
+	public void deleteDespesaById(Long id) {
+		cadastroDespesa.deleteById(id);
+	}
+
+	public void deleteDespesa(Sala entity) {
+		cadastroSala.delete(entity);
+	}
+
+	public float calculoLucroAnual() {
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		float lucro = 0;
+		try {
+			List<Despesa> despesas = cadastroDespesa.listarDespesaPorIntervalo(
+					sdf.parse(LocalDate.now().getYear() + "-01-01"), sdf.parse(LocalDate.now().getYear() + "-12-31"));
+			List<Pagamento> pagamentos = cadastroPagamento.listarPagamentoPorIntervalo(
+					sdf.parse(LocalDate.now().getYear() + "-01-01"), sdf.parse(LocalDate.now().getYear() + "-12-31"));
+
+			lucro = (float) (-despesas.stream().mapToDouble(x -> x.getValor()).sum() + pagamentos.stream().mapToDouble(x -> x.getMatricula().getPlano().getPreco()).sum()) ;
+			
+			
+			
+		} catch (ParseException e) {
+			System.out.println("Erro ao formatar data");
+		}
+
+		return lucro;
 	}
 
 }
