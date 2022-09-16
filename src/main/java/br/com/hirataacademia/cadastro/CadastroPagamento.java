@@ -1,5 +1,6 @@
 package br.com.hirataacademia.cadastro;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,5 +28,10 @@ public class CadastroPagamento {
 
 	public void delete(Pagamento entity) {
 		repositorioPagamento.delete(entity);
+	}
+	
+	public List<Pagamento> listarPagamentoPorIntervalo(Date inicio, Date fim){
+		
+		return repositorioPagamento.listarPagamentoPorIntervalo(inicio, fim);
 	}
 }
