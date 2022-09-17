@@ -295,5 +295,11 @@ public class Academia {
 
 		return lucro;
 	}
+	
+	public void efetivarEstag(Professor entity, Long id) {
+		cadastroProfessor.save(entity);
+		cadastroProfessorEstagiario.findAll();
+		cadastroProfessorEstagiario.deleteById(id);
+	}
 
 }
