@@ -19,7 +19,13 @@ public class ProfessorEstagiario extends Funcionario {
 			Date fimEstagio, long id) {
 		super(nome, dataDeNascimento, cpf, endereco, id);
 		this.inicioEstagio = inicioEstagio;
-		this.fimEstagio = fimEstagio;
+		this.fimEstagio = fimEstagio;		
+	}
+
+	public ProfessorEstagiario(String nome, Date dataDeNascimento, long cpf, Endereco endereco, double salario,
+			String turno, long id) {
+		super(nome, dataDeNascimento, cpf, endereco, salario, turno, id);
+		this.setSalario(600);
 	}
 
 	public Date getInicioEstagio() {
