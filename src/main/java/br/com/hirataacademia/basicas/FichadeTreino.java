@@ -1,16 +1,33 @@
 package br.com.hirataacademia.basicas;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 @Entity
 public class FichadeTreino {
-		
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	//@OneToOne(cascade = CascadeType.ALL)
+	//@JoinColumn(name = "fichadeTreino_id")
+	
+	private Aluno aluno;
+	
 	private String nomeAluno;
 	private int numeroExercicios;
 	private int numeroSeries;
 	private int duracao;
 	private String intensidade;
+	
+	
+	
 	
 	public FichadeTreino(String nomeAluno, int numeroExercicios, int numeroSeries, int duracao, String intensidade) {
 		super();

@@ -13,6 +13,7 @@ import br.com.hirataacademia.basicas.Contador;
 import br.com.hirataacademia.basicas.Despesa;
 import br.com.hirataacademia.basicas.Endereco;
 import br.com.hirataacademia.basicas.Equipamento;
+import br.com.hirataacademia.basicas.FichadeTreino;
 import br.com.hirataacademia.basicas.Funcionario;
 import br.com.hirataacademia.basicas.Matricula;
 import br.com.hirataacademia.basicas.Modalidade;
@@ -26,6 +27,7 @@ import br.com.hirataacademia.cadastro.CadastroContador;
 import br.com.hirataacademia.cadastro.CadastroDespesa;
 import br.com.hirataacademia.cadastro.CadastroEndereco;
 import br.com.hirataacademia.cadastro.CadastroEquipamento;
+import br.com.hirataacademia.cadastro.CadastroFichadeTreino;
 import br.com.hirataacademia.cadastro.CadastroMatricula;
 import br.com.hirataacademia.cadastro.CadastroModalidade;
 import br.com.hirataacademia.cadastro.CadastroPagamento;
@@ -60,6 +62,8 @@ public class Academia {
 	private CadastroSala cadastroSala;
 	@Autowired
 	private CadastroDespesa cadastroDespesa;
+	@Autowired
+	private CadastroFichadeTreino cadastroFichadeTreino;
 
 	public Aluno saveAluno(Aluno entity) {
 		return cadastroAluno.save(entity);
@@ -276,6 +280,24 @@ public class Academia {
 		cadastroSala.delete(entity);
 	}
 
+	public FichadeTreino saveFichadeTreino(FichadeTreino entity) {
+
+		return cadastroFichadeTreino.save(entity);
+	}
+
+	public List<FichadeTreino> findAllFichadeTreino() {
+
+		return cadastroFichadeTreino.findAll();
+	}
+
+	public void deleteFichadeTreinoById(Long id) {
+		cadastroFichadeTreino.deleteById(id);
+	}
+
+	public void deleteFichadeTreino(FichadeTreino entity) {
+		cadastroFichadeTreino.delete(entity);
+	}
+
 	public float calculoLucroAnual() {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -286,28 +308,26 @@ public class Academia {
 			List<Pagamento> pagamentos = cadastroPagamento.listarPagamentoPorIntervalo(
 					sdf.parse(LocalDate.now().getYear() + "-01-01"), sdf.parse(LocalDate.now().getYear() + "-12-31"));
 
-			lucro = (float) (-despesas.stream().mapToDouble(x -> x.getValor()).sum() + pagamentos.stream().mapToDouble(x -> x.getMatricula().getPlano().getPreco()).sum()) ;
-			
-			
-			
+			lucro = (float) (-despesas.stream().mapToDouble(x -> x.getValor()).sum()
+					+ pagamentos.stream().mapToDouble(x -> x.getMatricula().getPlano().getPreco()).sum());
+
 		} catch (ParseException e) {
 			System.out.println("Erro ao formatar data");
 		}
 
 		return lucro;
 	}
-	
-	public void efetivarEstag(Professor entity, Long id) {
+
+	public void efetivarEstagiario(Professor entity, Long id) {
 		cadastroProfessor.save(entity);
-		cadastroProfessorEstagiario.findAll();
 		cadastroProfessorEstagiario.deleteById(id);
 	}
-	
+
 	public void atualizarSalarioContador(Contador entity, Long id) {
 		cadastroContador.save(entity);
 		cadastroContador.deleteById(id);
 	}
-	
+
 	public void atualizarSaslarioProfessor(Professor entity, Long id) {
 		cadastroProfessor.save(entity);
 		cadastroProfessor.deleteById(id);
