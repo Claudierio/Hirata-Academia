@@ -13,6 +13,7 @@ import br.com.hirataacademia.basicas.Contador;
 import br.com.hirataacademia.basicas.Despesa;
 import br.com.hirataacademia.basicas.Endereco;
 import br.com.hirataacademia.basicas.Equipamento;
+import br.com.hirataacademia.basicas.Funcionario;
 import br.com.hirataacademia.basicas.Matricula;
 import br.com.hirataacademia.basicas.Modalidade;
 import br.com.hirataacademia.basicas.Pagamento;
@@ -300,6 +301,16 @@ public class Academia {
 		cadastroProfessor.save(entity);
 		cadastroProfessorEstagiario.findAll();
 		cadastroProfessorEstagiario.deleteById(id);
+	}
+	
+	public void atualizarSalarioContador(Contador entity, Long id) {
+		cadastroContador.save(entity);
+		cadastroContador.deleteById(id);
+	}
+	
+	public void atualizarSaslarioProfessor(Professor entity, Long id) {
+		cadastroProfessor.save(entity);
+		cadastroProfessor.deleteById(id);
 	}
 
 }
