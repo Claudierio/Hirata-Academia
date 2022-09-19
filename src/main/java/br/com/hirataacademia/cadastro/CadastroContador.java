@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.hirataacademia.basicas.Contador;
+import br.com.hirataacademia.cadastro.exception.ContadorNaoEncontradoException;
 import br.com.hirataacademia.repositorios.RepositorioContador;
 
 @Service
@@ -32,8 +33,8 @@ public class CadastroContador {
 		repositorioContador.delete(entity);
 	}
 	
-	public Optional<Contador> findContadorById(long id) {
-		return repositorioContador.findById(id);
+	public Contador findContadorById(long id) {
+		return repositorioContador.findById(id).orElseThrow(()-> new ContadorNaoEncontradoException());
 	}
 	/*
 	public Contador ajustarSalarioContador(Contador entity, double salario, long id) {

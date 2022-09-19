@@ -34,5 +34,37 @@ public abstract class Pessoa {
 		this.endereco = endereco;
 		this.id = id;
 	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public Date getDataDeNascimento() {
+		return dataDeNascimento;
+	}
+	public void setDataDeNascimento(Date dataDeNascimento) {
+		this.dataDeNascimento = dataDeNascimento;
+	}
+	public long getCpf() {
+		return cpf;
+	}
+	public void setCpf(long cpf) {
+		this.cpf = cpf;
+	}
+	public Endereco getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+	
+	
 	
 }
