@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.hirataacademia.basicas.ProfessorEstagiario;
+import br.com.hirataacademia.cadastro.exception.ProfessorEstagiarioNaoEncontradoExcepetion;
+import br.com.hirataacademia.cadastro.exception.ProfessorNaoEncontradoException;
 import br.com.hirataacademia.repositorios.RepositorioProfessorEstagiario;
 @Service
 public class CadastroProfessorEstagiario {
@@ -27,5 +29,10 @@ public class CadastroProfessorEstagiario {
 
 	public void delete(ProfessorEstagiario entity) {
 		repositorioProfessorEstagiario.delete(entity);
+	}
+	
+	public ProfessorEstagiario findProfessorEstagiarioById(long id) {
+		
+		return repositorioProfessorEstagiario.findById(id).orElseThrow(()->  new ProfessorEstagiarioNaoEncontradoExcepetion());
 	}
 }

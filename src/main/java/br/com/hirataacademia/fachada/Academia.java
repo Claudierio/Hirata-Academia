@@ -92,6 +92,11 @@ public class Academia {
 		return cadastroContador.findAll();
 	}
 
+	public Contador findContadorById(Long id) {
+
+		return cadastroContador.findContadorById(id);
+	}
+
 	public void deleteContadorById(Long id) {
 		cadastroContador.deleteById(id);
 	}
@@ -225,6 +230,9 @@ public class Academia {
 	public void deleteProfessor(Professor entity) {
 		cadastroProfessor.delete(entity);
 	}
+	public Professor findProfessorById(Long id) {
+		return cadastroProfessor.findProfessorById(id);
+	}
 
 	public ProfessorEstagiario saveProfessorEstagiario(ProfessorEstagiario entity) {
 
@@ -242,6 +250,11 @@ public class Academia {
 
 	public void deleteProfessorEstagiario(ProfessorEstagiario entity) {
 		cadastroProfessorEstagiario.delete(entity);
+	}
+	
+	public ProfessorEstagiario findProfessorEstagiarioById(Long id) {
+		
+		return cadastroProfessorEstagiario.findProfessorEstagiarioById(id);
 	}
 
 	public Sala saveSala(Sala entity) {
@@ -318,19 +331,29 @@ public class Academia {
 		return lucro;
 	}
 
-	public void efetivarEstagiario(Professor entity, Long id) {
-		cadastroProfessor.save(entity);
+	public void efetivarEstagiario(Long id) {
+		ProfessorEstagiario estagiario = findProfessorEstagiarioById(id);
+		Professor professor = new Professor(estagiario.getNome(), estagiario.getDataDeNascimento(), estagiario.getCpf(), estagiario.getEndereco(), estagiario.getId());
+		cadastroProfessor.save(professor);
 		cadastroProfessorEstagiario.deleteById(id);
 	}
 
-	public void atualizarSalarioContador(Contador entity, Long id) {
-		cadastroContador.save(entity);
-		cadastroContador.deleteById(id);
-	}
+	public void atualizarSalarioContador(float novoSalario, Long id) throws Exception {
+		Contador contador = findContadorById(id);
+		
+		contador.setSalario(novoSalario);
+		cadastroContador.save(contador);
 
-	public void atualizarSaslarioProfessor(Professor entity, Long id) {
-		cadastroProfessor.save(entity);
-		cadastroProfessor.deleteById(id);
+	}
+	
+
+
+	public void atualizarSalarioProfessor(float novoSalario, Long id) throws Exception {
+		Professor professor = findProfessorById(id);
+
+		professor.setSalario(novoSalario);
+		cadastroProfessor.save(professor);
+
 	}
 
 }

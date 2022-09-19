@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.hirataacademia.basicas.FichadeTreino;
+import br.com.hirataacademia.cadastro.exception.FichadeTreinoNaoEncontradaException;
 import br.com.hirataacademia.repositorios.RepositorioFichadeTreino;
 
 @Service
@@ -28,5 +29,17 @@ public class CadastroFichadeTreino {
 
 	public void delete(FichadeTreino entity) {
 		repositorioFichadeTreino.delete(entity);
+	}
+	
+	public FichadeTreino findFichadeTreinoById(long id) {
+		
+		return repositorioFichadeTreino.findById(id).orElseThrow(()-> new FichadeTreinoNaoEncontradaException());
+	}
+	
+	public void editarTreino(FichadeTreino entity) {
+		FichadeTreino ficha = findFichadeTreinoById(entity.getId());
+		
+		
+		
 	}
 }
