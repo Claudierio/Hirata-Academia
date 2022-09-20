@@ -10,13 +10,13 @@ public class Endereco {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private long cep;
+	private String cep;
 	private String numero;
 	private String bairro;
 	private String municipio;
 	private String uf;
 
-	public Endereco(long cep, String numero, String bairro, String municipio, String uf) {
+	public Endereco(String cep, String numero, String bairro, String municipio, String uf) {
 		super();
 		this.cep = cep;
 		this.numero = numero;
@@ -25,11 +25,11 @@ public class Endereco {
 		this.uf = uf;
 	}
 
-	public long getCep() {
+	public String getCep() {
 		return cep;
 	}
 
-	public void setCep(long cep) {
+	public void setCep(String cep) {
 		this.cep = cep;
 	}
 

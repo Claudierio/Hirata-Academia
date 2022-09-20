@@ -36,10 +36,14 @@ public class CadastroFichadeTreino {
 		return repositorioFichadeTreino.findById(id).orElseThrow(()-> new FichadeTreinoNaoEncontradaException());
 	}
 	
-	public void editarTreino(FichadeTreino entity) {
+	public void editarTreino(FichadeTreino entity, int duracao, String intensidade, String nomeAluno, int numeroExercicios, int numeroSeries) {
 		FichadeTreino ficha = findFichadeTreinoById(entity.getId());
-		
-		
+		ficha.setDuracao(duracao);
+		ficha.setIntensidade(intensidade);
+		ficha.setNomeAluno(nomeAluno);
+		ficha.setNumeroExercicios(numeroExercicios);
+		ficha.setNumeroSeries(numeroSeries);
+		repositorioFichadeTreino.save(ficha);
 		
 	}
 }

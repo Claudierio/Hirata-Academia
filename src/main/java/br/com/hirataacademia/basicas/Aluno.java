@@ -17,12 +17,12 @@ public class Aluno extends Pessoa {
 	private double percentualGordura;
 	private String contato;
 	
-	public Aluno(String nome, Date dataDeNascimento, long cpf, Endereco endereco, long id) {
+	public Aluno(String nome, Date dataDeNascimento, String cpf, Endereco endereco, long id) {
 		super(id,nome, dataDeNascimento, cpf, endereco);
 		
 	}
 
-	public Aluno(String nome, Date dataDeNascimento, long cpf, Endereco endereco, float imc, float peso, float altura,
+	public Aluno(String nome, Date dataDeNascimento, String cpf, Endereco endereco, float imc, float peso, float altura,
 			double percentualGordura, String contato,  long id) {
 		super(id,nome, dataDeNascimento, cpf, endereco);
 		this.imc = imc;
