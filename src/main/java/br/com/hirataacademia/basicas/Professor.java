@@ -12,12 +12,12 @@ public class Professor extends Funcionario{
 	
 	private long cref;
 	
-	public Professor(String nome, Date dataDeNascimento, long cpf, Endereco endereco, long id) {
+	public Professor(String nome, Date dataDeNascimento, String cpf, Endereco endereco, long id) {
 		super(nome, dataDeNascimento, cpf, endereco, id);
 		
 	}
 
-	public Professor(String nome, Date dataDeNascimento, long cpf, Endereco endereco, long cref, long id) {
+	public Professor(String nome, Date dataDeNascimento, String cpf, Endereco endereco, long cref, long id) {
 		super(nome, dataDeNascimento, cpf, endereco, id);
 		this.cref = cref;
 	}

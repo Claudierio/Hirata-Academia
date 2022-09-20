@@ -13,12 +13,12 @@ public class Contador extends Funcionario {
 	
 	private long crc; // crc eh o conselho de um contador.
 
-	public Contador(String nome, Date dataDeNascimento, long cpf, Endereco endereco, long id) {
+	public Contador(String nome, Date dataDeNascimento, String cpf, Endereco endereco, long id) {
 		super(nome, dataDeNascimento, cpf, endereco, id);
 
 	}
 
-	public Contador(String nome, Date dataDeNascimento, long cpf, Endereco endereco, long crc, long id) {
+	public Contador(String nome, Date dataDeNascimento, String cpf, Endereco endereco, long crc, long id) {
 		super(nome, dataDeNascimento, cpf, endereco, id);
 		this.crc = crc;
 	}

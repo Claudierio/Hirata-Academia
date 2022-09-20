@@ -21,12 +21,12 @@ public abstract class Pessoa {
 	private long id;
 	private String nome;
 	private Date dataDeNascimento;
-	private long cpf;
+	private String cpf;
 	@OneToOne(cascade = CascadeType.ALL)
 	
 	
 	private Endereco endereco;
-	public Pessoa(long id,String nome, Date dataDeNascimento, long cpf, Endereco endereco) {
+	public Pessoa(long id,String nome, Date dataDeNascimento, String cpf, Endereco endereco) {
 		super();
 		this.nome = nome;
 		this.dataDeNascimento = dataDeNascimento;
@@ -52,10 +52,10 @@ public abstract class Pessoa {
 	public void setDataDeNascimento(Date dataDeNascimento) {
 		this.dataDeNascimento = dataDeNascimento;
 	}
-	public long getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
-	public void setCpf(long cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 	public Endereco getEndereco() {
