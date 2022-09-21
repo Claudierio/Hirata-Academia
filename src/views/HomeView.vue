@@ -1,11 +1,5 @@
 <template>
   <div>
-    <v-alert
-  border="right"
-  color="yellow"
-  icon="$mdiVuetify"
-  type="info"
-></v-alert>
 
 <template>
   <v-container fluid>
