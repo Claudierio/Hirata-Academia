@@ -1,6 +1,7 @@
 <template>
     <div>
         <h1>Aqui cadastramos os clientes :)</h1>
+        <h2>Testando</h2>
         <img src="" alt="">
 
     <v-form v-model="valid">
