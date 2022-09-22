@@ -4,8 +4,11 @@
         <router-link id="logo-url" to="/">
           <img id="logo" :src="logo" :alt="alt">
         </router-link>
-        <router-link to="/Login">Login</router-link>
+        <router-link to ="/">Home</router-link>
+        <router-link to="/AreaAluno">Área do Aluno</router-link>
+        <router-link to="/AreaEfetivo">Área Efetivo</router-link>
         <router-link to="/Planos">Planos</router-link>
+
       </div>
     </div>
   </template>
@@ -31,16 +34,17 @@
       margin-left: 0;
     }
     #logo {
-      width: 45px;
-      height: 45px;
+      width: 50px;
+      height: 50px;
     }
     #nav a {
-      color: #c90707;
+      color: #FFF;
       text-decoration: none;
       margin: 12px;
       transition: .5s;
     }
     #nav a:hover {
-      color: #FFF;
+      
+      color: #c90707;
     }
   </style>

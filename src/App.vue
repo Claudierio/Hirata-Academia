@@ -4,22 +4,39 @@
     <div>
       <router-view></router-view>
     </div>
+    <Footer :logo="logo_src" :alt="app_name" />
   </div>
 </template>
-
 <script>
+
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+
+
 export default {
+  data: function() {
+    return {
+      logo_src: "/img/icons/logo2.png",
+      app_name: "Hirata Academia"
+    }
+  },
   components: {
     Navbar,
-  },
-  data(){
-    return{
-      logo_src: "/img/icons/logo.png",
-      app_name: "Hirata Academia"
-
-    }
+    Footer
   }
 }
 </script>
 
+<style>
+  * {
+    font-family: Arial, Helvetica;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .main-container { /*Como essa classe  já está em dois componentes eu já posso utiliza-lo no meu app, assim eu não tenho uma replicação de estilo*/
+    margin: 50px;
+    min-height: 300px;
+  }
+</style>

@@ -11,15 +11,23 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/login',
-    name: 'Login',
-    component: () => import( '../views/LoginView.vue')
+    path: '/AreaAluno',
+    name: 'Area Aluno',
+    component: () => import( '../views/Area_aluno.vue')
   },
+  {
+    path: '/AreaEfetivo',
+    name: 'Area Efetivo',
+    component: () => import( '../views/Area_Efetivo.vue')
+  },
+
+
   {
     path: '/planos',
     name: 'Planos',
     component: () => import( '../views/PlanosView.vue')
   },
+
 ]
 
 const router = new VueRouter({
