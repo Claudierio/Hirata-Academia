@@ -8,11 +8,8 @@
   </div>
 </template>
 <script>
-
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-
-
 export default {
   data: function() {
     return {
@@ -34,7 +31,6 @@ export default {
     margin: 0;
     box-sizing: border-box;
   }
-
   .main-container { /*Como essa classe  já está em dois componentes eu já posso utiliza-lo no meu app, assim eu não tenho uma replicação de estilo*/
     margin: 50px;
     min-height: 350px;
