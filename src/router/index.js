@@ -42,8 +42,8 @@ const routes = [
     component: () => import( '../views/Gerencia/AtualizarProfessor.vue')
   },
   {
-    path: '/DemitirProfessor ',
-    name: 'Procurar Professor',
+    path: '/DemitirProfessor',
+    name: 'Demitir Professor',
     component: () => import( '../views/Gerencia/DemitirProfessor.vue')
   },
   {
@@ -108,8 +108,13 @@ const routes = [
   },
   {
     path: '/DemitirCont',
-    name: '/Demitir Contador',
+    name: 'Demitir Contador',
     component: () => import( '../views/Contador/DemitirCont.vue')
+  },
+  {
+    path: '/GerenciarFicha',
+    name: 'Gerenciar Ficha',
+    component: () => import( '../views/Professor/GerenciarFichaTreino.vue')
   },
   
 
