@@ -3,8 +3,7 @@
     <div id="nav">
       <v-app-bar app id="nav">
         <v-app-bar-nav-icon
-          @click="drawer = !drawer"
-          color="white"
+        @click="drawer = !drawer" color="white"
         ></v-app-bar-nav-icon>
 
         <router-link id="logo-url" to="/">
@@ -17,11 +16,13 @@
       </v-app-bar>
 
       <!--Barra de William-->
-      <v-navigation-drawer v-model="drawer" app id="nav">
+      <v-navigation-drawer v-model="drawer" app id="nav" >
         <v-list-item>
-          <v-list-item-content>
-            <v-list-item-title class="text-h6"> AAAAAAAAAAA </v-list-item-title>
-            <v-list-item-subtitle> BBBBBBBBBBB </v-list-item-subtitle>
+          <v-list-item-content class="text-h6">
+            <v-list-item-title> HIRATA ACADEMIA </v-list-item-title>
+            <div class="testenav">
+              <v-list-item-subtitle>MENU</v-list-item-subtitle>
+            </div>
           </v-list-item-content>
         </v-list-item>
 
@@ -56,17 +57,103 @@
 export default {
   data: () => ({
     items: [
-      {
-        title: "Texto que vai aparecer ",
+    {
+        title: "Planos ",
         icon: "mdi-account",
-        to: "/linkdepraondevai",
+        to: "/Planos",
       },
       {
-        title: "Texto que vai aparecer ",
+        title: "Cadastrar Aluno ",
         icon: "mdi-account",
-        to: "/linkdepraondevai",
+        to: "/CadastrarAluno",
+      },
+      {
+        title: "Atualizar Aluno ",
+        icon: "mdi-account",
+        to: "/AtualizarAluno",
+      },
+      {
+        title: "Procurar Aluno ",
+        icon: "mdi-account",
+        to: "/ProcurarAluno",
+      },
+      {
+        title: "Remover Aluno ",
+        icon: "mdi-account",
+        to: "/RemoverAluno",
+      },
+      {
+        title: "Visualizar Ficha de Treino ",
+        icon: "mdi-account",
+        to: "/VisualizarFicha",
+      },
+      {
+        title: "Cadastrar Professor ",
+        icon: "mdi-account",
+        to: "/CadastrarProfessor",
+      },
+      {
+        title: "Atualizar Professor ",
+        icon: "mdi-account",
+        to: "/AtualizarProfessor",
+      },
+      {
+        title: "Demitir Professor ",
+        icon: "mdi-account",
+        to: "/DemitirProfessor",
+      },
+      {
+        title: "Procurar Professor ",
+        icon: "mdi-account",
+        to: "/ProcurarProfessor",
+      },
+      {
+        title: "Cadastrar Professor Estagiário",
+        icon: "mdi-account",
+        to: "/CadastrarProfEstagiario",
+      },
+      {
+        title: "Efetivar Professor Estagiário",
+        icon: "mdi-account",
+        to: "/EfetivarProfEstagio",
+      },
+      {
+        title: "Demitir Professor Estagiário",
+        icon: "mdi-account",
+        to: "/DemitirProfEstagiario",
+      },
+      {
+        title: "Procurar Professor Estagiário",
+        icon: "mdi-account",
+        to: "/ProcurarProfEstagiario",
+      },
+      {
+        title: "Cadastrar Contador",
+        icon: "mdi-account",
+        to: "/CadastrarContador",
+      },
+      {
+        title: "Atualizar Contador",
+        icon: "mdi-account",
+        to: "/AtualizarContador",
+      },
+      {
+        title: "Procurar Contador",
+        icon: "mdi-account",
+        to: "/ProcurarContador",
+      },
+      {
+        title: "Demitir Contador",
+        icon: "mdi-account",
+        to: "/DemitirCont",
+      },
+      {
+        title: "Calculo Lucro Anual",
+        icon: "mdi-account",
+        to: "/CalculoLucroAnual",
       },
     ],
+
     drawer: false,
     right: null,
   }),
@@ -96,5 +183,17 @@ export default {
 }
 #nav a:hover {
   color: #c90707;
+}
+
+.nav .text-h6 {
+  color: #fff;
+}
+
+.text-h6:hover {
+  color: #c90707;
+}
+
+.nav .text-h6 .testenav {
+  color: #fff;
 }
 </style>
