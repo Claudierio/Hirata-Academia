@@ -12,6 +12,9 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import br.com.hirataacademia.basicas.exception.CpfException;
+import br.com.hirataacademia.basicas.exception.DataFuturaException;
+
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -26,10 +29,16 @@ public abstract class Pessoa {
 	
 	
 	private Endereco endereco;
-	public Pessoa(long id,String nome, Date dataDeNascimento, String cpf, Endereco endereco) {
+	public Pessoa(long id,String nome, Date dataDeNascimento, String cpf, Endereco endereco) throws DataFuturaException,CpfException{
 		super();
 		this.nome = nome;
+		if(dataDeNascimento.after(new Date())) {
+			throw new DataFuturaException("Data impossível!");
+		}
 		this.dataDeNascimento = dataDeNascimento;
+		if(cpf.length()>11 || cpf.length()<11) {
+			throw new CpfException("o cpf é inválido");
+		}
 		this.cpf = cpf;
 		this.endereco = endereco;
 		this.id = id;
@@ -53,6 +62,9 @@ public abstract class Pessoa {
 		this.dataDeNascimento = dataDeNascimento;
 	}
 	public String getCpf() {
+		if(cpf.length()>11 || cpf.length()<11) {
+			throw new CpfException("o cpf é inválido!");
+		}
 		return cpf;
 	}
 	public void setCpf(String cpf) {

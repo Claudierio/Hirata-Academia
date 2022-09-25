@@ -5,7 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.hirataacademia.basicas.Endereco;
 import br.com.hirataacademia.basicas.Modalidade;
+import br.com.hirataacademia.cadastro.exception.EnderecoNaoEncontradoException;
+import br.com.hirataacademia.cadastro.exception.ModalidadeNaoEncontradaException;
 import br.com.hirataacademia.repositorios.RepositorioModalidade;
 @Service
 public class CadastroModalidade {
@@ -27,5 +30,9 @@ public class CadastroModalidade {
 
 	public void delete(Modalidade entity) {
 		repositorioModalidade.delete(entity);
+	}
+	public Modalidade findModalidadeById(Long id) {
+		
+		return repositorioModalidade.findById(id).orElseThrow(()-> new ModalidadeNaoEncontradaException());
 	}
 }

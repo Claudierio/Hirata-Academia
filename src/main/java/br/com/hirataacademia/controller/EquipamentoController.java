@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.hirataacademia.basicas.Endereco;
 import br.com.hirataacademia.basicas.Equipamento;
 import br.com.hirataacademia.fachada.Academia;
 
@@ -40,6 +41,10 @@ public class EquipamentoController {
 	public void deleteEquipamento(@PathVariable Long id) {
 
 		academia.deleteEquipamentoById(id);
+	}
+	@GetMapping("equipamento/{id}")
+	public Equipamento findEquipamentoById(@PathVariable Long id) {
+		return academia.findEquipamentoById(id);
 	}
 
 	@GetMapping("equipamento")

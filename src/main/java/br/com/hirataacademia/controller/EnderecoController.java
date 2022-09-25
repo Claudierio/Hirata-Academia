@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.hirataacademia.basicas.Aluno;
 import br.com.hirataacademia.basicas.Endereco;
 import br.com.hirataacademia.fachada.Academia;
 
@@ -40,6 +41,10 @@ public class EnderecoController {
 	public void deleteEndereco(@PathVariable Long id) {
 
 		academia.deleteEnderecoById(id);
+	}
+	@GetMapping("endereco/{id}")
+	public Endereco findEnderecoById(@PathVariable Long id) {
+		return academia.findEnderecobyId(id);
 	}
 
 	@GetMapping("endereco")

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.hirataacademia.basicas.Despesa;
 import br.com.hirataacademia.basicas.Pagamento;
+import br.com.hirataacademia.cadastro.exception.DespesaNaoEncontradaException;
 import br.com.hirataacademia.repositorios.RepositorioDespesa;
 
 @Service
@@ -35,4 +36,14 @@ public class CadastroDespesa {
 		
 		return repositorioDespesa.listarDespesaPorIntervalo(inicio, fim);
 	}
+	
+	public Despesa findDespesaById(Long id) {
+		
+		return repositorioDespesa.findById(id).orElseThrow(()-> new DespesaNaoEncontradaException());
+	}
 }
+
+
+//exceptions 
+//testes 
+//regras de negocio
