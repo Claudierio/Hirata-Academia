@@ -1,101 +1,121 @@
 <template>
-    <!--   ****** NavBar ****** -->
-    <div class="navbar">
-        <a href="#home">Home</a>
-        <a href="#news">News</a>
-        <div class="dropdown">
-          <div class="dropbtn">Dropdown</div>
-          <!--  Main Dropdown -->
-          <div class="dropdown-one">
-            <div id="link1" class="dItem" href="#">Link 1
-              <!--  Inside Dropdown -->
-              <div class="dropdown-two">
-                <div class="dItem" id="file" href="#">Import</div>
-              </div>
-            </div>
-            <div class="dItem" href="#">Link 2</div>
-            <div class="dItem" href="#">Link 3</div>
-          </div>
-        </div> 
+
+  <body>
+      <div class="container">
+          <button class="btn1"><router-link to="/AtualizarContador">Atualizar Contador</router-link></button>
+          <button class="btn2"><router-link to="/ProcurarContador">Procurar Contador</router-link></button>
+          <button class="btn3"><router-link to="/DemitirCont">Demitir Contador</router-link></button>
+          <button class="btn4"><router-link to="/CadastrarContador">Cadastrar Contador</router-link></button>
       </div>
-  </template>
-  
-  <script>
-  export default {
-    name: "Navbar-navbar", //barra de navegação
-    props: ["logo", "alt"],
-  };
-  </script>
-  
-  <style>
-    .navbar {
-    position: sticky;
-    height: 46px;
-    background-color: #1b1b1b;
-  }
-  
-  .navbar a {
-      float: left;
-      font-size: 16px;
-      color: white;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-  }
-  
-  .dropdown {
-      float: left;
-      position: relative;
-  }
-  
-  .dropdown .dropbtn {
-      font-size: 16px;    
-      border: none;
-      outline: none;
-      color: white;
-      padding: 14px 16px;
-      background-color: inherit;
-      font-family: inherit;
-      margin: 0;
-  }
-  
-  .navbar a:hover, .dropdown:hover .dropbtn {
-      background-color: red;
-  }
-  
-  .dropdown-one {
-    cursor: pointer;
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  }
-  
-  .dropdown-two {
-    cursor: pointer;
-    display: none;
-    position: absolute;
-    left: 160px;
-    top: 0px;
-    min-width: 160px;
-    background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  }
-  
-  .dropdown:hover .dropdown-one, #link1:hover > .dropdown-two {
-    display: block;
-  }
-  
-  .dropdown-one .dItem {
-      color: black;
-      padding: 12px 16px;
-      display: block;
-      text-align: left;
-  }
-  
-  .dropdown-one .dItem:hover, .dropdown-two a:hover {
-      background-color: #ddd;
-  }
-  </style>
-  
+  </body>
+</template>
+
+<style scoped>
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: #EDF2F4;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.btn1 {
+  position: absolute;
+  background-color: #181D38;
+  color: #697292;
+  width: 10rem;
+  height: 4rem;
+  border-radius: 3rem;
+  border-style: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  box-shadow: 0 307px 290px 0 #070A1E;
+  top: 40%;
+  left: 15%;
+}
+
+.btn1:hover {
+  background-color: rgba(24, 29, 56,0.8);
+  color: rgba(105, 114, 146,0.8);
+  border: 3px solid #697292;
+}
+.btn2 {
+  position: absolute;
+  background-color: #181D38;
+  color: #697292;
+  width: 10rem;
+  height: 4rem;
+  border-radius: 3rem;
+  border-style: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  box-shadow: 0 307px 290px 0 #070A1E;
+  top: 40%;
+  left: 35%;
+}
+
+.btn2:hover {
+  background-color: rgba(24, 29, 56,0.8);
+  color: rgba(105, 114, 146,0.8);
+  border: 3px solid #697292;
+}
+.btn3 {
+  position: absolute;
+  background-color: #181D38;
+  color: #697292;
+  width: 10rem;
+  height: 4rem;
+  border-radius: 3rem;
+  border-style: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  box-shadow: 0 307px 290px 0 #070A1E;
+  top: 40%;
+  left: 55%;
+}
+
+.btn3:hover {
+  background-color: rgba(24, 29, 56,0.8);
+  color: rgba(105, 114, 146,0.8);
+  border: 3px solid #697292;
+}
+.btn4 {
+  position: absolute;
+  background-color: #181D38;
+  color: #697292;
+  width: 10rem;
+  height: 4rem;
+  border-radius: 3rem;
+  border-style: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  box-shadow: 0 307px 290px 0 #070A1E;
+  top: 40%;
+  left: 75%;
+}
+
+.btn4:hover {
+  background-color: rgba(24, 29, 56,0.8);
+  color: rgba(105, 114, 146,0.8);
+  border: 3px solid #697292;
+}
+</style>
