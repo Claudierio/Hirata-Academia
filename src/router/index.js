@@ -103,7 +103,7 @@ const routes = [
   },
   {
     path: '/CadastrarContador',
-    name: 'Cadastrar Aluno',
+    name: 'Cadastrar Contador',
     component: () => import( '../views/Contador/Cadastrar_Cont.vue')
   },
   {
