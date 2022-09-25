@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.hirataacademia.basicas.Equipamento;
 import br.com.hirataacademia.basicas.ProfessorEstagiario;
 import br.com.hirataacademia.fachada.Academia;
 
@@ -41,6 +43,10 @@ public class ProfessorEstagiarioController {
 
 		academia.deleteProfessorEstagiarioById(id);
 	}
+	@GetMapping("professorEstagiario/{id}")
+	public ProfessorEstagiario findProfessorEstagiarioById(@PathVariable Long id) {
+		return academia.findProfessorEstagiarioById(id);
+	}
 
 	@GetMapping("professorEstagiario")
 	public List<ProfessorEstagiario> listProfessorEstagiario() {
@@ -48,4 +54,9 @@ public class ProfessorEstagiarioController {
 		return academia.findAllProfessorEstagiario();
 	}
 
+	@PatchMapping("professorEstagiario/{id}")
+	public void efetivarEstagiario(Long id) {
+		academia.efetivarEstagiario(id);
+	}
+	
 }

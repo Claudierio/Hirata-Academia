@@ -36,11 +36,6 @@ public class CadastroContador {
 	public Contador findContadorById(long id) {
 		return repositorioContador.findById(id).orElseThrow(()-> new ContadorNaoEncontradoException());
 	}
-	/*
-	public Contador ajustarSalarioContador(Contador entity, double salario, long id) {
-		Optional<Contador> a = repositorioContador.findById(id);
-		a.get().setSalario(salario);
-		return save(entity);
-	}*/
+
 	
 }

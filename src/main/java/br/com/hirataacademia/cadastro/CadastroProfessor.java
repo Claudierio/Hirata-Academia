@@ -35,4 +35,5 @@ public class CadastroProfessor {
 		
 		return repositorioProfessor.findById(id).orElseThrow(()->  new ProfessorNaoEncontradoException());
 	}
+	
 }

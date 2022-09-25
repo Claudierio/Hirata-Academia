@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.hirataacademia.basicas.Aluno;
+import br.com.hirataacademia.cadastro.exception.AlunoNaoEncontradoExcepetion;
 import br.com.hirataacademia.repositorios.RepositorioAluno;
 
 @Service
@@ -28,5 +29,10 @@ public class CadastroAluno {
 
 	public void delete(Aluno entity) {
 		repositorioAluno.delete(entity);
+	}
+
+	public Aluno findAlunoById(Long id) {
+		
+		return repositorioAluno.findById(id).orElseThrow(()-> new AlunoNaoEncontradoExcepetion());
 	}
 }

@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.hirataacademia.basicas.Despesa;
 import br.com.hirataacademia.basicas.Endereco;
+import br.com.hirataacademia.cadastro.exception.EnderecoNaoEncontradoException;
 import br.com.hirataacademia.repositorios.RepositorioEndereco;
 
 
@@ -29,5 +31,9 @@ public class CadastroEndereco {
 
 	public void delete(Endereco entity) {
 		repositorioEndereco.delete(entity);
+	}
+	public Endereco findEnderecoById(Long id) {
+		
+		return repositorioEndereco.findById(id).orElseThrow(()-> new EnderecoNaoEncontradoException());
 	}
 }

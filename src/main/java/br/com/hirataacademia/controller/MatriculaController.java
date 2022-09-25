@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.hirataacademia.basicas.Equipamento;
 import br.com.hirataacademia.basicas.Matricula;
 import br.com.hirataacademia.fachada.Academia;
 
@@ -40,6 +41,10 @@ public class MatriculaController {
 	public void deleteMatricula(@PathVariable Long id) {
 
 		academia.deleteMatriculaById(id);
+	}
+	@GetMapping("matricula/{id}")
+	public Matricula findMatriculaById(@PathVariable Long id) {
+		return academia.findMatriculaById(id);
 	}
 
 	@GetMapping("matricula")

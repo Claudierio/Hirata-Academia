@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.hirataacademia.basicas.Plano;
+import br.com.hirataacademia.cadastro.exception.PlanoNaoEncontradoException;
 import br.com.hirataacademia.repositorios.RepositorioPlano;
 @Service
 public class CadastroPlano {
@@ -28,4 +29,8 @@ public class CadastroPlano {
 	public void delete(Plano entity) {
 		repositorioPlano.delete(entity);
 	}	
+	public Plano findPlanoById(Long id) {
+		
+		return repositorioPlano.findById(id).orElseThrow(()-> new PlanoNaoEncontradoException());
+	}
 }
