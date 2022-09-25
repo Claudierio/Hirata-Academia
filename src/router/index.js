@@ -20,6 +20,11 @@ const routes = [
     name: 'Area Efetivo',
     component: () => import( '../views/Area_Efetivo.vue')
   },
+  {
+    path: '/AreaGerente',
+    name: 'Area Gerente',
+    component: () => import( '../views/Area_Gerente.vue')
+  },
 
   {
     path: '/planos',
@@ -50,6 +55,11 @@ const routes = [
     path: '/CadastrarProfEstagiario',
     name: 'Cadastrar Professor Estagiario',
     component: () => import( '../views/Gerencia/CadastroProfEstagio.vue')
+  },
+  {
+    path: '/AtualizarProfEstagiario',
+    name: 'Atualizar Professor Estagiario',
+    component: () => import( '../views/Gerencia/AtualizarprofEstagio.vue')
   },
   {
     path: '/ProcurarProfEstagiario',
@@ -112,11 +122,35 @@ const routes = [
     component: () => import( '../views/Contador/DemitirCont.vue')
   },
   {
+    path: '/CadastrarContador',
+    name: 'Cadastrar Contador',
+    component: () => import( '../views/Contador/Cadastrar_Cont.vue')
+  },
+  {
     path: '/GerenciarFicha',
     name: 'Gerenciar Ficha',
     component: () => import( '../views/Professor/GerenciarFichaTreino.vue')
   },
-  
+  {
+    path: '/GerenciarAluno',
+    name: 'Gerenciar Aluno',
+    component: () => import( '../views/Gerencia/GerenciarAluno.vue')
+  },
+  {
+    path: '/GerenciarContador',
+    name: 'Gerenciar Contador',
+    component: () => import( '../views/Gerencia/GerenciarContador.vue')
+  },
+  {
+    path: '/GerenciarProfessor',
+    name: 'Gerenciar Professor',
+    component: () => import( '../views/Gerencia/GerenciarProfessor')
+  },
+  {
+    path: '/GerenciarEstagiario',
+    name: '/Gerenciar Professor Estagiario',
+    component: () => import( '../views/Gerencia/GerenciarProfEstagio.vue')
+  },
 
 ]
 

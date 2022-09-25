@@ -9,26 +9,45 @@
         <router-link id="logo-url" to="/">
           <img id="logo" :src="logo" :alt="alt" />
         </router-link>
-        <router-link to="/">Home</router-link>
-        <div class="dropdown">
-          <button class="dropbtn">Área do Aluno
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
+        <div class="dropdown11">
+        <div class="dropbtnone">Área Efetivo</div>
+        <!--  Main Dropdown -->
+        <div class="dropdown-one">
+          <div id="link1" class="dItem" href="#">Gerente
+            <!--  Inside Dropdown -->
+            <div class="dropdown-two">
+              <div class="dItem" id="file" href="#">
+                <router-link to="/GerenciarAluno">Gerenciar Aluno</router-link>
+              </div>
+              <div class="dItem" id="file" href="#">
+                <router-link to="/GerenciarProfessor">Gerenciar Professor</router-link>
+              </div>
+              <div class="dItem" id="file" href="#">
+                <router-link to="/GerenciarEstagiario">Gerenciar Estagiário</router-link>
+              </div>
+              <div class="dItem" id="file" href="#">
+                <router-link to="/GerenciarContador">Gerenciar Contador</router-link>
+              </div>
+            </div>
+          </div>
+          <div class="dItem" href="#"><router-link to="/GerenciarFicha">Professor</router-link></div>
+          <div class="dItem" href="#"><router-link to="/CalculoLucroAnual">Contador</router-link></div>
+        </div>
+      </div> 
+      <div class="dropdown11">
+        <div class="dropbtnone">Área Aluno</div>
+        <!--  Main Dropdown -->
+        <div class="dropdown-one">
+          <div id="link1" class="dItem" href="#">
             <router-link to="/VisualizarFicha">Consultar</router-link>
+          </div>
+          <div class="dItem" href="#">
             <router-link to="/CadastrarAluno">Cadastrar</router-link>
           </div>
         </div>
-        <div class="dropdown">
-          <button class="dropbtn">Área Efetivo
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <router-link to="/GerenciarFicha">Professor</router-link>
-            <router-link to="/CalculoLucroAnual">Contador</router-link>
-          </div>
-        </div>
+      </div> 
         <router-link to="/Planos">Planos</router-link>
+        <router-link to="/">Home</router-link>
       </v-app-bar>
 
       <!--Barra de William-->
@@ -259,5 +278,61 @@ export default {
 
 .nav .text-h6 .testenav {
   color: #fff;
+}
+/* */
+.dropdown11 {
+    float: left;
+    position: relative;
+}
+
+.dropdown11 .dropbtnone {
+    font-size: 16px;    
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navbar a:hover, .dropdown11:hover .dropbtnone {
+    background-color: #21232d;
+}
+
+.dropdown-one {
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  background-color: #21232d;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-two {
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  left: 160px;
+  top: 0px;
+  min-width: 160px;
+  background-color: #21232d;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown11:hover .dropdown-one, #link1:hover > .dropdown-two {
+  display: block;
+}
+
+.dropdown-one .dItem {
+    color: #fff;
+    padding: 12px 16px;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-one .dItem:hover, .dropdown-two a:hover {
+    background-color: #EDF2F4;
+    color: red;
 }
 </style>
