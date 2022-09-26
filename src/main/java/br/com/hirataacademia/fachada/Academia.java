@@ -74,6 +74,10 @@ public class Academia {
 		return cadastroAluno.findAll();
 	}
 
+	public Aluno findAlunoById(Long id) {
+		return cadastroAluno.findAlunoById(id);
+	}
+	
 	public void deleteAlunoById(Long id) {
 		cadastroAluno.deleteById(id);
 	}
@@ -114,6 +118,10 @@ public class Academia {
 
 		return cadastroEndereco.findAll();
 	}
+	public Endereco findEnderecobyId(Long id) {
+
+		return cadastroEndereco.findEnderecoById(id);
+	}
 
 	public void deleteEnderecoById(Long id) {
 		cadastroEndereco.deleteById(id);
@@ -133,6 +141,10 @@ public class Academia {
 		return cadastroEquipamento.findAll();
 	}
 
+	public Equipamento findEquipamentoById(Long id) {
+
+		return cadastroEquipamento.findEquipamentoById(id);
+	}
 	public void deleteEquipamentoById(Long id) {
 		cadastroEquipamento.deleteById(id);
 	}
@@ -151,6 +163,10 @@ public class Academia {
 		return cadastroMatricula.findAll();
 	}
 
+	public Matricula findMatriculaById(Long id) {
+
+		return cadastroMatricula.findMatriculaById(id);
+	}
 	public void deleteMatriculaById(Long id) {
 		cadastroMatricula.deleteById(id);
 	}
@@ -168,7 +184,10 @@ public class Academia {
 
 		return cadastroModalidade.findAll();
 	}
+	public Modalidade findModalidadeById(Long id) {
 
+		return cadastroModalidade.findModalidadeById(id);
+	}
 	public void deleteModalidadeById(Long id) {
 		cadastroModalidade.deleteById(id);
 	}
@@ -186,7 +205,10 @@ public class Academia {
 
 		return cadastroPagamento.findAll();
 	}
+	public Pagamento findPagamentoById(Long id) {
 
+		return cadastroPagamento.findPagamentoById(id);
+	}
 	public void deletePagamentoById(Long id) {
 		cadastroPagamento.deleteById(id);
 	}
@@ -204,7 +226,10 @@ public class Academia {
 
 		return cadastroPlano.findAll();
 	}
+	public Plano findPlanoById(Long id) {
 
+		return cadastroPlano.findPlanoById(id);
+	}
 	public void deletePlanoById(Long id) {
 		cadastroPlano.deleteById(id);
 	}
@@ -267,6 +292,10 @@ public class Academia {
 		return cadastroSala.findAll();
 	}
 
+	public Sala findSalaById(Long id) {
+
+		return cadastroSala.findSalaById(id);
+	}
 	public void deleteSalaById(Long id) {
 		cadastroSala.deleteById(id);
 	}
@@ -285,6 +314,11 @@ public class Academia {
 		return cadastroDespesa.findAll();
 	}
 
+	public Despesa findDespesaById(Long id) {
+		
+		return cadastroDespesa.findDespesaById(id);
+	}
+	
 	public void deleteDespesaById(Long id) {
 		cadastroDespesa.deleteById(id);
 	}
@@ -301,6 +335,14 @@ public class Academia {
 	public List<FichadeTreino> findAllFichadeTreino() {
 
 		return cadastroFichadeTreino.findAll();
+		
+	}
+	public void UpdateTreino(FichadeTreino entity) {
+		cadastroFichadeTreino.editarTreino(entity);
+	}
+	public FichadeTreino findFichadeTreinoById(Long id) {
+
+		return cadastroFichadeTreino.findFichadeTreinoById(id);
 	}
 
 	public void deleteFichadeTreinoById(Long id) {
@@ -355,5 +397,6 @@ public class Academia {
 		cadastroProfessor.save(professor);
 
 	}
+	
 
 }

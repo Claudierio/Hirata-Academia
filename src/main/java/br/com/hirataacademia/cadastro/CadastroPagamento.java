@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.hirataacademia.basicas.Pagamento;
+import br.com.hirataacademia.cadastro.exception.PagamentoNaoEncontradoException;
 import br.com.hirataacademia.repositorios.RepositorioPagamento;
 @Service
 public class CadastroPagamento {
@@ -33,5 +34,9 @@ public class CadastroPagamento {
 	public List<Pagamento> listarPagamentoPorIntervalo(Date inicio, Date fim){
 		
 		return repositorioPagamento.listarPagamentoPorIntervalo(inicio, fim);
+	}
+	public Pagamento findPagamentoById(Long id) {
+		
+		return repositorioPagamento.findById(id).orElseThrow(()-> new PagamentoNaoEncontradoException());
 	}
 }

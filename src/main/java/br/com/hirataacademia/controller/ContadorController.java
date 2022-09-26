@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -15,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.hirataacademia.basicas.Aluno;
 import br.com.hirataacademia.basicas.Contador;
+import br.com.hirataacademia.basicas.Professor;
 import br.com.hirataacademia.fachada.Academia;
 import br.com.hirataacademia.repositorios.RepositorioContador;
 
@@ -46,29 +49,29 @@ public class ContadorController {
 
 		academia.deleteContadorById(id);
 	}
+	@GetMapping("contador/{id}")
+	public Contador findContadorById(@PathVariable Long id) {
+		return academia.findContadorById(id);
+	}
 
 	@GetMapping("contador")
 	public List<Contador> listContador() {
 
 		return academia.findAllContador();
 	}
-	/*
+	@PatchMapping("contador/salario")
+	public void atualizarSalarioContador(float novoSalario, Long id) {
+		Contador contador = findContadorById(id);
+		contador.setSalario(novoSalario);
+		academia.saveContador(contador);
+		
+	}
 	
-	public ResponseEntity partialUpdateName(
-		    @RequestBody Contador partialUpdate, 
-		    @PathVariable("id") Long id) 
-		{
-		    Optional<Contador> optionalStudent = repositorioContador.findById(id);
-
-		    if(optionalStudent.isPresent() && partialUpdate!=null) {
-		        Contador current=optionalStudent.get();
-		        current.setSalario(partialUpdate.getSalario());
-		        return ResponseEntity.ok(repositorioContador.save(current));     
-		     }
-			return null;  
-		              
-		      //return an error 
-		}
-		*/
+	@GetMapping("contador/lucroAnual")
+	public float calculoLucroAnual() {
+		
+		return academia.calculoLucroAnual();
+	}
+	
 
 }
