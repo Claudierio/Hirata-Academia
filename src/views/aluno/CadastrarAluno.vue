@@ -83,7 +83,35 @@
       </div>
     </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
   </template>
+
+
+
+  <script>
+  export default {
+    data() {
+      return{
+          nome: null,
+          cpf: null,
+          imc: null,
+          percentualGordura: null,
+          peso: null,
+          altura: null,
+          data: null,
+          contato: null,
+          informacoes_adicionais: [],
+      }
+    },
+    methods: {
+      async getAluno() {
+
+        //const req = await  fetch("http://localhost:8081/");
+      }
+    }
+  }
+  </script>
   
+
+
   <style>
   body {
     margin: 0;
