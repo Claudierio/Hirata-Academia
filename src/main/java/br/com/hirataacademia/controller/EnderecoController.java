@@ -25,29 +25,29 @@ public class EnderecoController {
 	@Autowired
 	private Academia academia;
 
-	@PostMapping("endereco")
+	@PostMapping("CreateEndereco")
 	public Endereco createEndereco(@RequestBody Endereco endereco) {
 
 		return academia.saveEndereco(endereco);
 	}
 
-	@PutMapping("endereco")
+	@PutMapping("UpdateEndereco")
 	public Endereco updateEndereco(@RequestBody Endereco endereco) {
 
 		return academia.saveEndereco(endereco);
 	}
 
-	@DeleteMapping("endereco/{id}")
+	@DeleteMapping("DeleteEndereco/{id}")
 	public void deleteEndereco(@PathVariable Long id) {
 
 		academia.deleteEnderecoById(id);
 	}
-	@GetMapping("endereco/{id}")
+	@GetMapping("FindEndereco/{id}")
 	public Endereco findEnderecoById(@PathVariable Long id) {
 		return academia.findEnderecobyId(id);
 	}
 
-	@GetMapping("endereco")
+	@GetMapping("AllEndereco")
 	public List<Endereco> listEndereco() {
 
 		return academia.findAllEndereco();

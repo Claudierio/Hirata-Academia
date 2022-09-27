@@ -25,30 +25,30 @@ public class AlunoController {
 	@Autowired
 	private Academia academia;
 
-	@PostMapping("aluno")
+	@PostMapping("CreateAluno")
 	public Aluno createAluno(@RequestBody Aluno aluno) {
 
 		return academia.saveAluno(aluno);
 	}
 
-	@PutMapping("aluno")
+	@PutMapping("UpdateAluno")
 	public Aluno updateAluno(@RequestBody Aluno aluno) {
 
 		return academia.saveAluno(aluno);
 	}
 
-	@DeleteMapping("aluno/{id}")
+	@DeleteMapping("DeleteAluno/{id}")
 	public void deleteAluno(@PathVariable Long id) {
 
 		academia.deleteAlunoById(id);
 	}
 	
-	@GetMapping("aluno/{id}")
+	@GetMapping("IDaluno/{id}")
 	public Aluno findAlunoById(@PathVariable Long id) {
 		return academia.findAlunoById(id);
 	}
 
-	@GetMapping("aluno")
+	@GetMapping("AllAluno")
 	public List<Aluno> listAluno() {
 
 		return academia.findAllAluno();

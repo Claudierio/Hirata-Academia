@@ -25,29 +25,29 @@ public class ModalidadeController {
 	@Autowired
 	private Academia academia;
 
-	@PostMapping("modalidade")
+	@PostMapping("CreateModalidade")
 	public Modalidade createModalidade(@RequestBody Modalidade modalidade) {
 
 		return academia.saveModalidade(modalidade);
 	}
 
-	@PutMapping("modalidade")
+	@PutMapping("UpdateModalidade")
 	public Modalidade updateModalidade(@RequestBody Modalidade modalidade) {
 
 		return academia.saveModalidade(modalidade);
 	}
 
-	@DeleteMapping("modalidade/{id}")
+	@DeleteMapping("DeleteModalidade/{id}")
 	public void deleteModalidade(@PathVariable Long id) {
 
 		academia.deleteModalidadeById(id);
 	}
-	@GetMapping("modalidade/{id}")
+	@GetMapping("FindModalidade/{id}")
 	public Modalidade findModalidadeById(@PathVariable Long id) {
 		return academia.findModalidadeById(id);
 	}
 
-	@GetMapping("modalidade")
+	@GetMapping("AllModalidade")
 	public List<Modalidade> listModalidade() {
 
 		return academia.findAllModalidade();

@@ -26,29 +26,29 @@ public class ProfessorController {
 	@Autowired
 	private Academia academia;
 
-	@PostMapping("professor")
+	@PostMapping("CreateProfessor")
 	public Professor createProfessor(@RequestBody Professor professor) {
 
 		return academia.saveProfessor(professor);
 	}
 
-	@PutMapping("professor")
+	@PutMapping("UpdateProfessor")
 	public Professor updateProfessor(@RequestBody Professor professor) {
 
 		return academia.saveProfessor(professor);
 	}
 
-	@DeleteMapping("professor/{id}")
+	@DeleteMapping("DeleteProfessor/{id}")
 	public void deleteProfessor(@PathVariable Long id) {
 
 		academia.deleteProfessorById(id);
 	}
-	@GetMapping("professor/{id}")
+	@GetMapping("FindProfessor/{id}")
 	public Professor findProfessorById(@PathVariable Long id) {
 		return academia.findProfessorById(id);
 	}
 
-	@GetMapping("professor")
+	@GetMapping("AllProfessor")
 	public List<Professor> listProfessor() {
 
 		return academia.findAllProfessor();

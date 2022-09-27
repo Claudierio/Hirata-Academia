@@ -25,29 +25,29 @@ public class EquipamentoController {
 	@Autowired
 	private Academia academia;
 
-	@PostMapping("equipamento")
+	@PostMapping("CreateEquipamento")
 	public Equipamento createEquipamento(@RequestBody Equipamento equipamento) {
 
 		return academia.saveEquipamento(equipamento);
 	}
 
-	@PutMapping("equipamento")
+	@PutMapping("UpdateEquipamento")
 	public Equipamento updateEquipamento(@RequestBody Equipamento equipamento) {
 
 		return academia.saveEquipamento(equipamento);
 	}
 
-	@DeleteMapping("equipamento/{id}")
+	@DeleteMapping("DeleteEquipamento/{id}")
 	public void deleteEquipamento(@PathVariable Long id) {
 
 		academia.deleteEquipamentoById(id);
 	}
-	@GetMapping("equipamento/{id}")
+	@GetMapping("FindEquipamento/{id}")
 	public Equipamento findEquipamentoById(@PathVariable Long id) {
 		return academia.findEquipamentoById(id);
 	}
 
-	@GetMapping("equipamento")
+	@GetMapping("AllEquipamento")
 	public List<Equipamento> listEquipamento() {
 
 		return academia.findAllEquipamento();

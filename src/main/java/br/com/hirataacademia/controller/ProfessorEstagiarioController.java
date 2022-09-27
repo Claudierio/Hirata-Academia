@@ -26,29 +26,29 @@ public class ProfessorEstagiarioController {
 	@Autowired
 	private Academia academia;
 
-	@PostMapping("professorEstagiario")
+	@PostMapping("CreateProfessorEstagiario")
 	public ProfessorEstagiario createProfessorEstagiario(@RequestBody ProfessorEstagiario professorEstagiario) {
 
 		return academia.saveProfessorEstagiario(professorEstagiario);
 	}
 
-	@PutMapping("professorEstagiario")
+	@PutMapping("UpdateProfessorEstagiario")
 	public ProfessorEstagiario updateProfessorEstagiario(@RequestBody ProfessorEstagiario professorEstagiario) {
 
 		return academia.saveProfessorEstagiario(professorEstagiario);
 	}
 
-	@DeleteMapping("professorEstagiario/{id}")
+	@DeleteMapping("DeleteProfessorEstagiario/{id}")
 	public void deleteProfessorEstagiario(@PathVariable Long id) {
 
 		academia.deleteProfessorEstagiarioById(id);
 	}
-	@GetMapping("professorEstagiario/{id}")
+	@GetMapping("FindProfessorEstagiario/{id}")
 	public ProfessorEstagiario findProfessorEstagiarioById(@PathVariable Long id) {
 		return academia.findProfessorEstagiarioById(id);
 	}
 
-	@GetMapping("professorEstagiario")
+	@GetMapping("AllProfessorEstagiario")
 	public List<ProfessorEstagiario> listProfessorEstagiario() {
 
 		return academia.findAllProfessorEstagiario();

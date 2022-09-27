@@ -25,29 +25,29 @@ public class MatriculaController {
 	@Autowired
 	private Academia academia;
 
-	@PostMapping("matricula")
+	@PostMapping("CreateMatricula")
 	public Matricula createMatricula(@RequestBody Matricula matricula) {
 
 		return academia.saveMatricula(matricula);
 	}
 
-	@PutMapping("matricula")
+	@PutMapping("UpdateMatricula")
 	public Matricula updateMatricula(@RequestBody Matricula matricula) {
 
 		return academia.saveMatricula(matricula);
 	}
 
-	@DeleteMapping("matricula/{id}")
+	@DeleteMapping("DeleteMatricula/{id}")
 	public void deleteMatricula(@PathVariable Long id) {
 
 		academia.deleteMatriculaById(id);
 	}
-	@GetMapping("matricula/{id}")
+	@GetMapping("FindMatricula/{id}")
 	public Matricula findMatriculaById(@PathVariable Long id) {
 		return academia.findMatriculaById(id);
 	}
 
-	@GetMapping("matricula")
+	@GetMapping("AllMatricula")
 	public List<Matricula> listMatricula() {
 
 		return academia.findAllMatricula();

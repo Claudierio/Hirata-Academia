@@ -25,29 +25,29 @@ public class SalaController {
 	@Autowired
 	private Academia academia;
 
-	@PostMapping("sala")
+	@PostMapping("CreateSala")
 	public Sala createSala(@RequestBody Sala sala) {
 
 		return academia.saveSala(sala);
 	}
 
-	@PutMapping("sala")
+	@PutMapping("UpdateSala")
 	public Sala updateSala(@RequestBody Sala sala) {
 
 		return academia.saveSala(sala);
 	}
 
-	@DeleteMapping("sala/{id}")
+	@DeleteMapping("DeleteSala/{id}")
 	public void deleteSala(@PathVariable Long id) {
 
 		academia.deleteSalaById(id);
 	}
-	@GetMapping("sala/{id}")
+	@GetMapping("FindSala/{id}")
 	public Sala findSalaById(@PathVariable Long id) {
 		return academia.findSalaById(id);
 	}
 
-	@GetMapping("sala")
+	@GetMapping("AllSala")
 	public List<Sala> listSala() {
 
 		return academia.findAllSala();

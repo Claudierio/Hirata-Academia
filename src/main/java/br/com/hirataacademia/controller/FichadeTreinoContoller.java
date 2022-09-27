@@ -26,30 +26,30 @@ public class FichadeTreinoContoller {
 	@Autowired
 	private Academia academia;
 
-	@PostMapping("fichadeTreino")
+	@PostMapping("CreateFichadeTreino")
 	public FichadeTreino createFichadeTreino(@RequestBody FichadeTreino fichadeTreino) {
 
 		return academia.saveFichadeTreino(fichadeTreino);
 	}
 
-	@PutMapping("fichadeTreino")
+	@PutMapping("UpdateFichadeTreino")
 	public void updateFichadeTreino(@RequestBody FichadeTreino fichadeTreino) {
 
 		 academia.UpdateTreino(fichadeTreino);
 	}
 
-	@DeleteMapping("fichadeTreino/{id}")
+	@DeleteMapping("DeleteFichadeTreino/{id}")
 	public void deleteFichadeTreino(@PathVariable Long id) {
 
 		academia.deleteFichadeTreinoById(id);
 	}
 
-	@GetMapping("fichadeTreino")
+	@GetMapping("AllFichadeTreino")
 	public List<FichadeTreino> listFichadeTreino() {
 
 		return academia.findAllFichadeTreino();
 	}
-	@GetMapping("fichadeTreino/{id}")
+	@GetMapping("FindFichadeTreino/{id}")
 	public FichadeTreino  findFichadeTreinoById(@PathVariable Long id) {
 		return academia.findFichadeTreinoById(id);
 	}

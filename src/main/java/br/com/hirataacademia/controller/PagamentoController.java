@@ -25,29 +25,29 @@ public class PagamentoController {
 	@Autowired
 	private Academia academia;
 
-	@PostMapping("pagamento")
+	@PostMapping("CreatePagamento")
 	public Pagamento createPagamento(@RequestBody Pagamento pagamento) {
 
 		return academia.savePagamento(pagamento);
 	}
 
-	@PutMapping("pagamento")
+	@PutMapping("UpdatePagamento")
 	public Pagamento updatePagamento(@RequestBody Pagamento pagamento) {
 
 		return academia.savePagamento(pagamento);
 	}
 
-	@DeleteMapping("pagamento/{id}")
+	@DeleteMapping("DeletePagamento/{id}")
 	public void deletePagamento(@PathVariable Long id) {
 
 		academia.deletePagamentoById(id);
 	}
-	@GetMapping("pagamento/{id}")
+	@GetMapping("FindPagamento/{id}")
 	public Pagamento findPagamentoById(@PathVariable Long id) {
 		return academia.findPagamentoById(id);
 	}
 
-	@GetMapping("pagamento")
+	@GetMapping("AllPagamento")
 	public List<Pagamento> listPagamento() {
 
 		return academia.findAllPagamento();

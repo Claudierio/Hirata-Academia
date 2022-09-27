@@ -25,29 +25,29 @@ public class DespesaController {
 	@Autowired
 	private Academia academia;
 
-	@PostMapping("despesa")
+	@PostMapping("CreateDespesa")
 	public Despesa createDespesa(@RequestBody Despesa despesa) {
 
 		return academia.saveDespesa(despesa);
 	}
 
-	@PutMapping("despesa")
+	@PutMapping("UpdateDespesa")
 	public Despesa updateDespesa(@RequestBody Despesa despesa) {
 
 		return academia.saveDespesa(despesa);
 	}
 
-	@DeleteMapping("despesa/{id}")
+	@DeleteMapping("DeleteDespesa/{id}")
 	public void deleteDespesa(@PathVariable Long id) {
 
 		academia.deleteDespesaById(id);
 	}
-	@GetMapping("despesa/{id}")
+	@GetMapping("FindDespesa/{id}")
 	public Despesa findDespesaById(@PathVariable Long id) {
 		return academia.findDespesaById(id);
 	}
 
-	@GetMapping("despesa")
+	@GetMapping("AllDespesa")
 	public List<Despesa> listDespesa() {
 
 		return academia.findAllDespesa();

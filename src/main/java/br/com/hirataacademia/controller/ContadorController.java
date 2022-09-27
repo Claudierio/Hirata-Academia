@@ -32,19 +32,19 @@ public class ContadorController {
 	@Autowired
 	private RepositorioContador repositorioContador;
 
-	@PostMapping("contador")
+	@PostMapping("CreateContador")
 	public Contador createContador(@RequestBody Contador contador) {
 
 		return academia.saveContador(contador);
 	}
 
-	@PutMapping("contador")
+	@PutMapping("UpdateContador")
 	public Contador updateContador(@RequestBody Contador contador) {
 
 		return academia.saveContador(contador);
 	}
 
-	@DeleteMapping("contador/{id}")
+	@DeleteMapping("DeleteContador/{id}")
 	public void deleteContador(@PathVariable Long id) {
 
 		academia.deleteContadorById(id);
@@ -54,12 +54,13 @@ public class ContadorController {
 		return academia.findContadorById(id);
 	}
 
-	@GetMapping("contador")
+	@GetMapping("AllContador")
 	public List<Contador> listContador() {
 
 		return academia.findAllContador();
 	}
-	@PatchMapping("contador/salario")
+	
+	@PatchMapping("SalarioContador/salario")
 	public void atualizarSalarioContador(float novoSalario, Long id) {
 		Contador contador = findContadorById(id);
 		contador.setSalario(novoSalario);

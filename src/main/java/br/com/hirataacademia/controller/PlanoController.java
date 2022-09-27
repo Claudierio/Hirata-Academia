@@ -25,29 +25,29 @@ public class PlanoController {
 	@Autowired
 	private Academia academia;
 
-	@PostMapping("plano")
+	@PostMapping("CreatePlano")
 	public Plano createPlano(@RequestBody Plano plano) {
 
 		return academia.savePlano(plano);
 	}
 
-	@PutMapping("plano")
+	@PutMapping("UpdatePlano")
 	public Plano updatePlano(@RequestBody Plano plano) {
 
 		return academia.savePlano(plano);
 	}
 
-	@DeleteMapping("plano/{id}")
+	@DeleteMapping("DeletePlano/{id}")
 	public void deletePlano(@PathVariable Long id) {
 
 		academia.deletePlanoById(id);
 	}
-	@GetMapping("plano/{id}")
+	@GetMapping("FindPlano/{id}")
 	public Plano findPlanoById(@PathVariable Long id) {
 		return academia.findPlanoById(id);
 	}
 
-	@GetMapping("plano")
+	@GetMapping("AllPlano")
 	public List<Plano> listPlano() {
 
 		return academia.findAllPlano();
