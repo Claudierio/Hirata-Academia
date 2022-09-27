@@ -47,41 +47,45 @@
             </div>
             </div>
             <div class="form-right">
-              <h2>Detalhes</h2>
-              <div class="form-row">
-                <input type="text" name="street" class="street" id="street" placeholder="Rua" required>
+            <h2>Detalhes</h2>
+            <div class="form-row">
+              <input type="text" name="street" class="street" id="street" placeholder="Rua" required>
+            </div>
+            <div class="form-row">
+              <input type="text" name="bairro" class="bairro" id="bairro"
+                placeholder="Bairro" required>
+            </div>
+            <div class="form-group">
+              <div class="form-row form-row-1">
+                <input type="text" name="cep" class="cep" id="cep" placeholder="CEP" required>
               </div>
-              <div class="form-row">
-                <input type="text" name="additional" class="additional" id="additional"
-                  placeholder="Informações adicionais" required>
-              </div>
-              <div class="form-group">
-                <div class="form-row form-row-1">
-                  <input type="text" name="cep" class="cep" id="cep" placeholder="CEP" required>
-                </div>
-                <div class="form-row form-row-2">
-                  <input type="text" name="numero" class="numero" id="numero" placeholder="Número" required>
-                  <span class="select-btn">
-                    <i class="zmdi zmdi-chevron-down"></i>
-                  </span>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="form-row form-row-1">
-                  <input type="text" name="uf" class="uf" id="uf" placeholder="UF" required>
-                </div>
-                <div class="form-row form-row-2">
-                  <input type="text" name="cidade" class="cidade" id="cidade" placeholder="Cidade" required>
-                </div>
-              </div>
-              <div class="form-row">
-                <input type="text" name="your_email" id="your_email" class="input-text" required
-                  pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="Email">
-              </div>
-              <div class="form-row-last">
-                <input type="submit" name="register" class="register" value="Cadastrar">
+              <div class="form-row form-row-2">
+                <input type="text" name="numero" class="numero" id="numero" placeholder="Número da casa" required>
+                <span class="select-btn">
+                  <i class="zmdi zmdi-chevron-down"></i>
+                </span>
               </div>
             </div>
+            <div class="form-group">
+              <div class="form-row form-row-1">
+                <input type="text" name="uf" class="uf" id="uf" placeholder="UF" required>
+              </div>
+              <div class="form-row form-row-2">
+                <input type="text" name="cidade" class="cidade" id="cidade" placeholder="Cidade" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <input type="text" name="telefone_celular" id="telefone_celular" class="input-text" required
+                 placeholder="Telefone Celular">
+            </div>
+            <div class="form-row-last">
+              <button>
+                <v-btn color="black" dark @click="cadastrar"> Cadastrar
+                  <v-icon right dark>mdi-checkbox-marked-circle</v-icon>
+                </v-btn>
+              </button>
+            </div>
+          </div>
           </form>
         </div>
       </div>

@@ -44,7 +44,7 @@
             <v-list dense nav>
               <v-list-item v-for="item in items" :key="item.title" :to="item.to" link>
                 <v-list-item-icon>
-                  <v-icon>{{ item.icon }}</v-icon>
+                  <v-icon>{{ item.icon }}</v-icon> <!--Alterar a cor dos icons é aqui-->
                 </v-list-item-icon>
 
                 <v-list-item-content>
@@ -65,103 +65,104 @@ export default {
     items: [
       {
         title: "Planos ",
-        icon: "mdi-account",
+        icon: "mdi-account-cash",
         to: "/Planos",
       },
       {
         title: "Cadastrar Aluno ",
-        icon: "mdi-account",
+        icon: "mdi-account-plus",
         to: "/CadastrarAluno",
       },
       {
-        title: "Atualizar Aluno ",
-        icon: "mdi-account",
-        to: "/AtualizarAluno",
-      },
-      {
-        title: "Procurar Aluno ",
-        icon: "mdi-account",
-        to: "/ProcurarAluno",
-      },
-      {
-        title: "Remover Aluno ",
-        icon: "mdi-account",
-        to: "/RemoverAluno",
-      },
-      {
-        title: "Criar Ficha de Treino ",
-        icon: "mdi-account",
-        to: "/CriarFichaTreino1",
-      },
-      {
-        title: "Visualizar Ficha de Treino ",
-        icon: "mdi-account",
-        to: "/VisualizarFicha",
-      },
-      {
         title: "Cadastrar Professor ",
-        icon: "mdi-account",
+        icon: "mdi-account-plus",
         to: "/CadastrarProfessor",
       },
       {
-        title: "Atualizar Professor ",
-        icon: "mdi-account",
-        to: "/AtualizarProfessor",
-      },
-      {
-        title: "Demitir Professor ",
-        icon: "mdi-account",
-        to: "/DemitirProfessor",
-      },
-      {
-        title: "Procurar Professor ",
-        icon: "mdi-account",
-        to: "/ProcurarProfessor",
-      },
-      {
         title: "Cadastrar Professor Estagiário",
-        icon: "mdi-account",
+        icon: "mdi-account-plus",
         to: "/CadastrarProfEstagiario",
       },
       {
-        title: "Efetivar Professor Estagiário",
-        icon: "mdi-account",
-        to: "/EfetivarProfEstagio",
+        title: "Cadastrar Contador",
+        icon: "mdi-account-plus",
+        to: "/CadastrarContador",
+      },
+      
+      {
+        title: "Criar Ficha de Treino ",
+        icon: "mdi-clipboard-search",
+        to: "/CriarFichaTreino1",
       },
       {
-        title: "Demitir Professor Estagiário",
-        icon: "mdi-account",
-        to: "/DemitirProfEstagiario",
+        title: "Procurar Aluno ",
+        icon: "mdi-account-search",
+        to: "/ProcurarAluno",
+      },
+      {
+        title: "Procurar Professor ",
+        icon: "mdi-account-search",
+        to: "/ProcurarProfessor",
       },
       {
         title: "Procurar Professor Estagiário",
-        icon: "mdi-account",
+        icon: "mdi-account-search",
         to: "/ProcurarProfEstagiario",
       },
       {
-        title: "Cadastrar Contador",
-        icon: "mdi-account",
-        to: "/CadastrarContador",
-      },
-      {
-        title: "Atualizar Contador",
-        icon: "mdi-account",
-        to: "/AtualizarContador",
-      },
-      {
         title: "Procurar Contador",
-        icon: "mdi-account",
+        icon: "mdi-account-search",
         to: "/ProcurarContador",
       },
       {
+        title: "Atualizar Aluno ",
+        icon: "mdi-account-edit",
+        to: "/AtualizarAluno",
+      },
+      {
+        title: "Atualizar Professor ",
+        icon: "mdi-account-edit",
+        to: "/AtualizarProfessor",
+      },
+      {
+        title: "Efetivar Professor Estagiário",
+        icon: "mdi-account-edit",
+        to: "/EfetivarProfEstagio",
+      },
+      {
+        title: "Atualizar Contador",
+        icon: "mdi-account-edit",
+        to: "/AtualizarContador",
+      },
+      {
+        title: "Remover Aluno ",
+        icon: "mdi-account-remove",
+        to: "/RemoverAluno",
+      },
+      {
+        title: "Demitir Professor ",
+        icon: "mdi-account-remove",
+        to: "/DemitirProfessor",
+      },
+      {
+        title: "Demitir Professor Estagiário",
+        icon: "mdi-account-remove",
+        to: "/DemitirProfEstagiario",
+      },
+      {
         title: "Demitir Contador",
-        icon: "mdi-account",
+        icon: "mdi-account-remove",
         to: "/DemitirCont",
       },
       {
         title: "Calculo Lucro Anual",
-        icon: "mdi-account",
+        icon: "mdi-account-cash",
         to: "/CalculoLucroAnual",
+      },
+      {
+        title: "Visualizar Ficha de Treino ",
+        icon: "mdi-clipboard-search",
+        to: "/VisualizarFicha",
       },
     ],
 

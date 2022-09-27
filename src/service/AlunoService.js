@@ -4,7 +4,7 @@ class AlunoService{
     getAll() {
         return http.get('/AllAluno')
     }
-
+    
     update(data){
         return http.get("/UpdateAluno",data)
     }

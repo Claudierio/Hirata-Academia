@@ -27,7 +27,7 @@
                 <i class="zmdi zmdi-chevron-down"></i>
               </span>
             </div>
-            <div class="form-row">
+            <div class="form-row color='#ffff' ">
               <select name="title">
                 <option class="option" value="title">Turno</option>
                 <option class="option" value="diurno">Diurno</option>
@@ -44,8 +44,8 @@
               <input type="text" name="street" class="street" id="street" placeholder="Rua" required>
             </div>
             <div class="form-row">
-              <input type="text" name="additional" class="additional" id="additional"
-                placeholder="Informações adicionais" required>
+              <input type="text" name="bairro" class="bairro" id="bairro"
+                placeholder="Bairro" required>
             </div>
             <div class="form-group">
               <div class="form-row form-row-1">
@@ -67,8 +67,8 @@
               </div>
             </div>
             <div class="form-row">
-              <input type="text" name="your_email" id="your_email" class="input-text" required
-                pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="Email">
+              <input type="text" name="telefone_celular" id="telefone_celular" class="input-text" required
+                 placeholder="Telefone Celular">
             </div>
             <div class="form-row-last">
               <input type="submit" name="register" class="register" value="Cadastrar">
