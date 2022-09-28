@@ -3,29 +3,28 @@ package br.com.hirataacademia.basicas;
 import java.util.Date;
 
 import javax.persistence.Entity;
+
 @Entity
 public class ProfessorEstagiario extends Funcionario {
-	
-	
+
 	private Date inicioEstagio;
 	private Date fimEstagio;
-	
+
 	public ProfessorEstagiario(String nome, Date dataDeNascimento, String cpf, Endereco endereco) {
 		super(nome, dataDeNascimento, cpf, endereco);
-		
+
 	}
 
 	public ProfessorEstagiario(String nome, Date dataDeNascimento, String cpf, Endereco endereco, Date inicioEstagio,
 			Date fimEstagio) {
 		super(nome, dataDeNascimento, cpf, endereco);
 		this.inicioEstagio = inicioEstagio;
-		this.fimEstagio = fimEstagio;		
+		this.fimEstagio = fimEstagio;
 	}
 
-	public ProfessorEstagiario(String nome, Date dataDeNascimento, String cpf, Endereco endereco,
-			String turno) {
+	public ProfessorEstagiario(String nome, Date dataDeNascimento, String cpf, Endereco endereco, String turno) {
 		super(nome, dataDeNascimento, cpf, endereco, 600, turno);
-		
+
 	}
 
 	public Date getInicioEstagio() {
@@ -43,7 +42,5 @@ public class ProfessorEstagiario extends Funcionario {
 	public void setFimEstagio(Date fimEstagio) {
 		this.fimEstagio = fimEstagio;
 	}
-	
-	
-	
+
 }

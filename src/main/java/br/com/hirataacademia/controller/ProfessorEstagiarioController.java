@@ -43,6 +43,7 @@ public class ProfessorEstagiarioController {
 
 		academia.deleteProfessorEstagiarioById(id);
 	}
+
 	@GetMapping("FindProfessorEstagiario/{id}")
 	public ProfessorEstagiario findProfessorEstagiarioById(@PathVariable Long id) {
 		return academia.findProfessorEstagiarioById(id);
@@ -58,5 +59,5 @@ public class ProfessorEstagiarioController {
 	public void efetivarEstagiario(Long id) {
 		academia.efetivarEstagiario(id);
 	}
-	
+
 }

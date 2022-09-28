@@ -42,6 +42,7 @@ public class EquipamentoController {
 
 		academia.deleteEquipamentoById(id);
 	}
+
 	@GetMapping("FindEquipamento/{id}")
 	public Equipamento findEquipamentoById(@PathVariable Long id) {
 		return academia.findEquipamentoById(id);
@@ -54,4 +55,3 @@ public class EquipamentoController {
 	}
 
 }
-

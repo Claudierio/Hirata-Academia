@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.hirataacademia.basicas.Aluno;
 import br.com.hirataacademia.fachada.Academia;
 
-@CrossOrigin(origins = "http://localhost:8081/")
+@CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/HirataAcademia/api/v1/")
+@RequestMapping("/HirataAcademia/api/v1")
 
 public class AlunoController {
 	@Autowired
@@ -42,7 +42,7 @@ public class AlunoController {
 
 		academia.deleteAlunoById(id);
 	}
-	
+
 	@GetMapping("IDaluno/{id}")
 	public Aluno findAlunoById(@PathVariable Long id) {
 		return academia.findAlunoById(id);
@@ -54,5 +54,4 @@ public class AlunoController {
 		return academia.findAllAluno();
 	}
 
-	
 }

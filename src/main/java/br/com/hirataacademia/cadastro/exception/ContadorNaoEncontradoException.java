@@ -8,5 +8,4 @@ public class ContadorNaoEncontradoException extends RuntimeException {
 		super("O contador não foi encontrado.");
 	}
 
-	
 }

@@ -42,6 +42,7 @@ public class SalaController {
 
 		academia.deleteSalaById(id);
 	}
+
 	@GetMapping("FindSala/{id}")
 	public Sala findSalaById(@PathVariable Long id) {
 		return academia.findSalaById(id);

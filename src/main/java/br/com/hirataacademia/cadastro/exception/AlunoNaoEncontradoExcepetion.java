@@ -1,6 +1,6 @@
 package br.com.hirataacademia.cadastro.exception;
 
-public class AlunoNaoEncontradoExcepetion extends RuntimeException{
+public class AlunoNaoEncontradoExcepetion extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 
 	public AlunoNaoEncontradoExcepetion() {

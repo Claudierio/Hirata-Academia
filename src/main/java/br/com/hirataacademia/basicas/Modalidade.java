@@ -8,7 +8,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)	
+@Inheritance(strategy = InheritanceType.JOINED)
 
 public abstract class Modalidade {
 	@Id
@@ -17,7 +17,7 @@ public abstract class Modalidade {
 	private String nome;
 	private int duracao;
 	private String intensidade;
-	
+
 	public Modalidade(String nome, int duracao, String intensidade) {
 		super();
 		this.nome = nome;
@@ -37,14 +37,6 @@ public abstract class Modalidade {
 		return duracao;
 	}
 
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
 	public void setDuracao(int duracao) {
 		this.duracao = duracao;
 	}
@@ -56,8 +48,5 @@ public abstract class Modalidade {
 	public void setIntensidade(String intensidade) {
 		this.intensidade = intensidade;
 	}
-	
-	
-	
-	
+
 }

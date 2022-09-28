@@ -4,7 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import br.com.hirataacademia.basicas.Modalidade;
+
 @Repository
-public interface RepositorioModalidade extends JpaRepository<Modalidade, Long>{
+public interface RepositorioModalidade extends JpaRepository<Modalidade, Long> {
 
 }

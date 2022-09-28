@@ -42,6 +42,7 @@ public class PlanoController {
 
 		academia.deletePlanoById(id);
 	}
+
 	@GetMapping("FindPlano/{id}")
 	public Plano findPlanoById(@PathVariable Long id) {
 		return academia.findPlanoById(id);

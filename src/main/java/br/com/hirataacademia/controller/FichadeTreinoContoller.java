@@ -35,7 +35,7 @@ public class FichadeTreinoContoller {
 	@PutMapping("UpdateFichadeTreino")
 	public void updateFichadeTreino(@RequestBody FichadeTreino fichadeTreino) {
 
-		 academia.UpdateTreino(fichadeTreino);
+		academia.UpdateTreino(fichadeTreino);
 	}
 
 	@DeleteMapping("DeleteFichadeTreino/{id}")
@@ -49,11 +49,10 @@ public class FichadeTreinoContoller {
 
 		return academia.findAllFichadeTreino();
 	}
+
 	@GetMapping("FindFichadeTreino/{id}")
-	public FichadeTreino  findFichadeTreinoById(@PathVariable Long id) {
+	public FichadeTreino findFichadeTreinoById(@PathVariable Long id) {
 		return academia.findFichadeTreinoById(id);
 	}
 
-	
-	
 }

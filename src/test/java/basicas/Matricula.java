@@ -1,12 +1,12 @@
 package basicas;
 
-public class Matricula {	
+public class Matricula {
 	private long id;
 	private Plano plano;
 	private Aluno aluno;
 	private boolean ativo;
 	private Modalidade modalidade;
-	
+
 	public Matricula(long id, Plano plano, Aluno aluno, Modalidade modalidade) {
 		super();
 		this.id = id;

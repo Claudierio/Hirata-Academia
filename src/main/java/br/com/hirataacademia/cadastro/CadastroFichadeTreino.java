@@ -13,16 +13,17 @@ import br.com.hirataacademia.repositorios.RepositorioFichadeTreino;
 public class CadastroFichadeTreino {
 	@Autowired
 	private RepositorioFichadeTreino repositorioFichadeTreino;
+
 	public FichadeTreino save(FichadeTreino entity) {
-		
+
 		return repositorioFichadeTreino.save(entity);
 	}
-	
-	public List<FichadeTreino> findAll(){
-		
+
+	public List<FichadeTreino> findAll() {
+
 		return repositorioFichadeTreino.findAll();
 	}
-	
+
 	public void deleteById(Long id) {
 		repositorioFichadeTreino.deleteById(id);
 	}
@@ -30,12 +31,12 @@ public class CadastroFichadeTreino {
 	public void delete(FichadeTreino entity) {
 		repositorioFichadeTreino.delete(entity);
 	}
-	
-	public FichadeTreino findFichadeTreinoById(long id) throws FichadeTreinoNaoEncontradaException {
-		
-		return repositorioFichadeTreino.findById(id).orElseThrow(()-> new FichadeTreinoNaoEncontradaException());
+
+	public FichadeTreino findFichadeTreinoById(long id) {
+
+		return repositorioFichadeTreino.findById(id).orElseThrow(() -> new FichadeTreinoNaoEncontradaException());
 	}
-	
+
 	public void editarTreino(FichadeTreino entity) {
 		FichadeTreino ficha = findFichadeTreinoById(entity.getId());
 		ficha.setDuracao(entity.getDuracao());
@@ -44,6 +45,6 @@ public class CadastroFichadeTreino {
 		ficha.setNumeroExercicios(entity.getNumeroExercicios());
 		ficha.setNumeroSeries(entity.getNumeroSeries());
 		repositorioFichadeTreino.save(ficha);
-		
+
 	}
 }

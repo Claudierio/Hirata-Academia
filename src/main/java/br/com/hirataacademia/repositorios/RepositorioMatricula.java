@@ -4,7 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import br.com.hirataacademia.basicas.Matricula;
+
 @Repository
-public interface RepositorioMatricula extends JpaRepository<Matricula, Long>{
+public interface RepositorioMatricula extends JpaRepository<Matricula, Long> {
 
 }

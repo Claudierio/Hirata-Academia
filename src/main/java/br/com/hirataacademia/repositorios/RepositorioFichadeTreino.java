@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.com.hirataacademia.basicas.FichadeTreino;
 
 @Repository
-public interface RepositorioFichadeTreino extends JpaRepository<FichadeTreino, Long>{
+public interface RepositorioFichadeTreino extends JpaRepository<FichadeTreino, Long> {
 
 }

@@ -8,6 +8,4 @@ public class ProfessorNaoEncontradoException extends RuntimeException {
 		super("O contador não foi encontrado.");
 	}
 
-
-
 }

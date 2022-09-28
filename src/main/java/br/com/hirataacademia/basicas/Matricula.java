@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -24,8 +26,8 @@ public class Matricula {
 	private Aluno aluno;
 	private boolean ativo;
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "matricula_modalidade", joinColumns = { @JoinColumn(name = "modalidade_id") }, inverseJoinColumns = {
-			@JoinColumn(name = "matricula_id") })
+	@JoinTable(name = "matricula_modalidade", joinColumns = {
+			@JoinColumn(name = "modalidade_id") }, inverseJoinColumns = { @JoinColumn(name = "matricula_id") })
 	private List<Modalidade> modalidades;
 
 	public Matricula(Plano plano, Aluno aluno, List<Modalidade> modalidades) {
@@ -36,14 +38,13 @@ public class Matricula {
 		this.modalidades = modalidades;
 	}
 
-	
-
-	
-
 	public long getId() {
 		return id;
 	}
 
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public List<Modalidade> getModalidades() {
 		return modalidades;

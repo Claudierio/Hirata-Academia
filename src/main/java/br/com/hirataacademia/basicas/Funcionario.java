@@ -18,7 +18,8 @@ public abstract class Funcionario extends Pessoa {
 
 	}
 
-	public Funcionario(String nome, Date dataDeNascimento, String cpf, Endereco endereco, double salario, String turno) {
+	public Funcionario(String nome, Date dataDeNascimento, String cpf, Endereco endereco, double salario,
+			String turno) {
 		super(nome, dataDeNascimento, cpf, endereco);
 		this.salario = salario;
 		this.turno = turno;
@@ -39,6 +40,5 @@ public abstract class Funcionario extends Pessoa {
 	public void setTurno(String turno) {
 		this.turno = turno;
 	}
-	
 
 }

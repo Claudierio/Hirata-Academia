@@ -9,20 +9,22 @@ import br.com.hirataacademia.basicas.Professor;
 import br.com.hirataacademia.cadastro.exception.ContadorNaoEncontradoException;
 import br.com.hirataacademia.cadastro.exception.ProfessorNaoEncontradoException;
 import br.com.hirataacademia.repositorios.RepositorioProfessor;
+
 @Service
 public class CadastroProfessor {
 	@Autowired
 	private RepositorioProfessor repositorioProfessor;
+
 	public Professor save(Professor entity) {
-		
+
 		return repositorioProfessor.save(entity);
 	}
-	
-	public List<Professor> findAll(){
-		
+
+	public List<Professor> findAll() {
+
 		return repositorioProfessor.findAll();
 	}
-	
+
 	public void deleteById(Long id) {
 		repositorioProfessor.deleteById(id);
 	}
@@ -30,10 +32,10 @@ public class CadastroProfessor {
 	public void delete(Professor entity) {
 		repositorioProfessor.delete(entity);
 	}
-	
-	public Professor findProfessorById(long id) throws ProfessorNaoEncontradoException {
-		
-		return repositorioProfessor.findById(id).orElseThrow(()->  new ProfessorNaoEncontradoException());
+
+	public Professor findProfessorById(long id) {
+
+		return repositorioProfessor.findById(id).orElseThrow(() -> new ProfessorNaoEncontradoException());
 	}
-	
+
 }

@@ -49,6 +49,7 @@ public class ContadorController {
 
 		academia.deleteContadorById(id);
 	}
+
 	@GetMapping("contador/{id}")
 	public Contador findContadorById(@PathVariable Long id) {
 		return academia.findContadorById(id);
@@ -59,20 +60,19 @@ public class ContadorController {
 
 		return academia.findAllContador();
 	}
-	
+
 	@PatchMapping("SalarioContador/salario")
 	public void atualizarSalarioContador(float novoSalario, Long id) {
 		Contador contador = findContadorById(id);
 		contador.setSalario(novoSalario);
 		academia.saveContador(contador);
-		
+
 	}
-	
+
 	@GetMapping("contador/lucroAnual")
 	public float calculoLucroAnual() {
-		
+
 		return academia.calculoLucroAnual();
 	}
-	
 
 }

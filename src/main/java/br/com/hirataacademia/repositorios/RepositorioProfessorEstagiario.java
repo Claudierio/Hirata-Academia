@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.com.hirataacademia.basicas.ProfessorEstagiario;
 
 @Repository
-public interface RepositorioProfessorEstagiario extends JpaRepository<ProfessorEstagiario, Long>{
+public interface RepositorioProfessorEstagiario extends JpaRepository<ProfessorEstagiario, Long> {
 
 }

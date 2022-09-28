@@ -15,22 +15,25 @@ public class Aluno extends Pessoa {
 	private double percentualGordura;
 	private String contato;
 
-	public Aluno(String nome, Date dataDeNascimento, String cpf, Endereco endereco) {
-		super(nome, dataDeNascimento, cpf, endereco);
+	public Aluno() {
+		super();
 
 	}
 
-	public Aluno(String nome, Date dataDeNascimento, String cpf, Endereco endereco, float imc, float peso, float altura,
-			double percentualGordura, String contato, long id) throws ValorNegativoException {
+	public Aluno(String nome, Date dataDeNascimento, String cpf, Endereco endereco, float peso, float altura,
+			double percentualGordura, String contato) throws ValorNegativoException {
 		super(nome, dataDeNascimento, cpf, endereco);
-		this.peso = peso;
-		this.altura = altura;
+		
 		if (peso <= 0 || altura <= 0) {
 			throw new ValorNegativoException("O peso ou altura estão errados");
 		}
-
+		
 		this.percentualGordura = percentualGordura;
 		this.contato = contato;
+		this.peso = peso;
+		this.altura = altura;
+		calcularImc();
+
 	}
 
 	public float getImc() {
@@ -52,6 +55,7 @@ public class Aluno extends Pessoa {
 		}
 
 		this.peso = peso;
+		calcularImc();
 
 	}
 
@@ -65,7 +69,7 @@ public class Aluno extends Pessoa {
 		}
 
 		this.altura = altura;
-		
+		calcularImc();
 	}
 
 	public double getPercentualGordura() {
@@ -84,6 +88,19 @@ public class Aluno extends Pessoa {
 		this.contato = contato;
 	}
 
+	private void calcularImc() {
+		imc = peso / (altura * altura);
+	}
+	
+
+	@Override
+	public String toString() {
+		return "Aluno [imc=" + imc + ", peso=" + peso + ", altura=" + altura + ", percentualGordura="
+				+ percentualGordura + ", contato=" + contato + ", getId()=" + getId() + ", getNome()=" + getNome()
+				+ ", getDataDeNascimento()=" + getDataDeNascimento() + ", getCpf()=" + getCpf() + ", getEndereco()="
+				+ getEndereco() + "]";
+	}
+	
 	
 
 }

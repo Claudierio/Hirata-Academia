@@ -43,6 +43,7 @@ public class ProfessorController {
 
 		academia.deleteProfessorById(id);
 	}
+
 	@GetMapping("FindProfessor/{id}")
 	public Professor findProfessorById(@PathVariable Long id) {
 		return academia.findProfessorById(id);
@@ -53,14 +54,13 @@ public class ProfessorController {
 
 		return academia.findAllProfessor();
 	}
-	
+
 	@PatchMapping("professor/salario")
 	public void atualizarSalarioProfessor(float novoSalario, Long id) {
 		Professor professor = findProfessorById(id);
 		professor.setSalario(novoSalario);
 		academia.saveProfessor(professor);
-		
+
 	}
-	
 
 }

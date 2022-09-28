@@ -8,6 +8,7 @@ public abstract class Pessoa {
 	private Date dataDeNascimento;
 	private long cpf;
 	private Endereco endereco;
+
 	public Pessoa(String nome, Date dataDeNascimento, long cpf, Endereco endereco) {
 		super();
 		this.nome = nome;
@@ -15,5 +16,5 @@ public abstract class Pessoa {
 		this.cpf = cpf;
 		this.endereco = endereco;
 	}
-	
+
 }

@@ -14,7 +14,7 @@ import br.com.hirataacademia.basicas.Despesa;
 import br.com.hirataacademia.basicas.Endereco;
 import br.com.hirataacademia.basicas.Equipamento;
 import br.com.hirataacademia.basicas.FichadeTreino;
-import br.com.hirataacademia.basicas.Gerente;
+import br.com.hirataacademia.basicas.Funcionario;
 import br.com.hirataacademia.basicas.Matricula;
 import br.com.hirataacademia.basicas.Modalidade;
 import br.com.hirataacademia.basicas.Pagamento;
@@ -28,7 +28,6 @@ import br.com.hirataacademia.cadastro.CadastroDespesa;
 import br.com.hirataacademia.cadastro.CadastroEndereco;
 import br.com.hirataacademia.cadastro.CadastroEquipamento;
 import br.com.hirataacademia.cadastro.CadastroFichadeTreino;
-import br.com.hirataacademia.cadastro.CadastroGerente;
 import br.com.hirataacademia.cadastro.CadastroMatricula;
 import br.com.hirataacademia.cadastro.CadastroModalidade;
 import br.com.hirataacademia.cadastro.CadastroPagamento;
@@ -36,10 +35,6 @@ import br.com.hirataacademia.cadastro.CadastroPlano;
 import br.com.hirataacademia.cadastro.CadastroProfessor;
 import br.com.hirataacademia.cadastro.CadastroProfessorEstagiario;
 import br.com.hirataacademia.cadastro.CadastroSala;
-import br.com.hirataacademia.cadastro.exception.ProfessorEstagiarioNaoEncontradoExcepetion;
-import br.com.hirataacademia.cadastro.exception.ProfessorNaoEncontradoException;
-import br.com.hirataacademia.fachada.exception.FormatacaoDataInvalida;
-import br.com.hirataacademia.fachada.exception.SalarioNegativoException;
 
 @Service
 public class Academia {
@@ -69,8 +64,6 @@ public class Academia {
 	private CadastroDespesa cadastroDespesa;
 	@Autowired
 	private CadastroFichadeTreino cadastroFichadeTreino;
-	@Autowired
-	private CadastroGerente cadastroGerente;
 
 	public Aluno saveAluno(Aluno entity) {
 		return cadastroAluno.save(entity);
@@ -163,26 +156,7 @@ public class Academia {
 	}
 
 	public Matricula saveMatricula(Matricula entity) {
-		Aluno aluno = findAlunoById(entity.getAluno().getId());
-		/*
-		for(Modalidade modalidade:entity.getModalidades()) {
-			switch(modalidade.getIntensidade()) {
-			case "Baixa":
-				if(aluno.getPeso()<60) {
-					//excecao
-				}
-				break;
-			case "Média":
-				if(aluno.getPeso()<70);
-				break;
-			case "Alta":
-				if(aluno.getPeso()<90);
-				break;
-				
-				
-			}
-		}
-		*/
+
 		return cadastroMatricula.save(entity);
 	}
 
@@ -392,27 +366,7 @@ public class Academia {
 		cadastroFichadeTreino.delete(entity);
 	}
 
-	public Gerente saveGerente(Gerente entity) {
-		return cadastroGerente.save(entity);
-	}
-
-	public List<Gerente> findAllGerente() {
-		return cadastroGerente.findAll();
-	}
-
-	public void deleteGerenteById(Long id) {
-		cadastroGerente.deleteById(id);
-	}
-
-	public void deleteGerente(Gerente entity) {
-		cadastroGerente.delete(entity);
-	}
-
-	public Gerente findGerenteById(Long id) {
-		return cadastroGerente.findGerenteById(id);
-	}
-
-	public float calculoLucroAnual() throws FormatacaoDataInvalida {
+	public float calculoLucroAnual() {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		float lucro = 0;
@@ -426,13 +380,13 @@ public class Academia {
 					+ pagamentos.stream().mapToDouble(x -> x.getMatricula().getPlano().getPreco()).sum());
 
 		} catch (ParseException e) {
-			throw new FormatacaoDataInvalida();
+			System.out.println("Erro ao formatar data");
 		}
 
 		return lucro;
 	}
 
-	public void efetivarEstagiario(Long id) throws ProfessorEstagiarioNaoEncontradoExcepetion {
+	public void efetivarEstagiario(Long id) {
 		ProfessorEstagiario estagiario = findProfessorEstagiarioById(id);
 		Professor professor = new Professor(estagiario.getNome(), estagiario.getDataDeNascimento(), estagiario.getCpf(),
 				estagiario.getEndereco(), estagiario.getId());
@@ -443,9 +397,6 @@ public class Academia {
 	public void atualizarSalarioContador(float novoSalario, Long id) throws Exception {
 		Contador contador = findContadorById(id);
 
-		if (novoSalario < 0) {
-			throw new SalarioNegativoException();
-		}
 		contador.setSalario(novoSalario);
 		cadastroContador.save(contador);
 
@@ -453,9 +404,7 @@ public class Academia {
 
 	public void atualizarSalarioProfessor(float novoSalario, Long id) throws Exception {
 		Professor professor = findProfessorById(id);
-		if (novoSalario < 0) {
-			throw new SalarioNegativoException();
-		}
+
 		professor.setSalario(novoSalario);
 		cadastroProfessor.save(professor);
 

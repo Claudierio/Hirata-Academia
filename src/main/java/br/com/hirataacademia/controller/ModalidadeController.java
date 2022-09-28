@@ -42,6 +42,7 @@ public class ModalidadeController {
 
 		academia.deleteModalidadeById(id);
 	}
+
 	@GetMapping("FindModalidade/{id}")
 	public Modalidade findModalidadeById(@PathVariable Long id) {
 		return academia.findModalidadeById(id);

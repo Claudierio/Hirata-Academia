@@ -4,7 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import br.com.hirataacademia.basicas.Equipamento;
+
 @Repository
-public interface RepositorioEquipamento extends JpaRepository<Equipamento, Long>{
+public interface RepositorioEquipamento extends JpaRepository<Equipamento, Long> {
 
 }

@@ -10,21 +10,21 @@ import br.com.hirataacademia.basicas.Endereco;
 import br.com.hirataacademia.cadastro.exception.EnderecoNaoEncontradoException;
 import br.com.hirataacademia.repositorios.RepositorioEndereco;
 
-
 @Service
 public class CadastroEndereco {
 	@Autowired
 	private RepositorioEndereco repositorioEndereco;
+
 	public Endereco save(Endereco entity) {
-		
+
 		return repositorioEndereco.save(entity);
 	}
-	
-	public List<Endereco> findAll(){
-		
+
+	public List<Endereco> findAll() {
+
 		return repositorioEndereco.findAll();
 	}
-	
+
 	public void deleteById(Long id) {
 		repositorioEndereco.deleteById(id);
 	}
@@ -32,8 +32,9 @@ public class CadastroEndereco {
 	public void delete(Endereco entity) {
 		repositorioEndereco.delete(entity);
 	}
-	public Endereco findEnderecoById(Long id) throws EnderecoNaoEncontradoException {
-		
-		return repositorioEndereco.findById(id).orElseThrow(()-> new EnderecoNaoEncontradoException());
+
+	public Endereco findEnderecoById(Long id) {
+
+		return repositorioEndereco.findById(id).orElseThrow(() -> new EnderecoNaoEncontradoException());
 	}
 }

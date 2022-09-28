@@ -6,17 +6,17 @@ import org.springframework.stereotype.Service;
 
 import br.com.hirataacademia.basicas.Plano;
 import br.com.hirataacademia.repositorios.RepositorioPlano;
+
 @Service
 class SecretarioTest {
 	@Autowired
 	private RepositorioPlano rp;
-	
 
 	@Test
 
 	void testInserirPlano() {
 
-		//rp.save(new Plano(100, "mensal", 0));
+		rp.save(new Plano(100, "mensal"));
 
 	}
 

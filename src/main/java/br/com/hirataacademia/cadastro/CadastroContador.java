@@ -32,10 +32,9 @@ public class CadastroContador {
 	public void delete(Contador entity) {
 		repositorioContador.delete(entity);
 	}
-	
-	public Contador findContadorById(long id) throws ContadorNaoEncontradoException {
-		return repositorioContador.findById(id).orElseThrow(()-> new ContadorNaoEncontradoException());
+
+	public Contador findContadorById(long id) {
+		return repositorioContador.findById(id).orElseThrow(() -> new ContadorNaoEncontradoException());
 	}
 
-	
 }

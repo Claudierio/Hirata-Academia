@@ -6,21 +6,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public  class Plano {
+public class Plano {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private float preco;
 	private String nome;
-	
+
 	public Plano() {
-		
+
 	}
 
 	public Plano(float preco, String nome) {
 		super();
 		this.preco = preco;
-		this.nome = nome;		
+		this.nome = nome;
 	}
 
 	public float getPreco() {
@@ -35,7 +35,9 @@ public  class Plano {
 		return id;
 	}
 
-	
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public String getNome() {
 		return nome;
@@ -44,7 +46,5 @@ public  class Plano {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-	
-}
 
+}

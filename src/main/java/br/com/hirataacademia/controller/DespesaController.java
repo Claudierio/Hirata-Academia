@@ -42,6 +42,7 @@ public class DespesaController {
 
 		academia.deleteDespesaById(id);
 	}
+
 	@GetMapping("FindDespesa/{id}")
 	public Despesa findDespesaById(@PathVariable Long id) {
 		return academia.findDespesaById(id);
@@ -54,4 +55,3 @@ public class DespesaController {
 	}
 
 }
-

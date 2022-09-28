@@ -5,8 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import br.com.hirataacademia.basicas.exception.EnderecoException;
-
 @Entity
 public class Endereco {
 	@Id
@@ -18,12 +16,13 @@ public class Endereco {
 	private String rua;
 	private String municipio;
 	private String uf;
+	
+	public Endereco() {
+		
+	}
 
 	public Endereco(String cep, String numero, String bairro, String rua, String municipio, String uf) {
 		super();
-		if(rua == bairro) {
-			throw new EnderecoException("Seu bairro e rua são iguais.");
-		}
 		this.cep = cep;
 		this.numero = numero;
 		this.bairro = bairro;
@@ -46,9 +45,6 @@ public class Endereco {
 	}
 
 	public void setRua(String rua) {
-		if (rua == bairro) {
-			throw new EnderecoException("Seu bairro e rua são iguais.");
-		}
 		this.rua = rua;
 	}
 
@@ -73,9 +69,6 @@ public class Endereco {
 	}
 
 	public void setBairro(String bairro) {
-		if (bairro == rua) {
-			throw new EnderecoException("Seu bairro é igual a sua rua.");
-		}
 		this.bairro = bairro;
 	}
 

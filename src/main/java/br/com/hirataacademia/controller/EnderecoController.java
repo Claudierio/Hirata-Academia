@@ -42,6 +42,7 @@ public class EnderecoController {
 
 		academia.deleteEnderecoById(id);
 	}
+
 	@GetMapping("FindEndereco/{id}")
 	public Endereco findEnderecoById(@PathVariable Long id) {
 		return academia.findEnderecobyId(id);

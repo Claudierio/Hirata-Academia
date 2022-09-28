@@ -42,6 +42,7 @@ public class PagamentoController {
 
 		academia.deletePagamentoById(id);
 	}
+
 	@GetMapping("FindPagamento/{id}")
 	public Pagamento findPagamentoById(@PathVariable Long id) {
 		return academia.findPagamentoById(id);

@@ -42,6 +42,7 @@ public class MatriculaController {
 
 		academia.deleteMatriculaById(id);
 	}
+
 	@GetMapping("FindMatricula/{id}")
 	public Matricula findMatriculaById(@PathVariable Long id) {
 		return academia.findMatriculaById(id);
