@@ -14,8 +14,8 @@ public class Professor extends Funcionario {
 
 	}
 	
-	public Professor(String nome, Date dataDeNascimento, String cpf, Endereco endereco, double salario, String turno, long cref) {
-		super(nome, dataDeNascimento, cpf, endereco, salario, turno);
+	public Professor(String nome, Date dataDeNascimento, String cpf, Endereco endereco, double salario, String turno, String contato, long cref) {
+		super(nome, dataDeNascimento, cpf, endereco, salario, contato, turno);
 		this.cref = cref;
 	}
 

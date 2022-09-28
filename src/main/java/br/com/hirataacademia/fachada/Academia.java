@@ -387,8 +387,7 @@ public class Academia {
 
 	public void efetivarEstagiario(Long id) {
 		ProfessorEstagiario estagiario = findProfessorEstagiarioById(id);
-		Professor professor = new Professor(estagiario.getNome(), estagiario.getDataDeNascimento(), estagiario.getCpf(),
-				estagiario.getEndereco(), estagiario.getId(), estagiario.getTurno(), 0); // valor 0, é o CREF
+		Professor professor = new Professor(estagiario.getNome(),estagiario.getDataDeNascimento(),estagiario.getCpf(),estagiario.getEndereco(),estagiario.getSalario(),estagiario.getTurno(),estagiario.getContato(), new Professor().getCref());
 		cadastroProfessor.save(professor);
 		cadastroProfessorEstagiario.deleteById(id);
 	}

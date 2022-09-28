@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 @Entity
 public class Contador extends Funcionario {
 
-	private long crc; // crc eh o conselho de um contador.
+	private long crc; 
 
 	public Contador() {
 		super();
@@ -16,8 +16,8 @@ public class Contador extends Funcionario {
 
 
 	
-	public Contador(String nome, Date dataDeNascimento, String cpf, Endereco endereco, double salario, String turno, long crc) {
-		super(nome, dataDeNascimento, cpf, endereco, salario, turno);
+	public Contador(String nome, Date dataDeNascimento, String cpf, Endereco endereco, double salario, String turno, String contato, long crc) {
+		super(nome, dataDeNascimento, cpf, endereco, salario, contato, turno);
 		this.crc = crc;
 	}
 
