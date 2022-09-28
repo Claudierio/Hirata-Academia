@@ -29,7 +29,7 @@ public class CadastroSala {
 	public void delete(Sala entity) {
 		repositorioSala.delete(entity);
 	}
-	public Sala findSalaById(Long id) {
+	public Sala findSalaById(Long id) throws SalaNaoEncontradaException {
 		
 		return repositorioSala.findById(id).orElseThrow(()-> new SalaNaoEncontradaException());
 	}

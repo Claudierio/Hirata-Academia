@@ -17,11 +17,10 @@ public  class Plano {
 		
 	}
 
-	public Plano(float preco, String nome, long id) {
+	public Plano(float preco, String nome) {
 		super();
 		this.preco = preco;
-		this.nome = nome;
-		this.id = id;
+		this.nome = nome;		
 	}
 
 	public float getPreco() {
@@ -36,9 +35,7 @@ public  class Plano {
 		return id;
 	}
 
-	public void setId(long id) {
-		this.id = id;
-	}
+	
 
 	public String getNome() {
 		return nome;

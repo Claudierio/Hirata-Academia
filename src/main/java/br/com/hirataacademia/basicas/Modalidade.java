@@ -18,12 +18,11 @@ public abstract class Modalidade {
 	private int duracao;
 	private String intensidade;
 	
-	public Modalidade(String nome, int duracao, String intensidade, long id) {
+	public Modalidade(String nome, int duracao, String intensidade) {
 		super();
 		this.nome = nome;
 		this.duracao = duracao;
 		this.intensidade = intensidade;
-		this.id = id;
 	}
 
 	public String getNome() {
@@ -36,6 +35,14 @@ public abstract class Modalidade {
 
 	public int getDuracao() {
 		return duracao;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public void setDuracao(int duracao) {

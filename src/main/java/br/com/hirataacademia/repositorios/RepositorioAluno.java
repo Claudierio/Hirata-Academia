@@ -7,4 +7,6 @@ import br.com.hirataacademia.basicas.Aluno;
 @Repository
 public interface RepositorioAluno extends JpaRepository<Aluno, Long>{
 	
+	public Aluno findByCpf(String cpf);
+	
 }

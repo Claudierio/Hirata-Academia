@@ -16,7 +16,7 @@ class SecretarioTest {
 
 	void testInserirPlano() {
 
-		rp.save(new Plano(100, "mensal", 0));
+		//rp.save(new Plano(100, "mensal", 0));
 
 	}
 

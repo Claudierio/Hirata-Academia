@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -30,24 +28,22 @@ public class Matricula {
 			@JoinColumn(name = "matricula_id") })
 	private List<Modalidade> modalidades;
 
-	public Matricula(long id, Plano plano, Aluno aluno, List<Modalidade> modalidades) {
+	public Matricula(Plano plano, Aluno aluno, List<Modalidade> modalidades) {
 		super();
-		this.id = id;
 		this.plano = plano;
 		this.aluno = aluno;
 		this.ativo = true;
 		this.modalidades = modalidades;
 	}
 
+	
+
+	
+
 	public long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	
 
 	public List<Modalidade> getModalidades() {
 		return modalidades;

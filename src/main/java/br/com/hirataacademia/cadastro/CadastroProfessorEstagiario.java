@@ -31,7 +31,7 @@ public class CadastroProfessorEstagiario {
 		repositorioProfessorEstagiario.delete(entity);
 	}
 	
-	public ProfessorEstagiario findProfessorEstagiarioById(long id) {
+	public ProfessorEstagiario findProfessorEstagiarioById(long id) throws ProfessorEstagiarioNaoEncontradoExcepetion {
 		
 		return repositorioProfessorEstagiario.findById(id).orElseThrow(()->  new ProfessorEstagiarioNaoEncontradoExcepetion());
 	}

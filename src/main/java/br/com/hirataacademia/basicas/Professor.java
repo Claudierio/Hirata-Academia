@@ -3,8 +3,6 @@ package br.com.hirataacademia.basicas;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 @Entity	
 public class Professor extends Funcionario{
 
@@ -12,13 +10,13 @@ public class Professor extends Funcionario{
 	
 	private long cref;
 	
-	public Professor(String nome, Date dataDeNascimento, String cpf, Endereco endereco, long id) {
-		super(nome, dataDeNascimento, cpf, endereco, id);
+	public Professor(String nome, Date dataDeNascimento, String cpf, Endereco endereco) {
+		super(nome, dataDeNascimento, cpf, endereco);
 		
 	}
 
-	public Professor(String nome, Date dataDeNascimento, String cpf, Endereco endereco, long cref, long id) {
-		super(nome, dataDeNascimento, cpf, endereco, id);
+	public Professor(String nome, Date dataDeNascimento, String cpf, Endereco endereco, long cref) {
+		super(nome, dataDeNascimento, cpf, endereco);
 		this.cref = cref;
 	}
 

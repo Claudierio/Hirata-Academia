@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import br.com.hirataacademia.basicas.exception.CpfException;
@@ -29,7 +28,7 @@ public abstract class Pessoa {
 	
 	
 	private Endereco endereco;
-	public Pessoa(long id,String nome, Date dataDeNascimento, String cpf, Endereco endereco) throws DataFuturaException,CpfException{
+	public Pessoa(String nome, Date dataDeNascimento, String cpf, Endereco endereco) throws DataFuturaException,CpfException{
 		super();
 		this.nome = nome;
 		if(dataDeNascimento.after(new Date())) {
@@ -41,7 +40,7 @@ public abstract class Pessoa {
 		}
 		this.cpf = cpf;
 		this.endereco = endereco;
-		this.id = id;
+		
 	}
 	public long getId() {
 		return id;
@@ -62,12 +61,13 @@ public abstract class Pessoa {
 		this.dataDeNascimento = dataDeNascimento;
 	}
 	public String getCpf() {
+		
+		return cpf;
+	}
+	public void setCpf(String cpf) throws CpfException {
 		if(cpf.length()>11 || cpf.length()<11) {
 			throw new CpfException("o cpf é inválido!");
 		}
-		return cpf;
-	}
-	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 	public Endereco getEndereco() {

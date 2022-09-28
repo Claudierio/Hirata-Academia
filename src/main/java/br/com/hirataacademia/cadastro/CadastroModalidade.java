@@ -31,7 +31,7 @@ public class CadastroModalidade {
 	public void delete(Modalidade entity) {
 		repositorioModalidade.delete(entity);
 	}
-	public Modalidade findModalidadeById(Long id) {
+	public Modalidade findModalidadeById(Long id) throws ModalidadeNaoEncontradaException{
 		
 		return repositorioModalidade.findById(id).orElseThrow(()-> new ModalidadeNaoEncontradaException());
 	}

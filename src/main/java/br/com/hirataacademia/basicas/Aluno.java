@@ -15,21 +15,20 @@ public class Aluno extends Pessoa {
 	private double percentualGordura;
 	private String contato;
 
-	public Aluno(String nome, Date dataDeNascimento, String cpf, Endereco endereco, long id) {
-		super(id, nome, dataDeNascimento, cpf, endereco);
+	public Aluno(String nome, Date dataDeNascimento, String cpf, Endereco endereco) {
+		super(nome, dataDeNascimento, cpf, endereco);
 
 	}
 
 	public Aluno(String nome, Date dataDeNascimento, String cpf, Endereco endereco, float imc, float peso, float altura,
-			double percentualGordura, String contato, long id) throws ValorNegativoException{
-		super(id, nome, dataDeNascimento, cpf, endereco);
+			double percentualGordura, String contato, long id) throws ValorNegativoException {
+		super(nome, dataDeNascimento, cpf, endereco);
 		this.peso = peso;
 		this.altura = altura;
-		if(peso <=0 || altura <=0) {
+		if (peso <= 0 || altura <= 0) {
 			throw new ValorNegativoException("O peso ou altura estão errados");
 		}
-		
-		calcularImc();
+
 		this.percentualGordura = percentualGordura;
 		this.contato = contato;
 	}
@@ -46,28 +45,27 @@ public class Aluno extends Pessoa {
 		return peso;
 	}
 
-	public void setPeso(float peso) throws ValorNegativoException{
-		
-		if(peso <= 0) {
+	public void setPeso(float peso) throws ValorNegativoException {
+
+		if (peso <= 0) {
 			throw new ValorNegativoException("O peso é negativo");
 		}
-		
+
 		this.peso = peso;
-		calcularImc();
-		
+
 	}
 
 	public float getAltura() {
 		return altura;
 	}
 
-	public void setAltura(float altura) throws ValorNegativoException{
-		if(altura <=0) {
+	public void setAltura(float altura) throws ValorNegativoException {
+		if (altura <= 0) {
 			throw new ValorNegativoException("A altura é negativa");
 		}
-		
+
 		this.altura = altura;
-		calcularImc();
+		
 	}
 
 	public double getPercentualGordura() {
@@ -86,9 +84,6 @@ public class Aluno extends Pessoa {
 		this.contato = contato;
 	}
 
-	private void calcularImc() {
-		imc = peso/(altura*altura);
-		
-	}
 	
+
 }

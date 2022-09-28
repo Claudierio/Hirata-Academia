@@ -18,7 +18,7 @@ import br.com.hirataacademia.repositorios.RepositorioPlano;
 
 
 @SpringBootApplication
-public class HirataAcademiaApplication implements CommandLineRunner{
+public class HirataAcademiaApplication{
 	@Autowired
 	private RepositorioPlano rp;
 	@Autowired
@@ -32,6 +32,7 @@ public class HirataAcademiaApplication implements CommandLineRunner{
 	public static void main(String[] args) {
 		SpringApplication.run(HirataAcademiaApplication.class, args);
 	}
+	/*
 	@Override
 	public void run(String... args) throws Exception {
 		Date hoje = new Date();
@@ -50,5 +51,5 @@ public class HirataAcademiaApplication implements CommandLineRunner{
 	//String nome, Date dataDeNascimento, long cpf, Endereco endereco, float imc, float peso, float altura,
 	//double percentualGordura, String contato,  long id)
 	
-	
+	*/
 }
