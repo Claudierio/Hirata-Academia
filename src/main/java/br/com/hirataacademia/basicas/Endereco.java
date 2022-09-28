@@ -13,16 +13,35 @@ public class Endereco {
 	private String cep;
 	private String numero;
 	private String bairro;
+	private String rua;
 	private String municipio;
 	private String uf;
 
-	public Endereco(String cep, String numero, String bairro, String municipio, String uf) {
+	public Endereco(String cep, String numero, String bairro, String rua, String municipio, String uf) {
 		super();
 		this.cep = cep;
 		this.numero = numero;
 		this.bairro = bairro;
+		this.rua = rua;
 		this.municipio = municipio;
 		this.uf = uf;
+		
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getRua() {
+		return rua;
+	}
+
+	public void setRua(String rua) {
+		this.rua = rua;
 	}
 
 	public String getCep() {
