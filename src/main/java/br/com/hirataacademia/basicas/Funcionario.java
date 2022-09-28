@@ -13,8 +13,8 @@ public abstract class Funcionario extends Pessoa {
 	private double salario;
 	private String turno;
 
-	public Funcionario(String nome, Date dataDeNascimento, String cpf, Endereco endereco) {
-		super(nome, dataDeNascimento, cpf, endereco);
+	public Funcionario() {
+		super();
 
 	}
 

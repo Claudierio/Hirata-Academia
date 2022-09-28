@@ -14,7 +14,6 @@ import br.com.hirataacademia.basicas.Despesa;
 import br.com.hirataacademia.basicas.Endereco;
 import br.com.hirataacademia.basicas.Equipamento;
 import br.com.hirataacademia.basicas.FichadeTreino;
-import br.com.hirataacademia.basicas.Funcionario;
 import br.com.hirataacademia.basicas.Matricula;
 import br.com.hirataacademia.basicas.Modalidade;
 import br.com.hirataacademia.basicas.Pagamento;
@@ -389,7 +388,7 @@ public class Academia {
 	public void efetivarEstagiario(Long id) {
 		ProfessorEstagiario estagiario = findProfessorEstagiarioById(id);
 		Professor professor = new Professor(estagiario.getNome(), estagiario.getDataDeNascimento(), estagiario.getCpf(),
-				estagiario.getEndereco(), estagiario.getId());
+				estagiario.getEndereco(), estagiario.getId(), estagiario.getTurno(), 0); // valor 0, é o CREF
 		cadastroProfessor.save(professor);
 		cadastroProfessorEstagiario.deleteById(id);
 	}

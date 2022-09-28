@@ -17,6 +17,10 @@ public class Equipamento {
 	private boolean necessidadeManutencao;
 	private Date dataAquisicao;
 
+	public Equipamento() {
+		
+	}
+	
 	public Equipamento(boolean necessidadeManutencao, Date dataAquisicao, long numeroRegistro) {
 		super();
 		this.necessidadeManutencao = necessidadeManutencao;

@@ -18,6 +18,10 @@ public abstract class Modalidade {
 	private int duracao;
 	private String intensidade;
 
+	public Modalidade() {
+		
+	}
+	
 	public Modalidade(String nome, int duracao, String intensidade) {
 		super();
 		this.nome = nome;

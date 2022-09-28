@@ -24,6 +24,10 @@ public class Sala {
 	@OneToOne(cascade = CascadeType.ALL)
 	private Modalidade modalidade;
 
+	public Sala() {
+		
+	}
+	
 	public Sala(List<Equipamento> arrayDeEquipamentos, Modalidade modalidade) {
 		super();
 		this.arrayDeEquipamentos = arrayDeEquipamentos;

@@ -19,6 +19,10 @@ public class Despesa {
 	private boolean paga;
 	private Date pagamento;
 
+	public Despesa() {
+		
+	}
+	
 	public Despesa(float valor, String descricao, Date data, boolean paga, Date pagamento) {
 		super();
 		this.valor = valor;
