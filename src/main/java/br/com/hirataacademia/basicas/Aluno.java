@@ -2,7 +2,10 @@ package br.com.hirataacademia.basicas;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import br.com.hirataacademia.basicas.exception.ValorNegativoException;
 
@@ -14,6 +17,9 @@ public class Aluno extends Pessoa {
 	private float altura;
 	private double percentualGordura;
 	private String contato;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "fichadeTreino_id")
+	private FichadeTreino treino;
 
 	public Aluno() {
 		super();
@@ -92,6 +98,14 @@ public class Aluno extends Pessoa {
 		imc = peso / (altura * altura);
 	}
 	
+	public FichadeTreino getTreino() {
+		return treino;
+	}
+
+	public void setTreino(FichadeTreino treino) {
+		this.treino = treino;
+	}
+	
 
 	@Override
 	public String toString() {
@@ -100,7 +114,23 @@ public class Aluno extends Pessoa {
 				+ ", getDataDeNascimento()=" + getDataDeNascimento() + ", getCpf()=" + getCpf() + ", getEndereco()="
 				+ getEndereco() + "]";
 	}
-	
+
+	public void adicionarTreinoA(Exercicio exercicio) {
+		treino.inserirTreinoA(exercicio);
+		
+	}
+
+	public void adicionarTreinoB(Exercicio exercicio) {
+		treino.inserirTreinoB(exercicio);
+		
+	}
+
+	public void adicionarTreinoC(Exercicio exercicio) {
+		treino.inserirTreinoB(exercicio);
+		
+	}
+
+
 	
 
 }

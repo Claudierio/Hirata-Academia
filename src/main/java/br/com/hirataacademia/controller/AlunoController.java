@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.hirataacademia.basicas.Aluno;
+import br.com.hirataacademia.basicas.Exercicio;
 import br.com.hirataacademia.fachada.Academia;
 
 @CrossOrigin(origins = "*")
@@ -52,6 +53,10 @@ public class AlunoController {
 	public List<Aluno> listAluno() {
 
 		return academia.findAllAluno();
+	}
+	@PostMapping("adicionarTreino")
+	public void adicionarTreinoA(@RequestBody Exercicio exercicio,@RequestBody Long id,@RequestBody String treino) {
+		academia.adicionarTreino(exercicio, id, treino);
 	}
 
 }

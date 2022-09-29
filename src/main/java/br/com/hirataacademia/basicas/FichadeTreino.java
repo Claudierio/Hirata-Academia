@@ -1,11 +1,14 @@
 package br.com.hirataacademia.basicas;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -14,28 +17,19 @@ public class FichadeTreino {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "fichadeTreino_id")
-
-	private Aluno aluno;
-
-	private String nomeAluno;
-	private int numeroExercicios;
-	private int numeroSeries;
-	private int duracao;
-	private String intensidade;
+	@JoinColumn(name="treino_a")
+	private Exercicio treinoA;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="treino_b")
+	private Exercicio treinoB;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="treino_c")
+	private Exercicio treinoC;
 	
 	public FichadeTreino() {
 		
 	}
 
-	public FichadeTreino(String nomeAluno, int numeroExercicios, int numeroSeries, int duracao, String intensidade) {
-		super();
-		this.nomeAluno = nomeAluno;
-		this.numeroExercicios = numeroExercicios;
-		this.numeroSeries = numeroSeries;
-		this.duracao = duracao;
-		this.intensidade = intensidade;
-	}
 
 	public long getId() {
 		return id;
@@ -44,53 +38,47 @@ public class FichadeTreino {
 	public void setId(long id) {
 		this.id = id;
 	}
-
-	public Aluno getAluno() {
-		return aluno;
+	
+	public void inserirTreinoA(Exercicio exercicio) {
+		//treinoA.add(exercicio);
+	}
+	public void inserirTreinoB(Exercicio exercicio) {
+		//treinoB.add(exercicio);
+	}
+	public void inserirTreinoC(Exercicio exercicio) {
+		//treinoC.add(exercicio);
 	}
 
-	public void setAluno(Aluno aluno) {
-		this.aluno = aluno;
+/*
+	public List<Exercicio> getTreinoA() {
+		return treinoA;
 	}
 
-	public String getNomeAluno() {
-		return nomeAluno;
+
+	public void setTreinoA(List<Exercicio> treinoA) {
+		this.treinoA = treinoA;
 	}
 
-	public void setNomeAluno(String nomeAluno) {
-		this.nomeAluno = nomeAluno;
+
+	public List<Exercicio> getTreinoB() {
+		return treinoB;
 	}
 
-	public int getNumeroExercicios() {
-		return numeroExercicios;
+
+	public void setTreinoB(List<Exercicio> treinoB) {
+		this.treinoB = treinoB;
 	}
 
-	public void setNumeroExercicios(int numeroExercicios) {
-		this.numeroExercicios = numeroExercicios;
+
+	public List<Exercicio> getTreinoC() {
+		return treinoC;
 	}
 
-	public int getNumeroSeries() {
-		return numeroSeries;
-	}
 
-	public void setNumeroSeries(int numeroSeries) {
-		this.numeroSeries = numeroSeries;
+	public void setTreinoC(List<Exercicio> treinoC) {
+		this.treinoC = treinoC;
 	}
-
-	public int getDuracao() {
-		return duracao;
-	}
-
-	public void setDuracao(int duracao) {
-		this.duracao = duracao;
-	}
-
-	public String getIntensidade() {
-		return intensidade;
-	}
-
-	public void setIntensidade(String intensidade) {
-		this.intensidade = intensidade;
-	}
-
+	
+	
+*/
 }

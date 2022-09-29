@@ -39,11 +39,6 @@ public class CadastroFichadeTreino {
 
 	public void editarTreino(FichadeTreino entity) {
 		FichadeTreino ficha = findFichadeTreinoById(entity.getId());
-		ficha.setDuracao(entity.getDuracao());
-		ficha.setIntensidade(entity.getIntensidade());
-		ficha.setNomeAluno(entity.getNomeAluno());
-		ficha.setNumeroExercicios(entity.getNumeroExercicios());
-		ficha.setNumeroSeries(entity.getNumeroSeries());
 		repositorioFichadeTreino.save(ficha);
 
 	}

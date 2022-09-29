@@ -13,6 +13,7 @@ import br.com.hirataacademia.basicas.Contador;
 import br.com.hirataacademia.basicas.Despesa;
 import br.com.hirataacademia.basicas.Endereco;
 import br.com.hirataacademia.basicas.Equipamento;
+import br.com.hirataacademia.basicas.Exercicio;
 import br.com.hirataacademia.basicas.FichadeTreino;
 import br.com.hirataacademia.basicas.Matricula;
 import br.com.hirataacademia.basicas.Modalidade;
@@ -405,7 +406,22 @@ public class Academia {
 
 		professor.setSalario(novoSalario);
 		cadastroProfessor.save(professor);
+	}
+	
+	public void adicionarTreino(Exercicio exercicio, Long id, String treino) {
+		Aluno aluno = cadastroAluno.findAlunoById(id);
+		
+		if(treino.equals('a')) {
+			aluno.adicionarTreinoA(exercicio);
+		}
+		if(treino.equals('b')) {
+			aluno.adicionarTreinoB(exercicio);
+		}
+		if(treino.equals('c')) {
+			aluno.adicionarTreinoC(exercicio);
+		}
 
+		
 	}
 
 }
