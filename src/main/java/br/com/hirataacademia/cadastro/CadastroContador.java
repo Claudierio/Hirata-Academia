@@ -1,7 +1,6 @@
 package br.com.hirataacademia.cadastro;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,7 +32,7 @@ public class CadastroContador {
 		repositorioContador.delete(entity);
 	}
 
-	public Contador findContadorById(long id) {
+	public Contador findContadorById(long id) throws ContadorNaoEncontradoException {
 		return repositorioContador.findById(id).orElseThrow(() -> new ContadorNaoEncontradoException());
 	}
 

@@ -34,7 +34,7 @@ public class CadastroMatricula {
 		repositorioMatricula.delete(entity);
 	}
 
-	public Matricula findMatriculaById(Long id) {
+	public Matricula findMatriculaById(Long id) throws MatriculaNaoEncontradaException {
 
 		return repositorioMatricula.findById(id).orElseThrow(() -> new MatriculaNaoEncontradaException());
 	}

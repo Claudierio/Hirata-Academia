@@ -32,7 +32,7 @@ public class CadastroPlano {
 		repositorioPlano.delete(entity);
 	}
 
-	public Plano findPlanoById(Long id) {
+	public Plano findPlanoById(Long id) throws PlanoNaoEncontradoException {
 
 		return repositorioPlano.findById(id).orElseThrow(() -> new PlanoNaoEncontradoException());
 	}

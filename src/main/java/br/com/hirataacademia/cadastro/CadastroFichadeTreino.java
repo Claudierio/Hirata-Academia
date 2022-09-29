@@ -32,7 +32,7 @@ public class CadastroFichadeTreino {
 		repositorioFichadeTreino.delete(entity);
 	}
 
-	public FichadeTreino findFichadeTreinoById(long id) {
+	public FichadeTreino findFichadeTreinoById(long id) throws FichadeTreinoNaoEncontradaException {
 
 		return repositorioFichadeTreino.findById(id).orElseThrow(() -> new FichadeTreinoNaoEncontradaException());
 	}

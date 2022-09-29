@@ -33,7 +33,7 @@ public class CadastroEndereco {
 		repositorioEndereco.delete(entity);
 	}
 
-	public Endereco findEnderecoById(Long id) {
+	public Endereco findEnderecoById(Long id) throws EnderecoNaoEncontradoException{
 
 		return repositorioEndereco.findById(id).orElseThrow(() -> new EnderecoNaoEncontradoException());
 	}

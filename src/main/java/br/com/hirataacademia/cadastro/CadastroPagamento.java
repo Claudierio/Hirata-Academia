@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.hirataacademia.basicas.Pagamento;
+import br.com.hirataacademia.cadastro.exception.DataPagamentoException;
 import br.com.hirataacademia.cadastro.exception.PagamentoNaoEncontradoException;
 import br.com.hirataacademia.repositorios.RepositorioPagamento;
 
@@ -33,12 +34,16 @@ public class CadastroPagamento {
 		repositorioPagamento.delete(entity);
 	}
 
-	public List<Pagamento> listarPagamentoPorIntervalo(Date inicio, Date fim) {
-
+	public List<Pagamento> listarPagamentoPorIntervalo(Date inicio, Date fim) throws DataPagamentoException {
+	
+		if(inicio.after(fim)) {
+			throw new DataPagamentoException();
+		}
+		
 		return repositorioPagamento.listarPagamentoPorIntervalo(inicio, fim);
 	}
 
-	public Pagamento findPagamentoById(Long id) {
+	public Pagamento findPagamentoById(Long id) throws PagamentoNaoEncontradoException {
 
 		return repositorioPagamento.findById(id).orElseThrow(() -> new PagamentoNaoEncontradoException());
 	}

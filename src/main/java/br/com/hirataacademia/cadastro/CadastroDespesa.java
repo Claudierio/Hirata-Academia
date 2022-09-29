@@ -39,12 +39,9 @@ public class CadastroDespesa {
 		return repositorioDespesa.listarDespesaPorIntervalo(inicio, fim);
 	}
 
-	public Despesa findDespesaById(Long id) {
+	public Despesa findDespesaById(Long id) throws DespesaNaoEncontradaException {
 
 		return repositorioDespesa.findById(id).orElseThrow(() -> new DespesaNaoEncontradaException());
 	}
 }
 
-//exceptions 
-//testes 
-//regras de negocio

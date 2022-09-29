@@ -34,7 +34,7 @@ public class CadastroEquipamento {
 		repositorioEquipamento.delete(entity);
 	}
 
-	public Equipamento findEquipamentoById(Long id) {
+	public Equipamento findEquipamentoById(Long id) throws EquipamentoNaoEncontradoException {
 
 		return repositorioEquipamento.findById(id).orElseThrow(() -> new EquipamentoNaoEncontradoException());
 	}

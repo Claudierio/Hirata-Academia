@@ -69,18 +69,23 @@ public abstract class Pessoa {
 		return dataDeNascimento;
 	}
 
-	public void setDataDeNascimento(Date dataDeNascimento) {
+	public void setDataDeNascimento(Date dataDeNascimento) throws DataFuturaException {
+		if (dataDeNascimento.after(new Date())) {
+			throw new DataFuturaException("Data impossível!");
+		}
+		
 		this.dataDeNascimento = dataDeNascimento;
 	}
 
 	public String getCpf() {
-		if (cpf.length() > 11 || cpf.length() < 11) {
-			throw new CpfException("o cpf é inválido!");
-		}
+		
 		return cpf;
 	}
 
 	public void setCpf(String cpf) {
+		if (cpf.length() > 11 || cpf.length() < 11) {
+			throw new CpfException("o cpf é inválido!");
+		}
 		this.cpf = cpf;
 	}
 
