@@ -125,7 +125,6 @@
               </router-link> 
             </ul>
           </div>
-
         </div>
       </section>
 

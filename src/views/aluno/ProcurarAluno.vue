@@ -1,6 +1,7 @@
 <template>
   <div class="main-container">
     <v-card>
+      <br><br><br>
       <v-card-title>
         <v-text-field
           v-model="search"
@@ -12,7 +13,7 @@
       </v-card-title>
       <v-data-table
         :headers="headers"
-        :items="desserts"
+        :items="alunos"
         :search="search"
       ></v-data-table>
     </v-card>
@@ -20,7 +21,7 @@
 </template>
 
 <script>
-//import 
+import AlunoService from '@/service/AlunoService';
   export default {
     data () {
       return {
@@ -30,16 +31,16 @@
         {text:'ID', value:'id'},
         {text:'Nome', value:'nome'},
         {text:'CPF', value:'cpf'},
-        {text:'Telefone', value:'telefone'},
-        {text:'Cidade', value:'Endereco.cidade'},
-        {text:'UF', value:'Endereco.estado'},
+        {text:'Telefone', value:'contato'},
+        {text:'Cidade', value:'endereco.municipio'},
+        {text:'UF', value:'endereco.uf'},
 
         ],
       }
     },
-    /*methods: {
+    methods: {
       loadAll(){
-        ContadorService.getAll().then(
+        AlunoService.getAll().then(
           response => {
             this.alunos = response.data;
           }
@@ -48,6 +49,6 @@
     },
     mounted() {
       this.loadAll();
-    }*/
+    }
   }
 </script>

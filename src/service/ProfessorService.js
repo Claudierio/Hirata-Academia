@@ -16,7 +16,7 @@ class ProfessorService{
     findById(id){
         return http.get(`/FindProfessor/${id}`)
     }
-    atualizar(data){
+    atualizar(data, id){
         return http.get(`professorEstagiario/${id}`, data)
     }
 

@@ -1,6 +1,7 @@
 <template>
   <div class="main-container">
     <v-card>
+      <br><br><br>
       <v-card-title>
         <v-text-field
           v-model="search"
@@ -12,7 +13,7 @@
       </v-card-title>
       <v-data-table
         :headers="headers"
-        :items="desserts"
+        :items="contadores"
         :search="search"
       ></v-data-table>
     </v-card>
@@ -20,7 +21,7 @@
 </template>
 
 <script>
-//import ContadorService from '@/services/ContadorService'
+import ContadorService from '@/service/ContadorService';
   export default {
     data () {
       return {
@@ -31,14 +32,15 @@
         {text:'CRC', value:'crc'},
         {text:'Nome', value:'nome'},
         {text:'CPF', value:'cpf'},
-        {text:'Telefone', value:'telefone'},
-        {text:'Cidade', value:'Endereco.cidade'},
-        {text:'UF', value:'Endereco.estado'},
+        {text:'Telefone', value:'contato'},
+        {text:'Cidade', value:'endereco.municipio'},
+        {text:'UF', value:'endereco.uf'},
+        {text:'Salario', value:'salario'},
 
         ],
       }
     },
-    /*methods: {
+    methods: {
       loadAll(){
         ContadorService.getAll().then(
           response => {
@@ -49,6 +51,6 @@
     },
     mounted() {
       this.loadAll();
-    }*/
+    }
   }
 </script>

@@ -1,6 +1,7 @@
 <template>
   <div class="main-container">
     <v-card>
+      <br><br><br>
       <v-card-title>
         <v-text-field
           v-model="search"
@@ -12,7 +13,7 @@
       </v-card-title>
       <v-data-table
         :headers="headers"
-        :items="desserts"
+        :items="professores_Estagiarios"
         :search="search"
       ></v-data-table>
     </v-card>
@@ -20,35 +21,35 @@
 </template>
 
 <script>
-//import ContadorService from '@/services/ContadorService'
+import ProfessorEstagiarioService from '@/service/ProfessorEstagiarioService';
   export default {
     data () {
       return {
         search: '',
-        ProfsEstagiarios: [],
+        professores_Estagiarios: [],
         headers: [
         {text:'ID', value:'id'},
-        {text:'Inicio Estagio', value:'estagio'},
         {text:'Nome', value:'nome'},
         {text:'CPF', value:'cpf'},
-        {text:'Telefone', value:'telefone'},
-        {text:'Cidade', value:'Endereco.cidade'},
-        {text:'UF', value:'Endereco.estado'},
+        {text:'Telefone', value:'contato'},
+        {text:'Cidade', value:'endereco.municipio'},
+        {text:'UF', value:'endereco.uf'},
+        {text:'Salario', value:'salario'},
 
         ],
       }
     },
-    /*methods: {
+    methods: {
       loadAll(){
-        ContadorService.getAll().then(
+        ProfessorEstagiarioService.getAll().then(
           response => {
-            this.ProfsEstagiarios = response.data;
+            this.professores_Estagiarios = response.data;
           }
         )
       },
     },
     mounted() {
       this.loadAll();
-    }*/
+    }
   }
 </script>

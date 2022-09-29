@@ -34,7 +34,6 @@ export default {
     box-sizing: border-box;
   }
   .main-container { /*Como essa classe  já está em dois componentes eu já posso utiliza-lo no meu app, assim eu não tenho uma replicação de estilo*/
-    margin: 50px;
     min-height: 250px;
   }
   h1 { /*Todos os h1 da página virão com essa configuração */

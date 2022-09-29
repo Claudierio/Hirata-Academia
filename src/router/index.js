@@ -12,12 +12,12 @@ const routes = [
   },
   {
     path: '/AreaAluno',
-    name: 'Area Aluno',
+    name: 'AreaAluno',
     component: () => import( '../views/Area_aluno.vue')
   },
   {
     path: '/AreaEfetivo',
-    name: 'Area Efetivo',
+    name: 'AreaEfetivo',
     component: () => import( '../views/Area_Efetivo.vue')
   },
 
@@ -28,62 +28,62 @@ const routes = [
   },
   {
     path: '/CadastrarProfessor',
-    name: 'Cadastrar Professor',
+    name: 'CadastrarProfessor',
     component: () => import( '../views/Gerencia/CadastrarProfessor.vue')
   },
   {
     path: '/ProcurarProfessor',
-    name: 'Procurar Professor',
+    name: 'ProcurarProfessor',
     component: () => import( '../views/Gerencia/ProcuraProfessor.vue')
   },
   {
     path: '/AtualizarProfessor',
-    name: 'Atualizar Professor',
+    name: 'AtualizarProfessor',
     component: () => import( '../views/Gerencia/AtualizarProfessor.vue')
   },
   {
     path: '/DemitirProfessor',
-    name: 'Demitir Professor',
+    name: 'DemitirProfessor',
     component: () => import( '../views/Gerencia/DemitirProfessor.vue')
   },
   {
     path: '/CadastrarProfEstagiario',
-    name: 'Cadastrar Professor Estagiario',
+    name: 'CadastrarProfessorEstagiario',
     component: () => import( '../views/Gerencia/CadastroProfEstagio.vue')
   },
   {
     path: '/ProcurarProfEstagiario',
-    name: 'Procurar Professor Estagiario',
+    name: 'ProcurarProfessorEstagiario',
     component: () => import( '../views/Gerencia/ProcurarProfEstagio.vue')
   },
   {
     path: '/EfetivarProfEstagio',
-    name: 'Efetivar Professor Estagiario',
+    name: 'EfetivarProfessorEstagiario',
     component: () => import( '../views/Gerencia/EfetivarprofEstagio.vue')
   },
   {
     path: '/DemitirProfEstagiario',
-    name: 'Procurar Professor Estagiario',
+    name: 'ProcurarProfessorEstagiario',
     component: () => import( '../views/Gerencia/DemitirProfEstagio.vue')
   },
   {
     path: '/CadastrarAluno',
-    name: 'Cadastrar Aluno',
+    name: 'CadastrarAluno',
     component: () => import( '../views/aluno/CadastrarAluno.vue')
   },
   {
     path: '/ProcurarAluno',
-    name: 'Procurar Aluno',
+    name: 'ProcurarAluno',
     component: () => import( '../views/aluno/ProcurarAluno.vue')
   },
   {
     path: '/AtualizarAluno',
-    name: 'Atualizar Aluno',
+    name: 'AtualizarAluno',
     component: () => import( '../views/aluno/AtualizarAluno.vue')
   },
   {
     path: '/RemoverAluno',
-    name: 'Remover Aluno',
+    name: 'RemoverAluno',
     component: () => import( '../views/aluno/RemoverAluno.vue')
   },
   {
@@ -93,32 +93,32 @@ const routes = [
   },
   {
     path: '/CadastrarContador',
-    name: 'Cadastrar Aluno',
+    name: 'CadastrarContador',
     component: () => import( '../views/Contador/Cadastrar_Cont.vue')
   },
   {
     path: '/ProcurarContador',
-    name: 'Procurar Contador',
+    name: 'ProcurarContador',
     component: () => import( '../views/Contador/ProcurarCont.vue')
   },
   {
     path: '/AtualizarContador',
-    name: 'Atualizar Contador',
+    name: 'AtualizarContador',
     component: () => import( '../views/Contador/AtualizarCont.vue')
   },
   {
     path: '/DemitirCont',
-    name: 'Demitir Contador',
+    name: 'DemitirContador',
     component: () => import( '../views/Contador/DemitirCont.vue')
   },
   {
     path: '/CriarFichaTreino1',
-    name: 'Criar Ficha Treino',
+    name: 'CriarFichaTreino',
     component: () => import( '../views/Professor/CriarFichaTreino1.vue')
   },
   {
     path: '/CriarFichaTreino2',
-    name: 'Criar Ficha Treino2',
+    name: 'CriarFichaTreino2',
     component: () => import( '../views/Professor/CriarFichaTreino2.vue')
   },
   

@@ -1,63 +1,76 @@
 <template>
-
   <body class="form-v10">
     <div class="page-content">
       <div class="form-v10-content">
-        <form class="form-detail" action="#" method="post" id="myform">
+        <form class="form-detail" id="myform">
           <div class="form-left">
             <h2>Cadastrar Aluno</h2>
             <div class="form-row">
-              <input type="text" name="primeiro_nome" id="primeiro_nome" class="input-text" placeholder="Nome" required>
+              <input type="text" v-model="aluno.nome" name="primeiro_nome" id="primeiro_nome" class="input-text"
+                placeholder="Nome" required>
               <span class="select-btn">
                 <i class="zmdi zmdi-chevron-down"></i>
               </span>
             </div>
             <div class="form-group">
               <div class="form-row form-row-1">
-                <input type="text" name="cpf" id="cpf" class="input-text" placeholder="CPF" required>
+                <input type="text" maxlength="11" minlength="11" v-model="aluno.cpf" name="cpf" id="cpf"
+                  class="input-text" placeholder="CPF" required>
               </div>
               <div class="form-row form-row-2">
-                <input type="date" name="date" class="date" id="date" placeholder="Data de Nascimento"
-                  value="2010-06-01" required>
+                <input type="date" v-model="aluno.dataDeNascimento" name="date" class="date" id="date"
+                  placeholder="Data de Nascimento" value="2010-06-01" required>
               </div>
             </div>
             <div class="form-row">
-              <input type="text" name="imc" id="imc" class="input-text" placeholder="IMC">
-              <span class="select-btn">
-                <i class="zmdi zmdi-chevron-down"></i>
-              </span>
-            </div>
-            <div class="form-row">
-              <input type="text" name="percentual_gordura" class="percentual_gordura" id="percentual_gordura"
-                placeholder="Percentual de Gordura" required>
+              <input type="text" v-model="aluno.percentualGordura" name="percentual_gordura" class="percentual_gordura"
+                id="percentual_gordura" placeholder="Percentual de Gordura" required>
             </div>
             <div class="form-group">
               <div class="form-row form-row-3">
-                <input type="text" name="peso" class="peso" id="peso" placeholder="Peso" required>
+                <input type="text" v-model="aluno.peso" name="peso" class="peso" id="peso" placeholder="Peso" required>
               </div>
               <div class="form-row form-row-4">
-                <input type="text" name="altura" class="altura" id="altura" placeholder="Altura" required>
+                <input type="text" v-model="aluno.altura" name="altura" class="altura" id="altura" placeholder="Altura"
+                  required>
                 <span class="select-btn">
                   <i class="zmdi zmdi-chevron-down"></i>
                 </span>
               </div>
             </div>
+            <div class="form-row color='#ffff' ">
+              
+              <select name="title">
+                <option class="option" value="title">Planos</option>
+                <option class="option" value="diurno">Mensal</option>
+                <option class="option" value="noturno">Trimestral</option>
+                <option class="option" value="noturno">Anual</option>
+              </select>
+              <span class="select-btn">
+                <i class="zmdi zmdi-chevron-down"></i>
+              </span>
+            </div>
+
+
           </div>
           <div class="form-right">
             <h2>Detalhes</h2>
             <div class="form-row">
-              <input type="text" name="street" class="street" id="street" placeholder="Rua" required>
+              <input type="text" v-model="aluno.endereco.rua" name="rua" class="rua" id="rua" placeholder="Rua"
+                required>
             </div>
             <div class="form-row">
-              <input type="text" name="bairro" class="bairro" id="bairro"
+              <input type="text" v-model="aluno.endereco.bairro" name="bairro" class="bairro" id="bairro"
                 placeholder="Bairro" required>
             </div>
             <div class="form-group">
               <div class="form-row form-row-1">
-                <input type="text" name="cep" class="cep" id="cep" placeholder="CEP" required>
+                <input type="text" v-model="aluno.endereco.cep" name="cep" class="cep" id="cep" placeholder="CEP"
+                  required>
               </div>
               <div class="form-row form-row-2">
-                <input type="text" name="numero" class="numero" id="numero" placeholder="Número da casa" required>
+                <input type="text" v-model="aluno.endereco.numero" name="numero" class="numero" id="numero"
+                  placeholder="Número da casa" required>
                 <span class="select-btn">
                   <i class="zmdi zmdi-chevron-down"></i>
                 </span>
@@ -65,22 +78,22 @@
             </div>
             <div class="form-group">
               <div class="form-row form-row-1">
-                <input type="text" name="uf" class="uf" id="uf" placeholder="UF" required>
+                <input type="text" v-model="aluno.endereco.uf" name="uf" class="uf" id="uf" placeholder="UF" required>
               </div>
               <div class="form-row form-row-2">
-                <input type="text" name="cidade" class="cidade" id="cidade" placeholder="Cidade" required>
+                <input type="text" v-model="aluno.endereco.municipio" name="cidade" class="cidade" id="cidade"
+                  placeholder="Cidade" required>
               </div>
             </div>
             <div class="form-row">
-              <input type="text" name="telefone_celular" id="telefone_celular" class="input-text" required
-                 placeholder="Telefone Celular">
+              <input type="text" v-model="aluno.contato" name="telefone_celular" id="telefone_celular"
+                class="input-text" required placeholder="Telefone Celular">
             </div>
             <div class="form-row-last">
               <button>
-                <v-btn color="black" dark @click="cadastrar"> Cadastrar
-                  <v-icon right dark>mdi-checkbox-marked-circle</v-icon>
-                </v-btn>
+                <input type="submit" @click="cadastrar" name="register" class="register" value="Cadastrar">
               </button>
+
             </div>
           </div>
         </form>
@@ -93,25 +106,58 @@
 
 <script>
 import AlunoService from '@/service/AlunoService';
-export default {
+import { reactive } from 'vue';
 
+export default {
+  data: () => ({
+    aluno: reactive({
+      nome: '',
+      cpf: '',
+      dataDeNascimento: '',
+      contato: '',
+      percentualGordura: '',
+      peso: '',
+      altura: '',
+
+
+      endereco: {
+        numero: '',
+        municipio: '',
+        uf: '',
+        rua: '',
+        cep: '',
+        bairro: '',
+      }
+
+    }),
+  }),
   methods: {
     cadastrar() {
-      console.log(this.pessoa)
-      AlunoService.create(this.pessoa).then(
-        response => { console.log(response.status), alert("Deu certo");}).catch(e => {
-          console.log(e.response.data.message);
-          alert(e.response.data.message);
-          
-        });
+      console.log(this.aluno)
+      AlunoService.create(this.aluno).then(response => {
+        console.log(response.status),
+          alert("Deu certoooo")
+        this.continuar()
+      }).catch(e => {
+        console.log(e.response.data.message);
+        alert(e.response.data.message)
+      })
+
+
+    },
+    continuar() {
+      this.$router.push({ name: '/CadastrarAluno' });
     }
   },
-
-
 
 }
 </script>
   
+
+
+
+
+
 
 
 <style>

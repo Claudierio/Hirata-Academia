@@ -3,32 +3,36 @@
   <body class="form-v10">
     <div class="page-content">
       <div class="form-v10-content">
-        <form class="form-detail" action="#" method="post" id="myform">
+        <form class="form-detail" id="myform">
           <div class="form-left">
             <h2>Cadastrar Professor</h2>
             <div class="form-row">
-              <input type="text" name="primeiro_nome" id="primeiro_nome" class="input-text" placeholder="Nome" required>
+              <input type="text" v-model="professor.nome" name="primeiro_nome" id="primeiro_nome" class="input-text"
+                placeholder="Nome" required>
               <span class="select-btn">
                 <i class="zmdi zmdi-chevron-down"></i>
               </span>
             </div>
             <div class="form-group">
               <div class="form-row form-row-1">
-                <input type="text" name="cpf" id="cpf" class="input-text" placeholder="CPF" required>
+                <input type="text" maxlength="11" minlength="11" v-model="professor.cpf" name="cpf" id="cpf"
+                  class="input-text" placeholder="CPF" required>
               </div>
               <div class="form-row form-row-2">
-                <input type="date" name="date" class="date" id="date" placeholder="Data de Nascimento"
-                  value="2010-06-01" required>
+                <input type="date" v-model="professor.dataDeNascimento" name="date" class="date" id="date"
+                  placeholder="Data de Nascimento" value="2010-06-01" required>
               </div>
             </div>
             <div class="form-row">
-              <input type="text" name="cref" id="cref" class="input-text" placeholder="CREF" required>
+              <input type="text" v-model="professor.cref" name="cref" id="cref" class="input-text" placeholder="CREF"
+                required>
               <span class="select-btn">
                 <i class="zmdi zmdi-chevron-down"></i>
               </span>
             </div>
             <div class="form-row color='#ffff' ">
-              <select name="title">
+              <label for="name">Turno</label>
+              <select name="title" v-model="professor.turno">
                 <option class="option" value="title">Turno</option>
                 <option class="option" value="diurno">Diurno</option>
                 <option class="option" value="noturno">Noturno</option>
@@ -37,22 +41,29 @@
                 <i class="zmdi zmdi-chevron-down"></i>
               </span>
             </div>
+            <div class="form-row form-row-2">
+              <input type="text" v-model="professor.salario" name="salario" id="salario"
+                class="input-text" required placeholder="Salario">
+            </div>
           </div>
           <div class="form-right">
             <h2>Detalhes</h2>
             <div class="form-row">
-              <input type="text" name="street" class="street" id="street" placeholder="Rua" required>
+              <input type="text" v-model="professor.endereco.rua" name="street" class="street" id="street"
+                placeholder="Rua" required>
             </div>
             <div class="form-row">
-              <input type="text" name="bairro" class="bairro" id="bairro"
+              <input type="text" v-model="professor.endereco.bairro" name="bairro" class="bairro" id="bairro"
                 placeholder="Bairro" required>
             </div>
             <div class="form-group">
               <div class="form-row form-row-1">
-                <input type="text" name="cep" class="cep" id="cep" placeholder="CEP" required>
+                <input type="text" v-model="professor.endereco.cep" name="cep" class="cep" id="cep" placeholder="CEP"
+                  required>
               </div>
               <div class="form-row form-row-2">
-                <input type="text" name="numero" class="numero" id="numero" placeholder="Número" required>
+                <input type="text" v-model="professor.endereco.numero" name="numero" class="numero" id="numero"
+                  placeholder="Número" required>
                 <span class="select-btn">
                   <i class="zmdi zmdi-chevron-down"></i>
                 </span>
@@ -60,18 +71,22 @@
             </div>
             <div class="form-group">
               <div class="form-row form-row-1">
-                <input type="text" name="uf" class="uf" id="uf" placeholder="UF" required>
+                <input type="text" v-model="professor.endereco.uf" name="uf" class="uf" id="uf" placeholder="UF"
+                  required>
               </div>
               <div class="form-row form-row-2">
-                <input type="text" name="cidade" class="cidade" id="cidade" placeholder="Cidade" required>
+                <input type="text" v-model="professor.endereco.municipio" name="cidade" class="cidade" id="cidade"
+                  placeholder="Cidade" required>
               </div>
             </div>
             <div class="form-row">
-              <input type="text" name="telefone_celular" id="telefone_celular" class="input-text" required
-                 placeholder="Telefone Celular">
+              <input type="text" v-model="professor.contato" name="telefone_celular" id="telefone_celular" class="input-text" required
+                placeholder="Telefone Celular">
             </div>
             <div class="form-row-last">
-              <input type="submit" name="register" class="register" value="Cadastrar">
+              <button>
+                <input type="submit" @click="cadastrar" name="register" class="register" value="Cadastrar">
+              </button>
             </div>
           </div>
         </form>
@@ -79,6 +94,56 @@
     </div>
   </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </template>
+
+<script>
+import ProfessorService from '@/service/ProfessorService';
+import { reactive } from 'vue';
+
+export default {
+  data: () => ({
+    professor: reactive({
+      nome: '',
+      cpf: '',
+      dataDeNascimento: '',
+      contato: '',
+      cref: '',
+      turno: '',
+      salario: '',
+
+      endereco: {
+        numero: '',
+        municipio: '',
+        uf: '',
+        rua: '',
+        cep: '',
+        bairro: '',
+      }
+
+    }),
+    turno: ['diurno', 'noturno']
+  }),
+  methods: {
+    cadastrar() {
+      console.log(this.professor)
+      ProfessorService.create(this.professor).then(response => {
+        console.log(response.status),
+          alert("Deu certoooo")
+        this.continuar()
+      }).catch(e => {
+        console.log(e.response.data.message);
+        alert(e.response.data.message)
+      })
+
+
+    },
+    continuar() {
+      this.$router.push({ name: '/CadastrarProfessor' });
+    }
+  },
+
+}
+</script>
+
   
 <style>
 body {
