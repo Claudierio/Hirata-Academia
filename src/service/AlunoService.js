@@ -6,7 +6,7 @@ class AlunoService{
     }
     
     update(data){
-        return http.get("/UpdateAluno",data)
+        return http.get('/UpdateAluno', data)
     }
     create(data){
         return http.post('/CreateAluno', data)

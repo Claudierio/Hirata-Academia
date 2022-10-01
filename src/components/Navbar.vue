@@ -135,26 +135,6 @@ export default {
         to: "/AtualizarContador",
       },
       {
-        title: "Remover Aluno ",
-        icon: "mdi-account-remove",
-        to: "/RemoverAluno",
-      },
-      {
-        title: "Demitir Professor ",
-        icon: "mdi-account-remove",
-        to: "/DemitirProfessor",
-      },
-      {
-        title: "Demitir Professor Estagiário",
-        icon: "mdi-account-remove",
-        to: "/DemitirProfEstagiario",
-      },
-      {
-        title: "Demitir Contador",
-        icon: "mdi-account-remove",
-        to: "/DemitirCont",
-      },
-      {
         title: "Calculo Lucro Anual",
         icon: "mdi-account-cash",
         to: "/CalculoLucroAnual",
