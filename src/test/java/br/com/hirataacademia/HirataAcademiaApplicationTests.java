@@ -14,11 +14,11 @@ class HirataAcademiaApplicationTests {
 	
 	
 	
-	@Test
+	/*@Test
 	void calcularImcTest() {
 		Aluno aluno = new Aluno("filipe", new Date(), "78546325941", null, 56.2f, 1.54f, 25.0, "9878695635"  );
 		assertEquals(aluno.getImc(),23.697,0.001);
-	}
+	}*/
 	
 	/*@Test
 	void efetivarEstagiarioSalarioTest() {
