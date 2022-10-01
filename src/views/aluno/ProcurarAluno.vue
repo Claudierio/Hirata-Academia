@@ -6,7 +6,7 @@
         <v-text-field
           v-model="search"
           append-icon="mdi-magnify"
-          label="Search"
+          label="Procurar Aluno"
           single-line
           hide-details
         ></v-text-field>
@@ -25,7 +25,7 @@ import AlunoService from '@/service/AlunoService';
   export default {
     data () {
       return {
-        search: '',
+        procurar: '',
         alunos: [],
         headers: [
         {text:'ID', value:'id'},

@@ -1,5 +1,6 @@
 <template>
     <div class="main-container">
+      <br><br><br>
         <section class="pricing_table">
         <h1>NOSSOS PLANOS</h1>
         <div class="pricing_card">
@@ -14,6 +15,9 @@
               <li><i class="fas fa-check"></i>Vestiários com duchas</li>
               <li><i class="fas fa-check"></i>Acesso ao plano de treino no site</li>
               <v-divider></v-divider>
+              <router-link id="" to="/CadastrarAluno">
+                <button class="btn">Saiba Mais</button>
+              </router-link>  
             </ul>
           </div>
 
@@ -30,6 +34,9 @@
               <v-divider></v-divider>
               <li><i class="fas fa-check"></i>Congelamento para férias, pausas e recessos: 30 dias.</li>
             </ul>
+            <router-link id="" to="/CadastrarAluno">
+                <button class="btn">Saiba Mais</button>
+              </router-link>  
           </div>
 
           <div class="pricing_box">
@@ -48,6 +55,9 @@
               <li><i class="fas fa-check"></i>Aulas de Body Combat. *Consultar grade</li>
               <li><i class="fas fa-check"></i>4 diárias ao mês para trazer um acompanhante nos treinos. *Não cumulativo</li>
             </ul>
+            <router-link id="" to="/CadastrarAluno">
+                <button class="btn">Saiba Mais</button>
+              </router-link>  
           </div>
 
         </div>

@@ -15,11 +15,6 @@ const routes = [
     name: 'AreaAluno',
     component: () => import( '../views/Area_aluno.vue')
   },
-  {
-    path: '/AreaEfetivo',
-    name: 'AreaEfetivo',
-    component: () => import( '../views/Area_Efetivo.vue')
-  },
 
   {
     path: '/planos',

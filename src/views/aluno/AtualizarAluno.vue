@@ -3,7 +3,7 @@
     <br><br><br>
     <v-data-table :headers="headers" :items="desserts" sort-by="calories" class="elevation-1">
       <template v-slot:top>
-       
+
         <v-toolbar flat>
           <v-toolbar-title>Atualizar Aluno</v-toolbar-title>
           <v-divider class="mx-4" inset vertical></v-divider>
@@ -22,15 +22,15 @@
                       </v-text-field>
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
-                      <v-text-field v-model="editedItem.contato" :rules="telefoneRules"
-                        type="text" label="Contato"></v-text-field>
+                      <v-text-field v-model="editedItem.contato" :rules="telefoneRules" type="text" label="Contato">
+                      </v-text-field>
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field v-model="editedItem.endereco.municipio" :rules="cidadeRules" label="Municipio">
                       </v-text-field>
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
-                      <v-text-field  v-model="editedItem.endereco.uf" label="UF">
+                      <v-text-field v-model="editedItem.endereco.uf" label="UF">
                       </v-text-field>
                     </v-col>
 
@@ -168,7 +168,7 @@ export default {
       );
     },
     editItem(item) {
-      
+
       this.editedIndex = this.desserts.indexOf(item)
       this.editedItem = Object.assign({}, item)
       this.dialog = true
@@ -197,7 +197,7 @@ export default {
         this.editedItem = Object.assign({}, this.defaultItem)
         this.editedIndex = -1
       })
-    }, 
+    },
     closeDelete() {
       this.dialogDelete = false
       this.$nextTick(() => {

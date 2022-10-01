@@ -6,7 +6,7 @@
         <v-text-field
           v-model="search"
           append-icon="mdi-magnify"
-          label="Search"
+          label="Procurar Professor"
           single-line
           hide-details
         ></v-text-field>

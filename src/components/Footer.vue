@@ -23,7 +23,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    /*position: absolute;*/
+    position: relative;
     bottom: 0;
     width: 100%;
   }
