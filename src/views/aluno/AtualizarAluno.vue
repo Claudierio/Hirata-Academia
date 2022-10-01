@@ -3,11 +3,12 @@
     <br><br><br>
     <v-data-table :headers="headers" :items="desserts" sort-by="calories" class="elevation-1">
       <template v-slot:top>
+       
         <v-toolbar flat>
           <v-toolbar-title>Atualizar Aluno</v-toolbar-title>
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
-          <v-dialog v-model="dialog" max-width="500px">
+          <v-dialog v-model="dialog" max-width="500px" color="black">
             <v-card>
               <v-card-title>
                 <span class="text-h5">{{ formTitle }}</span>
@@ -167,6 +168,7 @@ export default {
       );
     },
     editItem(item) {
+      
       this.editedIndex = this.desserts.indexOf(item)
       this.editedItem = Object.assign({}, item)
       this.dialog = true
@@ -195,7 +197,7 @@ export default {
         this.editedItem = Object.assign({}, this.defaultItem)
         this.editedIndex = -1
       })
-    },
+    }, 
     closeDelete() {
       this.dialogDelete = false
       this.$nextTick(() => {
@@ -209,7 +211,7 @@ export default {
         Object.assign(this.desserts[this.editedIndex], this.editedItem)
 
         console.log(this.editedItem)
-        AlunoService.update(this.desserts[this.editedIndex].id, this.editedItem).then(
+        AlunoService.update(this.editedItem).then(
           response => {
             alert("Aluno Atualizado com Sucesso!"),
               console.log(response.status);
