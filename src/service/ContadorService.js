@@ -19,6 +19,18 @@ class ContadorService{
     lucro(){
         return http.get('contador/lucroAnual')
     }
+    totalAluno(){
+        return http.get('contador/totalAlunos')
+    }
+    totalMensal(){
+        return http.get('contador/totalMensal')
+    }
+    totalTrimestral(){
+        return http.get('contador/totalTrimestral')
+    }
+    totalAnual(){
+        return http.get('contador/totalAnual')
+    }
     updatesalario(){
         return http.get('SalarioContador/salario')
     }

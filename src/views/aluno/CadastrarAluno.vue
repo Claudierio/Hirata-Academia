@@ -1,4 +1,5 @@
 <template>
+
   <body class="form-v10">
     <div class="page-content">
       <div class="form-v10-content">
@@ -39,18 +40,16 @@
               </div>
             </div>
             <div class="form-row color='#ffff' ">
-              
-              <select name="title">
-                <option class="option" value="title">Planos</option>
-                <option class="option" value="diurno">Mensal</option>
-                <option class="option" value="noturno">Trimestral</option>
-                <option class="option" value="noturno">Anual</option>
+              <label for="name">Plano</label>
+              <select v-model="aluno.plano" name="title">
+                <option class="option" value="mensal">Mensal</option>
+                <option class="option" value="trimestral">Trimestral</option>
+                <option class="option" value="anual">Anual</option>
               </select>
               <span class="select-btn">
                 <i class="zmdi zmdi-chevron-down"></i>
               </span>
             </div>
-
 
           </div>
           <div class="form-right">
@@ -119,6 +118,8 @@ export default {
       peso: '',
       altura: '',
 
+      
+
 
       endereco: {
         numero: '',
@@ -127,9 +128,14 @@ export default {
         rua: '',
         cep: '',
         bairro: '',
+      },
+
+      treino: {
+        descricao: '',
       }
 
     }),
+    plano: ['mensal', 'trimestral', 'anual']
   }),
   methods: {
     cadastrar() {

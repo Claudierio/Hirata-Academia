@@ -1,316 +1,252 @@
 <template>
   <div class="main-container">
     <br><br><br>
-    <v-container fluid>
-    <v-data-iterator
-      :items="items"
-      :items-per-page.sync="itemsPerPage"
-      :page.sync="page"
-      :search="search"
-      :sort-by="sortBy.toLowerCase()"
-      :sort-desc="sortDesc"
-      hide-default-footer
-    >
-      <template v-slot:header>
-        <v-toolbar
-          dark
-          color="blue darken-3"
-          class="mb-1"
-        >
-          <v-text-field
-            v-model="search"
-            clearable
-            flat
-            solo-inverted
-            hide-details
-            prepend-inner-icon="mdi-magnify"
-            label="Search"
-          ></v-text-field>
-          <template v-if="$vuetify.breakpoint.mdAndUp">
-            <v-spacer></v-spacer>
-            <v-select
-              v-model="sortBy"
-              flat
-              solo-inverted
-              hide-details
-              :items="keys"
-              prepend-inner-icon="mdi-magnify"
-              label="Sort by"
-            ></v-select>
-            <v-spacer></v-spacer>
-            <v-btn-toggle
-              v-model="sortDesc"
-              mandatory
-            >
-              <v-btn
-                large
-                depressed
-                color="blue"
-                :value="false"
-              >
-                <v-icon>mdi-arrow-up</v-icon>
-              </v-btn>
-              <v-btn
-                large
-                depressed
-                color="blue"
-                :value="true"
-              >
-                <v-icon>mdi-arrow-down</v-icon>
-              </v-btn>
-            </v-btn-toggle>
-          </template>
-        </v-toolbar>
-      </template>
-
-      <template v-slot:default="props">
-        <v-row>
-          <v-col
-            v-for="item in props.items"
-            :key="item.name"
-            cols="12"
-            sm="6"
-            md="4"
-            lg="3"
-          >
-            <v-card>
-              <v-card-title class="subheading font-weight-bold">
-                {{ item.name }}
-              </v-card-title>
-
-              <v-divider></v-divider>
-
-              <v-list dense>
-                <v-list-item
-                  v-for="(key, index) in filteredKeys"
-                  :key="index"
-                >
-                  <v-list-item-content :class="{ 'blue--text': sortBy === key }">
-                    {{ key }}:
-                  </v-list-item-content>
-                  <v-list-item-content
-                    class="align-end"
-                    :class="{ 'blue--text': sortBy === key }"
-                  >
-                    {{ item[key.toLowerCase()] }}
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list>
-            </v-card>
-          </v-col>
-        </v-row>
-      </template>
-
-      <template v-slot:footer>
-        <v-row
-          class="mt-2"
-          justify="center"
-        >
-          <span class="grey--text">Items per page</span>
-          <v-menu offset-y>
+    <v-data-table :headers="headers" :items="desserts" sort-by="calories" class="elevation-1">
+      <template v-slot:top>
+        <v-toolbar flat>
+          <v-toolbar-title>Informações do Aluno</v-toolbar-title>
+          <v-divider class="mx-4" inset vertical></v-divider>
+          <v-spacer></v-spacer>
+          <v-dialog v-model="dialog" max-width="500px">
             <template v-slot:activator="{ on, attrs }">
-              <v-btn
-                dark
-                text
-                color="primary"
-                class="ml-2"
-                v-bind="attrs"
-                v-on="on"
-              >
-                {{ itemsPerPage }}
-                <v-icon>mdi-chevron-down</v-icon>
+              <v-btn color="primary" dark class="mb-2" v-bind="attrs" @click="CadastrarAluno" v-on="on">
+                Cadastrar Novo aluno
               </v-btn>
             </template>
-            <v-list>
-              <v-list-item
-                v-for="(number, index) in itemsPerPageArray"
-                :key="index"
-                @click="updateItemsPerPage(number)"
-              >
-                <v-list-item-title>{{ number }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
+            <v-card>
+              <v-card-title>
+                <span class="text-h5">{{ formTitle }}</span>
+              </v-card-title>
 
-          <v-spacer></v-spacer>
+              <v-card-text>
+                <v-container>
+                  <v-row>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-text-field v-model="editedItem.nome" :rules="nameRules" label="Nome">
+                      </v-text-field>
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-text-field v-model="editedItem.contato" :rules="telefoneRules"
+                        type="text" label="Contato"></v-text-field>
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-text-field v-model="editedItem.endereco.municipio" :rules="cidadeRules" label="Municipio">
+                      </v-text-field>
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-text-field  v-model="editedItem.endereco.uf" label="UF">
+                      </v-text-field>
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-text-field v-model="editedItem.treino.descricao" :rules="treinoRules" label="Treino">
+                      </v-text-field>
+                    </v-col>
 
-          <span
-            class="mr-4
-            grey--text"
-          >
-            Page {{ page }} of {{ numberOfPages }}
-          </span>
-          <v-btn
-            fab
-            dark
-            color="blue darken-3"
-            class="mr-1"
-            @click="formerPage"
-          >
-            <v-icon>mdi-chevron-left</v-icon>
-          </v-btn>
-          <v-btn
-            fab
-            dark
-            color="blue darken-3"
-            class="ml-1"
-            @click="nextPage"
-          >
-            <v-icon>mdi-chevron-right</v-icon>
-          </v-btn>
-        </v-row>
+                  </v-row>
+                </v-container>
+
+              </v-card-text>
+
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="blue darken-1" text @click="close">
+                  Cancelar
+                </v-btn>
+                <v-btn color="blue darken-1" text @click="save">
+                  Salvar
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+          <v-dialog v-model="dialogDelete" max-width="530px">
+            <v-card>
+              <v-card-title class="text-h9">Você tem certeza que deseja remover esse Aluno?</v-card-title>
+            </v-card>
+          </v-dialog>
+        </v-toolbar>
+
       </template>
-    </v-data-iterator>
-  </v-container>
-  </div>
+      <template v-slot:[`item.actions`]="{ item }">
+        <v-icon small class="mr-2" @click="editItem(item)">
+          mdi-pencil
+        </v-icon>
+        <v-icon small @click="deleteItem(item)">
+          mdi-delete
+        </v-icon>
+      </template>
+      <template v-slot:no-data>
+        <v-btn color="primary" @click="initialize">
+          Resetar
+        </v-btn>
 
+      </template>
+
+    </v-data-table>
+  </div>
 </template>
 
-
 <script>
-  export default {
-    data () {
-      return {
-        itemsPerPageArray: [4, 8, 12],
-        search: '',
-        filter: {},
-        sortDesc: false,
-        page: 1,
-        itemsPerPage: 4,
-        sortBy: 'name',
-        keys: [
-          'Treino de Perna',
-          'Agachamento',
-          'Leg_Press',
-          'Extensora',
-          'Stiff',
-          'Mesa_flexora',
-          'Extensora_lombar',
-          'Panturrilha',
+import AlunoService from '@/service/AlunoService'
+export default {
+  data: () => ({
+    dialog: false,
+    dialogDelete: false,
+    search: '',
+    headers: [
+      { text: 'ID', value: 'id' },
+      { text: 'Nome', value: 'nome' },
+      { text: 'CPF', value: 'cpf' },
+      { text: 'Telefone', value: 'contato' },
+      { text: 'Cidade', value: 'endereco.municipio' },
+      { text: 'UF', value: 'endereco.uf' },
+      { text: 'Plano', value: 'plano'},
+      { text: 'Treino', value: 'treino.descricao'},
+    ],
+    nameRules: [
+      v => !!v || 'Campo Obrigatorio',
+      v => !!v.length || 'Campo Obrigatorio',
+      v => v.length >= 4 && v != null || 'Informe seu nome completo',
+    ],
+    telefoneRules: [
+      v => !!v || 'Campo Obrigatorio',
+      v => v.length >= 15 && v.length <= 15 && v != null || 'Telefone Invalido',
+    ],
+    cidadeRules: [
+      v => !!v || 'Campo Obrigatorio',
+      v => v.length > 0 && v != null || 'Informe o nome completo',
+    ],
+    ruaRules: [
+      v => !!v || 'Campo Obrigatorio',
+      v => v.length > 0 && v != null || 'Informe o nome completo',
+    ],
+    treinoRules: [
+      v => !!v || 'Campo Obrigatorio',
+      v => v.length > 0 && v != null || 'Informe o treino completo',
+    ],
+    desserts: [],
+    editedIndex: -1,
+    editedItem: {
 
-        ],
-        items: [
-          {
-            name: 'Frozen Yogurt',
-            Agachamento: 159,
-            Leg_Press: 6.0,
-            Extensora: 24,
-            Stiff: 4.0,
-            Mesa_flexora: 87,
-            Extensora_lombar: '14%',
-            Panturrilha: '1%',
-          },
-          {
-            name: 'Ice cream sandwich',
-            calories: 237,
-            fat: 9.0,
-            carbs: 37,
-            protein: 4.3,
-            sodium: 129,
-            calcium: '8%',
-            iron: '1%',
-          },
-          {
-            name: 'Eclair',
-            calories: 262,
-            fat: 16.0,
-            carbs: 23,
-            protein: 6.0,
-            sodium: 337,
-            calcium: '6%',
-            iron: '7%',
-          },
-          {
-            name: 'Legday',
-            calories: 305,
-            fat: 3.7,
-            carbs: 67,
-            protein: 4.3,
-            sodium: 413,
-            calcium: '3%',
-            iron: '8%',
-          },
-          {
-            name: 'Gingerbread',
-            calories: 356,
-            fat: 16.0,
-            carbs: 49,
-            protein: 3.9,
-            sodium: 327,
-            calcium: '7%',
-            iron: '16%',
-          },
-          {
-            name: 'Jelly bean',
-            calories: 375,
-            fat: 0.0,
-            carbs: 94,
-            protein: 0.0,
-            sodium: 50,
-            calcium: '0%',
-            iron: '0%',
-          },
-          {
-            name: 'Lollipop',
-            calories: 392,
-            fat: 0.2,
-            carbs: 98,
-            protein: 0,
-            sodium: 38,
-            calcium: '0%',
-            iron: '2%',
-          },
-          {
-            name: 'Honeycomb',
-            calories: 408,
-            fat: 3.2,
-            carbs: 87,
-            protein: 6.5,
-            sodium: 562,
-            calcium: '0%',
-            iron: '45%',
-          },
-          {
-            name: 'Donut',
-            calories: 452,
-            fat: 25.0,
-            carbs: 51,
-            protein: 4.9,
-            sodium: 326,
-            calcium: '2%',
-            iron: '22%',
-          },
-          {
-            name: 'KitKat',
-            calories: 518,
-            fat: 26.0,
-            carbs: 65,
-            protein: 7,
-            sodium: 54,
-            calcium: '12%',
-            iron: '6%',
-          },
-        ],
+      nome: '',
+      telefone: '',
+      cpf: '',
+      endereco: {
+        municipio: '',
+        uf: '',
+      },
+      treino: {
+        descricao: '',
       }
     },
-    computed: {
-      numberOfPages () {
-        return Math.ceil(this.items.length / this.itemsPerPage)
+    defaultItem: {
+
+      nome: '',
+      cpf: '',
+      telefone: '',
+      endereco: {
+        municipio: '',
+        uf: '',
       },
-      filteredKeys () {
-        return this.keys.filter(key => key !== 'Name')
-      },
+      treino: {
+        descricao: '',
+      }
     },
-    methods: {
-      nextPage () {
-        if (this.page + 1 <= this.numberOfPages) this.page += 1
-      },
-      formerPage () {
-        if (this.page - 1 >= 1) this.page -= 1
-      },
-      updateItemsPerPage (number) {
-        this.itemsPerPage = number
-      },
+  }),
+  computed: {
+    formTitle() {
+      return this.editedIndex === -1 ? 'New Item' : 'Editar Aluno'
     },
+  },
+  watch: {
+    dialog(val) {
+      val || this.close()
+    },
+    dialogDelete(val) {
+      val || this.closeDelete()
+    },
+  },
+  created() {
+    this.initialize()
+  },
+  methods: {
+    initialize() {
+      this.desserts = [
+      ]
+    },
+    loadAll() {
+      AlunoService.getAll().then(
+        response => {
+          this.desserts = response.data;
+        }
+      );
+    },
+    editItem(item) {
+      this.editedIndex = this.desserts.indexOf(item)
+      this.editedItem = Object.assign({}, item)
+      this.dialog = true
+    },
+    deleteItem(item) {
+      this.editedIndex = this.desserts.indexOf(item)
+      this.editedItem = Object.assign({}, item)
+      this.dialogDelete = true
+
+    },
+    deleteItemConfirm() {
+
+      AlunoService.deleteById(this.desserts[this.editedIndex].id).then(
+        response => {
+          alert("Aluno Removido com Sucesso!")
+          console.log(response.status);
+        });
+      this.desserts.splice(this.editedIndex, 1)
+
+      this.closeDelete()
+    },
+    close() {
+
+      this.dialog = false
+      this.$nextTick(() => {
+        this.editedItem = Object.assign({}, this.defaultItem)
+        this.editedIndex = -1
+      })
+    },
+    closeDelete() {
+      this.dialogDelete = false
+      this.$nextTick(() => {
+        this.editedItem = Object.assign({}, this.defaultItem)
+        this.editedIndex = -1
+      })
+    },
+    save() {
+
+      if (this.editedIndex > -1) {
+        Object.assign(this.desserts[this.editedIndex], this.editedItem)
+
+        console.log(this.editedItem)
+        AlunoService.update(this.editedItem).then(
+          response => {
+            alert("Aluno Atualizado com Sucesso!"),
+              console.log(response.status);
+          }).catch(e => {
+            console.log(e.response.data.message);
+            alert(e.response.data.message);
+
+          });
+      } else {
+        this.desserts.push(this.editedItem)
+      }
+
+
+      this.close()
+    },
+    CadastrarAluno() {
+      this.$router.push({ name: 'CadastrarAluno' });
+    },
+  },
+  mounted() {
+    this.loadAll();
+
   }
+
+}
 </script>
