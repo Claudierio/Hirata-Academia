@@ -12,6 +12,7 @@ import br.com.hirataacademia.basicas.exception.ValorNegativoException;
 @Entity
 public class Aluno extends Pessoa {
 
+	private String plano;
 	private float imc;
 	private float peso;
 	private float altura;
@@ -27,7 +28,7 @@ public class Aluno extends Pessoa {
 	}
 
 	public Aluno(String nome, Date dataDeNascimento, String cpf, Endereco endereco, float peso, float altura,
-			double percentualGordura, String contato) throws ValorNegativoException {
+			double percentualGordura, String contato, String plano) throws ValorNegativoException {
 		super(nome, dataDeNascimento, cpf, endereco);
 		
 		if (peso <= 0 || altura <= 0) {
@@ -39,6 +40,7 @@ public class Aluno extends Pessoa {
 		this.peso = peso;
 		this.altura = altura;
 		calcularImc();
+		this.plano = plano;
 
 	}
 
@@ -92,6 +94,14 @@ public class Aluno extends Pessoa {
 
 	public void setContato(String contato) {
 		this.contato = contato;
+	}
+
+	public String getPlano() {
+		return plano;
+	}
+
+	public void setPlano(String plano) {
+		this.plano = plano;
 	}
 
 	private void calcularImc() {
