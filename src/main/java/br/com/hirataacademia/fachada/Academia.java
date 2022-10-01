@@ -422,25 +422,69 @@ public class Academia {
 		cadastroGerente.delete(entity);
 	}
 
-	public float calculoLucroAnual() throws FormatacaoDataInvalidaException {
+	public int totalAlunos() {
+        int total = 0;
+        for (Aluno b : cadastroAluno.findAll()) {
+            if (b != null){
+                total+=1;
+            }
+                
+            
+        }
+        return total;
+    }
+    
+    public int totalMensal() {
+        int total = 0;
+        for (Aluno b : cadastroAluno.findAll()) {
+            if (b.getPlano().equals("mensal")){
+                total+=1;
+            }
+                        
+        }
+        return total;
+    }
+    
+    public int totalTrimestral() {
+        int total = 0;
+        for (Aluno b : cadastroAluno.findAll()) {
+            if (b.getPlano().equals("trimestral")){
+                total+=1;
+            }
+                        
+        }
+        return total;
+    }
+    
+    public int totalAnual() {
+        int total = 0;
+        for (Aluno b : cadastroAluno.findAll()) {
+            if (b.getPlano().equals("anual")){
+                total+=1;
+            }
+                        
+        }
+        return total;
+    }
+    
 
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		float lucro = 0;
-		try {
-			List<Despesa> despesas = cadastroDespesa.listarDespesaPorIntervalo(
-					sdf.parse(LocalDate.now().getYear() + "-01-01"), sdf.parse(LocalDate.now().getYear() + "-12-31"));
-			List<Pagamento> pagamentos = cadastroPagamento.listarPagamentoPorIntervalo(
-					sdf.parse(LocalDate.now().getYear() + "-01-01"), sdf.parse(LocalDate.now().getYear() + "-12-31"));
-
-			lucro = (float) (-despesas.stream().mapToDouble(x -> x.getValor()).sum()
-					+ pagamentos.stream().mapToDouble(x -> x.getMatricula().getPlano().getPreco()).sum());
-
-		} catch (ParseException e) {
-			throw new FormatacaoDataInvalidaException();
-		}
-
-		return lucro;
-	}
+    public float calculoLucroAnual() {
+        float total = 0;
+        for (Aluno a : cadastroAluno.findAll()) {
+            switch(a.getPlano()) {
+            case "mensal":
+                total += 120;
+                break;
+            case "trimestral":
+                total += 100*3;
+                break;
+            case "anual":
+                total += 80*12; 
+                
+            }
+        }
+        return total;
+    }
 
 	public void efetivarEstagiario(Long id) throws ProfessorEstagiarioNaoEncontradoExcepetion {
 		ProfessorEstagiario estagiario = findProfessorEstagiarioById(id);

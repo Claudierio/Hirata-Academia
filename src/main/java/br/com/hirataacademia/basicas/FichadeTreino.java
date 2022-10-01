@@ -16,15 +16,8 @@ public class FichadeTreino {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="treino_a")
-	private Exercicio treinoA;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="treino_b")
-	private Exercicio treinoB;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="treino_c")
-	private Exercicio treinoC;
+	private String descricao;
+	
 	
 	public FichadeTreino() {
 		
@@ -39,6 +32,18 @@ public class FichadeTreino {
 		this.id = id;
 	}
 	
+	
+	
+	public String getDescricao() {
+		return descricao;
+	}
+
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+
 	public void inserirTreinoA(Exercicio exercicio) {
 		//treinoA.add(exercicio);
 	}

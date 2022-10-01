@@ -69,10 +69,28 @@ public class ContadorController {
 
 	}
 
-	@GetMapping("contador/lucroAnual")
-	public float calculoLucroAnual() {
+	@GetMapping("contador/totalAlunos")
+    public int totalAlunos() {
+        return academia.totalAlunos();
+    }
+    @GetMapping("contador/totalMensal")
+    public int totalMensal() {
+        return academia.totalMensal();
+    }
+    @GetMapping("contador/totalTrimestral")
+    public int totalTrimestral() {
+        return academia.totalTrimestral();
+    }
+    @GetMapping("contador/totalAnual")
+    public int totalAnual() {
+        return academia.totalAnual();
+    }
+    
 
-		return academia.calculoLucroAnual();
-	}
+    @GetMapping("contador/lucroAnual")
+    public float calculoLucroAnual() {
+
+        return academia.calculoLucroAnual();
+    }
 
 }
