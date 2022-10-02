@@ -1,8 +1,5 @@
 package br.com.hirataacademia.fachada;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +10,6 @@ import br.com.hirataacademia.basicas.Contador;
 import br.com.hirataacademia.basicas.Despesa;
 import br.com.hirataacademia.basicas.Endereco;
 import br.com.hirataacademia.basicas.Equipamento;
-import br.com.hirataacademia.basicas.Exercicio;
 import br.com.hirataacademia.basicas.FichadeTreino;
 import br.com.hirataacademia.basicas.Gerente;
 import br.com.hirataacademia.basicas.Matricula;
@@ -37,7 +33,6 @@ import br.com.hirataacademia.cadastro.CadastroPlano;
 import br.com.hirataacademia.cadastro.CadastroProfessor;
 import br.com.hirataacademia.cadastro.CadastroProfessorEstagiario;
 import br.com.hirataacademia.cadastro.CadastroSala;
-import br.com.hirataacademia.cadastro.exception.AlunoCadastradoException;
 import br.com.hirataacademia.cadastro.exception.AlunoNaoEncontradoExcepetion;
 import br.com.hirataacademia.cadastro.exception.ContadorNaoEncontradoException;
 import br.com.hirataacademia.cadastro.exception.DespesaNaoEncontradaException;
@@ -52,10 +47,8 @@ import br.com.hirataacademia.cadastro.exception.PlanoNaoEncontradoException;
 import br.com.hirataacademia.cadastro.exception.ProfessorEstagiarioNaoEncontradoExcepetion;
 import br.com.hirataacademia.cadastro.exception.ProfessorNaoEncontradoException;
 import br.com.hirataacademia.cadastro.exception.SalaNaoEncontradaException;
-import br.com.hirataacademia.fachada.exceptions.FormatacaoDataInvalidaException;
 import br.com.hirataacademia.fachada.exceptions.ObesidadeMorbidaException;
 import br.com.hirataacademia.fachada.exceptions.SalarioNegativoException;
-import br.com.hirataacademia.repositorios.RepositorioAluno;
 
 @Service
 public class Academia {
@@ -88,6 +81,10 @@ public class Academia {
 	@Autowired
 	private CadastroGerente cadastroGerente;
 
+	
+	
+	
+	
 	public Aluno saveAluno(Aluno entity) {
 		return cadastroAluno.save(entity);
 	}
@@ -108,7 +105,7 @@ public class Academia {
 	public void deleteAluno(Aluno entity) {
 		cadastroAluno.delete(entity);
 	}
-
+	
 	public Contador saveContador(Contador entity) {
 
 		return cadastroContador.save(entity);
@@ -495,7 +492,7 @@ public class Academia {
 		cadastroProfessorEstagiario.deleteById(id);
 	}
 
-	public void atualizarSalarioContador(float novoSalario, Long id) throws Exception {
+	public void atualizarSalarioContador(float novoSalario, Long id) throws SalarioNegativoException {
 		Contador contador = findContadorById(id);
 		if (novoSalario < 0) {
 			throw new SalarioNegativoException();
@@ -507,7 +504,7 @@ public class Academia {
 
 	}
 
-	public void atualizarSalarioProfessor(float novoSalario, Long id) throws Exception {
+	public void atualizarSalarioProfessor(float novoSalario, Long id) throws SalarioNegativoException {
 		Professor professor = findProfessorById(id);
 
 		if (novoSalario < 0) {
@@ -519,19 +516,6 @@ public class Academia {
 		cadastroProfessor.save(professor);
 	}
 
-	public void adicionarTreino(Exercicio exercicio, Long id, String treino) {
-		Aluno aluno = cadastroAluno.findAlunoById(id);
-
-		if (treino.equals('a')) {
-			aluno.adicionarTreinoA(exercicio);
-		}
-		if (treino.equals('b')) {
-			aluno.adicionarTreinoB(exercicio);
-		}
-		if (treino.equals('c')) {
-			aluno.adicionarTreinoC(exercicio);
-		}
-
-	}
-
 }
+
+

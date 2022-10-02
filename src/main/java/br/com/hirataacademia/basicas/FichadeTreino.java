@@ -44,46 +44,6 @@ public class FichadeTreino {
 	}
 
 
-	public void inserirTreinoA(Exercicio exercicio) {
-		//treinoA.add(exercicio);
-	}
-	public void inserirTreinoB(Exercicio exercicio) {
-		//treinoB.add(exercicio);
-	}
-	public void inserirTreinoC(Exercicio exercicio) {
-		//treinoC.add(exercicio);
-	}
-
-/*
-	public List<Exercicio> getTreinoA() {
-		return treinoA;
-	}
-
-
-	public void setTreinoA(List<Exercicio> treinoA) {
-		this.treinoA = treinoA;
-	}
-
-
-	public List<Exercicio> getTreinoB() {
-		return treinoB;
-	}
-
-
-	public void setTreinoB(List<Exercicio> treinoB) {
-		this.treinoB = treinoB;
-	}
-
-
-	public List<Exercicio> getTreinoC() {
-		return treinoC;
-	}
-
-
-	public void setTreinoC(List<Exercicio> treinoC) {
-		this.treinoC = treinoC;
-	}
 	
-	
-*/
+
 }
