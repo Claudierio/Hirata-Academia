@@ -415,6 +415,7 @@ public class Academia {
 		cadastroGerente.delete(entity);
 	}
 
+<<<<<<< HEAD
 	/*public float calculoLucroAnual() throws FormatacaoDataInvalidaException {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -482,6 +483,54 @@ public class Academia {
     }
     
 
+=======
+	public int totalAlunos() {
+        int total = 0;
+        for (Aluno b : cadastroAluno.findAll()) {
+            if (b != null){
+                total+=1;
+            }
+                
+            
+        }
+        return total;
+    }
+    
+    public int totalMensal() {
+        int total = 0;
+        for (Aluno b : cadastroAluno.findAll()) {
+            if (b.getPlano().equals("mensal")){
+                total+=1;
+            }
+                        
+        }
+        return total;
+    }
+    
+    public int totalTrimestral() {
+        int total = 0;
+        for (Aluno b : cadastroAluno.findAll()) {
+            if (b.getPlano().equals("trimestral")){
+                total+=1;
+            }
+                        
+        }
+        return total;
+    }
+    
+    public int totalAnual() {
+        int total = 0;
+        for (Aluno b : cadastroAluno.findAll()) {
+            if (b.getPlano().equals("anual")){
+                total+=1;
+            }
+                        
+        }
+        return total;
+    }
+    
+
+>>>>>>> f4efe46915fefd6f1bda2b77a266b1b8e7419501
     public float calculoLucroAnual() {
         float total = 0;
         for (Aluno a : cadastroAluno.findAll()) {
