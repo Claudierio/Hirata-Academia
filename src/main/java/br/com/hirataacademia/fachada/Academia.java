@@ -1,8 +1,5 @@
 package br.com.hirataacademia.fachada;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +10,6 @@ import br.com.hirataacademia.basicas.Contador;
 import br.com.hirataacademia.basicas.Despesa;
 import br.com.hirataacademia.basicas.Endereco;
 import br.com.hirataacademia.basicas.Equipamento;
-import br.com.hirataacademia.basicas.Exercicio;
 import br.com.hirataacademia.basicas.FichadeTreino;
 import br.com.hirataacademia.basicas.Gerente;
 import br.com.hirataacademia.basicas.Matricula;
@@ -37,7 +33,6 @@ import br.com.hirataacademia.cadastro.CadastroPlano;
 import br.com.hirataacademia.cadastro.CadastroProfessor;
 import br.com.hirataacademia.cadastro.CadastroProfessorEstagiario;
 import br.com.hirataacademia.cadastro.CadastroSala;
-import br.com.hirataacademia.cadastro.exception.AlunoCadastradoException;
 import br.com.hirataacademia.cadastro.exception.AlunoNaoEncontradoExcepetion;
 import br.com.hirataacademia.cadastro.exception.ContadorNaoEncontradoException;
 import br.com.hirataacademia.cadastro.exception.DespesaNaoEncontradaException;
@@ -52,10 +47,8 @@ import br.com.hirataacademia.cadastro.exception.PlanoNaoEncontradoException;
 import br.com.hirataacademia.cadastro.exception.ProfessorEstagiarioNaoEncontradoExcepetion;
 import br.com.hirataacademia.cadastro.exception.ProfessorNaoEncontradoException;
 import br.com.hirataacademia.cadastro.exception.SalaNaoEncontradaException;
-import br.com.hirataacademia.fachada.exceptions.FormatacaoDataInvalidaException;
 import br.com.hirataacademia.fachada.exceptions.ObesidadeMorbidaException;
 import br.com.hirataacademia.fachada.exceptions.SalarioNegativoException;
-import br.com.hirataacademia.repositorios.RepositorioAluno;
 
 @Service
 public class Academia {
@@ -422,7 +415,7 @@ public class Academia {
 		cadastroGerente.delete(entity);
 	}
 
-	public float calculoLucroAnual() throws FormatacaoDataInvalidaException {
+	/*public float calculoLucroAnual() throws FormatacaoDataInvalidaException {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		float lucro = 0;
@@ -440,7 +433,72 @@ public class Academia {
 		}
 
 		return lucro;
-	}
+	}*/
+	
+	
+	public int totalAlunos() {
+        int total = 0;
+        for (Aluno b : cadastroAluno.findAll()) {
+            if (b != null){
+                total+=1;
+            }
+                
+            
+        }
+        return total;
+    }
+    
+    public int totalMensal() {
+        int total = 0;
+        for (Aluno b : cadastroAluno.findAll()) {
+            if (b.getPlano().equals("mensal")){
+                total+=1;
+            }
+                        
+        }
+        return total;
+    }
+    
+    public int totalTrimestral() {
+        int total = 0;
+        for (Aluno b : cadastroAluno.findAll()) {
+            if (b.getPlano().equals("trimestral")){
+                total+=1;
+            }
+                        
+        }
+        return total;
+    }
+    
+    public int totalAnual() {
+        int total = 0;
+        for (Aluno b : cadastroAluno.findAll()) {
+            if (b.getPlano().equals("anual")){
+                total+=1;
+            }
+                        
+        }
+        return total;
+    }
+    
+
+    public float calculoLucroAnual() {
+        float total = 0;
+        for (Aluno a : cadastroAluno.findAll()) {
+            switch(a.getPlano()) {
+            case "mensal":
+                total += 120;
+                break;
+            case "trimestral":
+                total += 100*3;
+                break;
+            case "anual":
+                total += 80*12; 
+                
+            }
+        }
+        return total;
+    }
 
 	public void efetivarEstagiario(Long id) throws ProfessorEstagiarioNaoEncontradoExcepetion {
 		ProfessorEstagiario estagiario = findProfessorEstagiarioById(id);
@@ -475,19 +533,6 @@ public class Academia {
 		cadastroProfessor.save(professor);
 	}
 
-	public void adicionarTreino(Exercicio exercicio, Long id, String treino) {
-		Aluno aluno = cadastroAluno.findAlunoById(id);
-
-		if (treino.equals('a')) {
-			aluno.adicionarTreinoA(exercicio);
-		}
-		if (treino.equals('b')) {
-			aluno.adicionarTreinoB(exercicio);
-		}
-		if (treino.equals('c')) {
-			aluno.adicionarTreinoC(exercicio);
-		}
-
-	}
+	
 
 }
