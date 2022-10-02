@@ -17,8 +17,24 @@ public class FichadeTreino {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String descricao;
+<<<<<<< HEAD
+
+=======
+	
+>>>>>>> f4efe46915fefd6f1bda2b77a266b1b8e7419501
+	
+	public String getDescricao() {
+		return descricao;
+	}
+
 	
 	
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+
 	public FichadeTreino() {
 		
 	}
@@ -32,6 +48,8 @@ public class FichadeTreino {
 		this.id = id;
 	}
 	
+<<<<<<< HEAD
+=======
 	
 	
 	public String getDescricao() {
@@ -53,37 +71,6 @@ public class FichadeTreino {
 	public void inserirTreinoC(Exercicio exercicio) {
 		//treinoC.add(exercicio);
 	}
+>>>>>>> f4efe46915fefd6f1bda2b77a266b1b8e7419501
 
-/*
-	public List<Exercicio> getTreinoA() {
-		return treinoA;
-	}
-
-
-	public void setTreinoA(List<Exercicio> treinoA) {
-		this.treinoA = treinoA;
-	}
-
-
-	public List<Exercicio> getTreinoB() {
-		return treinoB;
-	}
-
-
-	public void setTreinoB(List<Exercicio> treinoB) {
-		this.treinoB = treinoB;
-	}
-
-
-	public List<Exercicio> getTreinoC() {
-		return treinoC;
-	}
-
-
-	public void setTreinoC(List<Exercicio> treinoC) {
-		this.treinoC = treinoC;
-	}
-	
-	
-*/
 }

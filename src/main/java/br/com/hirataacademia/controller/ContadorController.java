@@ -1,10 +1,8 @@
 package br.com.hirataacademia.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,9 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.hirataacademia.basicas.Aluno;
 import br.com.hirataacademia.basicas.Contador;
-import br.com.hirataacademia.basicas.Professor;
 import br.com.hirataacademia.fachada.Academia;
 import br.com.hirataacademia.repositorios.RepositorioContador;
 
@@ -69,6 +65,30 @@ public class ContadorController {
 
 	}
 
+<<<<<<< HEAD
+	@GetMapping("contador/totalTrimestral")
+	public int totalTrimestral() {
+		return academia.totalTrimestral();
+	}
+
+	@GetMapping("contador/totalAlunos")
+	public int totalAlunos() {
+		return academia.totalAlunos();
+	}
+
+	@GetMapping("contador/totalMensal")
+	public int totalMensal() {
+		return academia.totalMensal();
+	}
+
+	@GetMapping("contador/totalAnual")
+	public int totalAnual() {
+		return academia.totalAnual();
+	}
+
+	@GetMapping("contador/lucroAnual")
+	public float calculoLucroAnual() {
+=======
 	@GetMapping("contador/totalAlunos")
     public int totalAlunos() {
         return academia.totalAlunos();
@@ -86,6 +106,7 @@ public class ContadorController {
         return academia.totalAnual();
     }
     
+>>>>>>> f4efe46915fefd6f1bda2b77a266b1b8e7419501
 
     @GetMapping("contador/lucroAnual")
     public float calculoLucroAnual() {
