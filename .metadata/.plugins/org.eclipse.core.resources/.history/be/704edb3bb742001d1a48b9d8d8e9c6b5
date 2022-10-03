@@ -1,0 +1,29 @@
+package br.com.hirataacademia.fakertests;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.github.javafaker.Faker;
+
+import br.com.hirataacademia.basicas.ProfessorEstagiario;
+import br.com.hirataacademia.cadastro.CadastroProfessorEstagiario;
+
+@SpringBootTest
+public class EstagiarioTest {
+
+	@Autowired
+	CadastroProfessorEstagiario cpe;
+
+	@Test
+	void saveProfessorEstagiario() {
+
+		for (int x = 0; x < 10; x++) {
+			cpe.save(Estagiario1Factory.generate());
+			cpe.save(Estagiario2Factory.generate());
+			cpe.save(Estagiario3Factory.generate());
+		}
+
+	}
+
+}

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ProfessorTest" project="backhirataacademia" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="br.com.hirataacademia.fakertests.ProfessorTest" time="3.549" displayname="ProfessorTest" uniqueid="[engine:junit-jupiter]/[class:br.com.hirataacademia.fakertests.ProfessorTest]">
+    <testcase name="saveProfessor" classname="br.com.hirataacademia.fakertests.ProfessorTest" time="3.549" displayname="saveProfessor()" uniqueid="[engine:junit-jupiter]/[class:br.com.hirataacademia.fakertests.ProfessorTest]/[method:saveProfessor()]"/>
+  </testsuite>
+</testrun>

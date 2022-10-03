@@ -125,7 +125,20 @@ public class Aluno extends Pessoa {
 				+ getEndereco() + "]";
 	}
 
-	
+	public void adicionarTreinoA(Exercicio exercicio) {
+		treino.inserirTreinoA(exercicio);
+		
+	}
+
+	public void adicionarTreinoB(Exercicio exercicio) {
+		treino.inserirTreinoB(exercicio);
+		
+	}
+
+	public void adicionarTreinoC(Exercicio exercicio) {
+		treino.inserirTreinoB(exercicio);
+		
+	}
 
 
 	

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Rerun AlunoTest" project="backhirataacademia" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="br.com.hirataacademia.fakertests.AlunoTest" time="3.482" displayname="AlunoTest" uniqueid="[engine:junit-jupiter]/[class:br.com.hirataacademia.fakertests.AlunoTest]">
+    <testcase name="saveAluno" classname="br.com.hirataacademia.fakertests.AlunoTest" time="3.482" displayname="saveAluno()" uniqueid="[engine:junit-jupiter]/[class:br.com.hirataacademia.fakertests.AlunoTest]/[method:saveAluno()]"/>
+  </testsuite>
+</testrun>

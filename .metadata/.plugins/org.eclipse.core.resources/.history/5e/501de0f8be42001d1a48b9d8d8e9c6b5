@@ -1,0 +1,37 @@
+package br.com.hirataacademia.fakertests;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.github.javafaker.Faker;
+
+import br.com.hirataacademia.basicas.Gerente;
+import br.com.hirataacademia.cadastro.CadastroGerente;
+
+@SpringBootTest
+public class GerenteTest {
+
+	@Autowired
+	private CadastroGerente cg ;
+	
+	@Test
+	
+	void saveAluno() {
+
+		for (int x = 0; x < 2; x++) {
+			cg.save(Gerente1Factory.generate());
+			cg.save(Gerente2Factory.generate());
+			cg.save(Gerente3Factory.generate());
+		}
+
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+}

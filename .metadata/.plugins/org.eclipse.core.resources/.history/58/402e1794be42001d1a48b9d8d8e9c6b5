@@ -1,0 +1,58 @@
+package TestsIntegracao;
+
+import java.util.Date;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.hirataacademia.basicas.Aluno;
+import br.com.hirataacademia.basicas.Endereco;
+import br.com.hirataacademia.basicas.FichadeTreino;
+import br.com.hirataacademia.basicas.exception.CpfException;
+import br.com.hirataacademia.basicas.exception.EnderecoException;
+import br.com.hirataacademia.basicas.exception.ValorNegativoException;
+import br.com.hirataacademia.cadastro.CadastroAluno;
+
+@Service
+public class TesteIntegracao {
+
+	@Autowired
+	private CadastroAluno cadastroAluno;
+
+	@Test
+	void CpfExceptionTest() {
+
+		try {
+			Aluno aluno = new Aluno("filipe", new Date(), "100", null, 0, 0, 0, null, null, new FichadeTreino("Hipertrofia"));
+			cadastroAluno.save(aluno);
+		} catch (CpfException e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+
+	@Test
+	void EnderecoExceptionTest() {
+
+		try {
+			Endereco endereco = new Endereco("65465", "356", "rua da ufape", "rua da ufape", "garanhuns", "PE"  );
+			Aluno aluno2 = new Aluno("filipe", new Date(), "09924872428", endereco, 1, 3, 4, null, null, new FichadeTreino("Perca de Peso"));
+			cadastroAluno.save(aluno2);
+		} catch (EnderecoException e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+
+	@Test
+	void ValorNegativoExceptionTest() {
+		try {
+			Aluno aluno = new Aluno("filipe", new Date(), "09924872428", null, -1, -2, 0, null, null);
+			cadastroAluno.save(aluno);
+		} catch (ValorNegativoException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+}

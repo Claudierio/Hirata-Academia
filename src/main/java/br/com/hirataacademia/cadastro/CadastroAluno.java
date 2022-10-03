@@ -18,11 +18,11 @@ public class CadastroAluno {
 	@Autowired
 	private RepositorioAluno repositorioAluno;
 
-	public Aluno save(Aluno entity) /*throws AlunoCadastradoException*/ {
+	public Aluno save(Aluno entity) throws AlunoCadastradoException {
 		
-		/*if(findAlunoByCpf(entity.getCpf()) != null) {
+		if(findAlunoByCpf(entity.getCpf()) != null) {
 			throw new AlunoCadastradoException();
-		}*/
+		}
 		
 		return repositorioAluno.save(entity);
 	}
