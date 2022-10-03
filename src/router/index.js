@@ -19,7 +19,7 @@ const routes = [
   {
     path: '/planos',
     name: 'Planos',
-    component: () => import( '../views/PlanosView.vue')
+    component: () => import( '../components/PlanosView.vue')
   },
   {
     path: '/CadastrarProfessor',
@@ -99,6 +99,11 @@ const routes = [
     path: '/CriarFichaTreino2',
     name: 'CriarFichaTreino2',
     component: () => import( '../views/Professor/CriarFichaTreino2.vue')
+  },
+  {
+    path: '/CalculoLucroAnual',
+    name: 'CalculoLucroAnual',
+    component: () => import( '../views/Contador/CalculoLucroAnual.vue')
   },
   
 

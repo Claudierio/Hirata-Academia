@@ -150,7 +150,7 @@ export default {
 <style>
   /* Aba sobre nos*/
   .about .row{
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -282,6 +282,7 @@ export default {
   width: 20rem;
   box-shadow: 2px 2px 6px #000;
   margin-bottom: 4rem;
+    background-color: white;
 }
 .pricing_card .pricing_box:hover {
   transform: translateY(-30px);

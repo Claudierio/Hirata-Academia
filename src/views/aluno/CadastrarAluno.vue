@@ -64,11 +64,11 @@
             </div>
             <div class="form-group">
               <div class="form-row form-row-1">
-                <input type="text" v-model="aluno.endereco.cep" name="cep" class="cep" id="cep" placeholder="CEP"
+                <input type="text" maxlength="8" minlength="8" v-model="aluno.endereco.cep" name="cep" class="cep" id="cep" placeholder="CEP"
                   required>
               </div>
               <div class="form-row form-row-2">
-                <input type="text" v-model="aluno.endereco.numero" name="numero" class="numero" id="numero"
+                <input type="text" maxlength="3" minlength="3" v-model="aluno.endereco.numero" name="numero" class="numero" id="numero"
                   placeholder="Número da casa" required>
                 <span class="select-btn">
                   <i class="zmdi zmdi-chevron-down"></i>

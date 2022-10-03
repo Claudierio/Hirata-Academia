@@ -4,7 +4,7 @@
       <br><br><br>
       <v-card-title>
         <v-text-field
-          v-model="search"
+          v-model="procurar"
           append-icon="mdi-magnify"
           label="Procurar Aluno"
           single-line
@@ -14,7 +14,7 @@
       <v-data-table
         :headers="headers"
         :items="alunos"
-        :search="search"
+        :search="procurar"
       ></v-data-table>
     </v-card>
   </div>
@@ -32,6 +32,7 @@ import AlunoService from '@/service/AlunoService';
         {text:'Nome', value:'nome'},
         {text:'CPF', value:'cpf'},
         {text:'Telefone', value:'contato'},
+        {text:'Plano', value:'plano'},
         {text:'Cidade', value:'endereco.municipio'},
         {text:'UF', value:'endereco.uf'},
 

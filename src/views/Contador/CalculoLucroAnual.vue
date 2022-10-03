@@ -15,7 +15,7 @@
   
             </div>
             <div class="form-right">
-              <h2>{{this.lucroTotal}}</h2>
+              <h2 id="lucrototal">{{this.lucroTotal}}</h2>
               <h2>{{this.alunos}}</h2>
               <v-divider></v-divider>
               <h3>{{this.mensal}}</h3>
@@ -102,14 +102,7 @@
 
   
   }
-  </script>
-    
-  
-  
-  
-  
-  
-  
+  </script> 
   
   <style scoped>
   body {
@@ -194,6 +187,11 @@
   
   .form-v10-content .form-detail .form-right h2 {
     color: red;
+  }
+
+  #lucrototal {
+    color: red;
+    font-weight: bolder;
   }
 
   .form-v10-content .form-detail .form-right h3 {

@@ -87,6 +87,14 @@
   </div>
 </template>
 
+<style scoped>
+  #footer {
+    position: static;
+  }
+</style>
+
+
+
 <script>
 import ContadorService from '@/service/ContadorService'
 export default {

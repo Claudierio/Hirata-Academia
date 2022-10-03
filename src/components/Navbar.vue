@@ -21,7 +21,7 @@
             <i class="fa fa-caret-down"></i>
           </button>
           <div class="dropdown-content">
-            <router-link to="/GerenciarFicha">Professor</router-link>
+            <router-link to="/CriarFichaTreino1">Professor</router-link>
             <router-link to="/CalculoLucroAnual">Contador</router-link>
           </div>
         </div>
@@ -90,7 +90,7 @@ export default {
       },
       
       {
-        title: "Criar Ficha de Treino ",
+        title: "Atualizar Ficha",
         icon: "mdi-clipboard-search",
         to: "/CriarFichaTreino1",
       },

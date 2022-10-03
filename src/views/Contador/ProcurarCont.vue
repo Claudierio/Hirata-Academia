@@ -1,10 +1,10 @@
 <template>
-  <div class="main-container">
+ <div class="main-container">
     <v-card>
       <br><br><br>
       <v-card-title>
         <v-text-field
-          v-model="search"
+          v-model="procurar"
           append-icon="mdi-magnify"
           label="Procurar Contador"
           single-line
@@ -14,7 +14,7 @@
       <v-data-table
         :headers="headers"
         :items="contadores"
-        :search="search"
+        :search="procurar"
       ></v-data-table>
     </v-card>
   </div>
@@ -25,7 +25,7 @@ import ContadorService from '@/service/ContadorService';
   export default {
     data () {
       return {
-        search: '',
+        procurar: '',
         contadores: [],
         headers: [
         {text:'ID', value:'id'},

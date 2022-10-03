@@ -24,7 +24,7 @@
               </div>
             </div>
             <div class="form-row">
-              <input type="text" v-model="professor.cref" name="cref" id="cref" class="input-text" placeholder="CREF"
+              <input type="text" maxlength="6" minlength="6" v-model="professor.cref" name="cref" id="cref" class="input-text" placeholder="CREF"
                 required>
               <span class="select-btn">
                 <i class="zmdi zmdi-chevron-down"></i>

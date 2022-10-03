@@ -15,7 +15,7 @@ export default {
   background-image: url('banner3.jpg'); 
   background-size: 100%;
   background-position: center;
-  height: 640px;
+  height: 600px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
